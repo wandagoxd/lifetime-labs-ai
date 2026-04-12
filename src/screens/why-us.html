@@ -104,15 +104,17 @@
       min-height: max(884px, 100dvh);
     }
   </style>
+<link href="../styles.css" rel="stylesheet"/>
+<script defer="" src="../script.js"></script>
   </head>
-<body class="antialiased">
+<body class="antialiased" data-page="whyUs" data-root="../../" data-shell="marketing">
 <!-- TopAppBar (Shared Component) -->
 <header class="fixed top-0 w-full z-50 bg-[#FFFFFD] dark:bg-stone-950 flex justify-between items-center px-6 h-16 w-full">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-[#006947] dark:text-[#A2F9CC]">science</span>
 <span class="text-xl font-bold text-[#006947] dark:text-[#A2F9CC] font-manrope tracking-tight">Lifetime Labs</span>
 </div>
-<button class="text-[#5D5C4D] dark:text-stone-400 hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<button class="text-[#5D5C4D] dark:text-stone-400 hover:opacity-80 transition-opacity active:scale-95 duration-200" data-global-menu-toggle="true">
 <span class="material-symbols-outlined">menu</span>
 </button>
 </header>
@@ -132,7 +134,7 @@
 <p class="font-body text-lg text-secondary leading-relaxed mb-8 px-4">
                 We help the next generation move from academic theory to vocational mastery through AI-driven discipline.
             </p>
-<button class="w-full py-4 rounded-full hero-gradient text-surface-container-lowest font-bold text-lg shadow-lg active:scale-95 transition-all">
+<button class="w-full py-4 rounded-full hero-gradient text-surface-container-lowest font-bold text-lg shadow-lg active:scale-95 transition-all" data-route="signup">
                 Start Your Odyssey
             </button>
 </section>
@@ -252,7 +254,7 @@
 <h2 class="font-headline text-3xl font-bold mb-4">Ready to find your North Star?</h2>
 <p class="text-secondary max-w-xs mx-auto mb-10">Join the waitlist for the next cohort of Lifetime Labs today.</p>
 </div>
-<form class="space-y-4">
+<form class="space-y-4" data-submit-route="signup">
 <input class="w-full px-6 py-4 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-on-surface placeholder:text-outline transition-all" placeholder="Enter your email" type="email"/>
 <button class="w-full py-4 rounded-full hero-gradient text-surface-container-lowest font-bold text-lg shadow-lg active:scale-95 transition-all" type="submit">
                     Apply for Access

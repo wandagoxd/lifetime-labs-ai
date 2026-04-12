@@ -3,6 +3,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Status - Lifetime Labs</title>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -104,8 +105,10 @@
       min-height: max(884px, 100dvh);
     }
   </style>
+<link href="../styles.css" rel="stylesheet"/>
+<script defer="" src="../script.js"></script>
   </head>
-<body class="font-body text-on-surface">
+<body class="font-body text-on-surface" data-active-nav="status" data-page="status" data-root="../../" data-shell="app">
 <!-- TopAppBar -->
 <header class="w-full top-0 sticky z-40 bg-[#FFFFFD] dark:bg-zinc-950">
 <div class="flex items-center justify-between px-6 py-4 w-full">
@@ -115,7 +118,7 @@
 </div>
 <h1 class="font-headline font-bold tracking-tight text-lg text-primary dark:text-[#A2F9CC]">Insights</h1>
 </div>
-<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#F0F1EF] transition-colors active:scale-95 duration-200 text-secondary">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#F0F1EF] transition-colors active:scale-95 duration-200 text-secondary" data-route="settings">
 <span class="material-symbols-outlined" data-icon="settings">settings</span>
 </button>
 </div>

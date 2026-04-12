@@ -96,8 +96,10 @@
       min-height: max(884px, 100dvh);
     }
     </style>
+<link href="src/styles.css" rel="stylesheet"/>
+<script defer="" src="src/script.js"></script>
 </head>
-<body class="font-body text-on-surface antialiased">
+<body class="font-body text-on-surface antialiased" data-active-nav="home" data-page="home" data-root="" data-shell="app">
 <!-- TopAppBar -->
 <header class="fixed top-0 w-full z-50 bg-[#FFFFFD] dark:bg-stone-950 flex justify-between items-center px-6 h-16 w-full">
 <div class="flex items-center gap-2">
@@ -154,7 +156,7 @@
 </div>
 </div>
 <!-- Secondary Grid Cards -->
-<div class="bg-surface-container-low rounded-xl p-5 active:scale-[0.98] transition-transform cursor-pointer">
+<div class="bg-surface-container-low rounded-xl p-5 active:scale-[0.98] transition-transform cursor-pointer" data-route="labs">
 <span class="material-symbols-outlined text-secondary mb-3" data-icon="history_edu">history_edu</span>
 <h4 class="font-headline font-bold text-on-surface mb-1">Background Test</h4>
 <p class="text-on-surface-variant text-xs leading-relaxed">Map your vocational ancestry.</p>
