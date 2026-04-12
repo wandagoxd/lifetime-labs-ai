@@ -3,7 +3,7 @@
     home: "index.html",
     whyUs: "why-us.html",
     login: "login.html",
-    signup: "sign-up.html",
+    signup: "signup.html",
     forgotPassword: "forgot-password.html",
     resetPassword: "reset-password.html",
     notifications: "notifications.html",
