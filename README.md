@@ -1,2 +1,0 @@
-# lifetime-labs-ai
-
