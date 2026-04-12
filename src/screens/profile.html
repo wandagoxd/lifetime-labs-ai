@@ -7,7 +7,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -88,11 +87,11 @@
         .coreon-glow { filter: drop-shadow(0 0 15px rgba(162, 249, 204, 0.4)); }
     </style>
 <style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
 <body class="bg-background min-h-screen pb-24">
 <!-- TopAppBar -->
 <header class="fixed top-0 w-full z-50 bg-[#FFFFFD] dark:bg-stone-950 flex justify-between items-center px-6 h-16 w-full">
@@ -101,7 +100,12 @@
 <span class="text-xl font-extrabold text-[#006947] dark:text-[#A2F9CC] font-['Manrope'] tracking-tight">Lifetime Labs</span>
 </div>
 <div class="flex gap-4">
-<button class="material-symbols-outlined text-[#5D5C4D] dark:text-stone-400 hover:opacity-80 transition-opacity">settings</button>
+<a class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:opacity-80 transition-opacity active:scale-95 duration-200" href="{{DATA:SCREEN:SCREEN_4}}">
+<span class="material-symbols-outlined text-secondary">notifications</span>
+</a>
+<a class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:opacity-80 transition-opacity active:scale-95 duration-200" href="{{DATA:SCREEN:SCREEN_26}}">
+<span class="material-symbols-outlined text-secondary">settings</span>
+</a>
 </div>
 </header>
 <!-- Main Content -->
@@ -114,9 +118,9 @@
 <div class="relative z-10 w-full h-full bg-surface-container-lowest rounded-full p-4 flex items-center justify-center shadow-[0_12px_32px_rgba(45,47,46,0.06)] border border-white/50">
 <img class="w-28 h-28 object-contain coreon-glow" data-alt="Minimalist mascot Coreon, a soft rounded creature with dot eyes and a gentle smile, sitting peacefully against a warm white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkTrSetSAgb_A7KfQKu_boOZRfiAij8YCmWUjzuV0N46se_DQzPYudUGnxEGvL2FHOHtvmdrhUh6A6sJkANYea4goRFxn5gont4SUVwA2yb1c-E-XJ3HRs4z7HyGEQVq2T1gswzDpwWKsLzPFjWKjlGqgGAXB6YCCD-nTSW1gPtj4ss7lzsTfUxuk7Btt7yp-3CTIaPc94i4J3OtRt8nQJ41aGTWZZjJUtb2MJzOy8THaMxCNXGO1dpu8VQElQKfvGdRmE7XhaWao8"/>
 </div>
-<button class="absolute bottom-0 right-0 bg-primary hover:bg-primary-dim text-white p-3 rounded-full shadow-lg transition-transform active:scale-95 flex items-center justify-center">
+<a class="absolute bottom-0 right-0 bg-primary hover:bg-primary-dim text-white p-3 rounded-full shadow-lg transition-transform active:scale-95 flex items-center justify-center" href="{{DATA:SCREEN:SCREEN_25}}">
 <span class="material-symbols-outlined text-[20px]">checkroom</span>
-</button>
+</a>
 </div>
 <div class="text-center space-y-1">
 <h1 class="headline font-bold text-3xl tracking-tight text-on-surface">Alex Mercer</h1>
@@ -189,7 +193,7 @@
 </section>
 <!-- Collectible Wardrobe CTA -->
 <section class="grid grid-cols-1 gap-4">
-<button class="group w-full bg-gradient-to-br from-primary to-primary-dim p-6 rounded-xl text-white flex justify-between items-center transition-all hover:shadow-lg active:scale-[0.98]">
+<a class="group w-full bg-gradient-to-br from-primary to-primary-dim p-6 rounded-xl text-white flex justify-between items-center transition-all hover:shadow-lg active:scale-[0.98]" href="{{DATA:SCREEN:SCREEN_25}}">
 <div class="flex items-center gap-4">
 <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
@@ -200,11 +204,18 @@
 </div>
 </div>
 <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
-</button>
+</a>
+</section>
+<!-- Logout CTA -->
+<section class="pt-4">
+<a class="flex items-center justify-center gap-2 text-error hover:text-error-dim transition-colors text-sm font-bold p-4 border border-error/20 rounded-xl bg-error-container/5" href="{{DATA:SCREEN:SCREEN_36}}">
+<span class="material-symbols-outlined text-sm">logout</span>
+<span>Logout</span>
+</a>
 </section>
 <!-- Mission Link -->
 <section class="pt-4 pb-12">
-<a class="flex items-center justify-center gap-2 text-secondary hover:text-primary transition-colors text-sm font-medium p-4 border border-outline-variant/20 rounded-full" href="#">
+<a class="flex items-center justify-center gap-2 text-secondary hover:text-primary transition-colors text-sm font-medium p-4 border border-outline-variant/20 rounded-full" href="{{DATA:SCREEN:SCREEN_18}}">
 <span class="material-symbols-outlined text-sm">auto_stories</span>
 <span>Learn about our mission in <span class="font-bold underline decoration-primary/30 underline-offset-4">Why Us</span></span>
 </a>
@@ -212,22 +223,21 @@
 </main>
 <!-- BottomNavBar -->
 <nav class="fixed bottom-0 w-full z-50 rounded-t-[1.5rem] bg-[#FFFFFD]/80 dark:bg-stone-950/80 backdrop-blur-xl border-t border-[#DBDDDB]/30 dark:border-stone-800 shadow-[0_-12px_32px_rgba(45,47,46,0.06)] px-4 pb-safe h-20 w-full flex justify-around items-center">
-<a class="flex items-center justify-center text-[#5D5C4D] dark:text-stone-400 w-12 h-12 hover:text-[#006947] dark:hover:text-[#A2F9CC] transition-colors" href="#">
+<a class="flex items-center justify-center text-[#5D5C4D] dark:text-stone-400 w-12 h-12 hover:text-[#006947] dark:hover:text-[#A2F9CC] transition-colors" href="{{DATA:SCREEN:SCREEN_37}}">
 <span class="material-symbols-outlined">home</span>
 </a>
-<a class="flex items-center justify-center text-[#5D5C4D] dark:text-stone-400 w-12 h-12 hover:text-[#006947] dark:hover:text-[#A2F9CC] transition-colors" href="#">
+<a class="flex items-center justify-center text-[#5D5C4D] dark:text-stone-400 w-12 h-12 hover:text-[#006947] dark:hover:text-[#A2F9CC] transition-colors" href="{{DATA:SCREEN:SCREEN_40}}">
 <span class="material-symbols-outlined">shelves</span>
 </a>
-<a class="flex items-center justify-center text-[#5D5C4D] dark:text-stone-400 w-12 h-12 hover:text-[#006947] dark:hover:text-[#A2F9CC] transition-colors" href="#">
+<a class="flex items-center justify-center text-[#5D5C4D] dark:text-stone-400 w-12 h-12 hover:text-[#006947] dark:hover:text-[#A2F9CC] transition-colors" href="{{DATA:SCREEN:SCREEN_13}}">
 <span class="material-symbols-outlined">experiment</span>
 </a>
-<a class="flex items-center justify-center text-[#5D5C4D] dark:text-stone-400 w-12 h-12 hover:text-[#006947] dark:hover:text-[#A2F9CC] transition-colors" href="#">
+<a class="flex items-center justify-center text-[#5D5C4D] dark:text-stone-400 w-12 h-12 hover:text-[#006947] dark:hover:text-[#A2F9CC] transition-colors" href="{{DATA:SCREEN:SCREEN_30}}">
 <span class="material-symbols-outlined">query_stats</span>
 </a>
 <!-- ACTIVE TAB: Profile -->
-<a class="flex items-center justify-center bg-gradient-to-br from-[#006947] to-[#004d34] text-white rounded-full w-14 h-14 -mt-10 shadow-lg shadow-[#006947]/20 transition-transform active:scale-95" href="#">
+<a class="flex items-center justify-center bg-gradient-to-br from-[#006947] to-[#004d34] text-white rounded-full w-14 h-14 -mt-10 shadow-lg shadow-[#006947]/20 transition-transform active:scale-95" href="{{DATA:SCREEN:SCREEN_38}}">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
 </a>
 </nav>
-
-```</body></html>
+</body></html>

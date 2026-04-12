@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#2d2f2e",
+                    "error-container": "#fb5151",
+                    "on-surface-variant": "#5a5c5b",
+                    "surface": "#f6f6f5",
+                    "surface-variant": "#dbdddb",
+                    "on-primary-fixed-variant": "#006b48",
+                    "tertiary": "#665a4b",
+                    "background": "#f6f6f5",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#e5e3d0",
+                    "on-tertiary": "#fff0e2",
+                    "surface-container": "#e7e8e6",
+                    "on-tertiary-container": "#625648",
+                    "tertiary-fixed": "#fdebd8",
+                    "on-primary-container": "#006040",
+                    "secondary-fixed-dim": "#d7d5c2",
+                    "tertiary-fixed-dim": "#eeddcb",
+                    "primary-fixed-dim": "#92e9bd",
+                    "outline-variant": "#acadac",
+                    "on-primary": "#c9ffe0",
+                    "error": "#b31b25",
+                    "tertiary-dim": "#594e40",
+                    "surface-container-highest": "#dbdddb",
+                    "secondary-container": "#e5e3d0",
+                    "on-secondary": "#f6f3e0",
+                    "on-primary-fixed": "#004b31",
+                    "on-error": "#ffefee",
+                    "surface-bright": "#f6f6f5",
+                    "on-background": "#2d2f2e",
+                    "primary-fixed": "#a0f7ca",
+                    "secondary-dim": "#515042",
+                    "surface-container-high": "#e1e3e1",
+                    "on-secondary-container": "#535244",
+                    "on-tertiary-fixed-variant": "#6d6152",
+                    "on-tertiary-fixed": "#504437",
+                    "tertiary-container": "#fdebd8",
+                    "on-secondary-fixed": "#404032",
+                    "inverse-surface": "#0c0f0e",
+                    "on-secondary-fixed-variant": "#5d5c4d",
+                    "surface-tint": "#006947",
+                    "primary-dim": "#005c3d",
+                    "primary": "#006947",
+                    "surface-dim": "#d3d5d3",
+                    "error-dim": "#9f0519",
+                    "outline": "#767776",
+                    "inverse-on-surface": "#9c9d9c",
+                    "surface-container-low": "#f0f1ef",
+                    "inverse-primary": "#a0f7ca",
+                    "secondary": "#5d5c4d",
+                    "on-error-container": "#570008",
+                    "primary-container": "#a0f7ca"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .spring-basic {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Anchor -->
+<header class="w-full sticky top-0 z-40 bg-[#FFFFFD] dark:bg-stone-950 flex items-center justify-between px-6 py-4 max-w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden">
+<img alt="Coreon Mascot" class="w-8 h-8" data-alt="Small cute mascot peeking with simple dot eyes and a soft green rounded body against a white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATNr9k6m_tS9o2Po35C2hvDEL0mP76VsfWXHFFc2NJ5ovn3JkGncvks43Ze8hPM2mLtjX7CyMkIfy8cw0BA4hY5hEQO-8wSH_X-8majY3nK352bvMMGxEBe-6gk42iumcLVvehWf1N4OQFpSR1sH1dWwbV0nyoEExiggkx12Y-XZUNGC1x0QFG-xB-_jiqUZIn-hS-5oz-0feeacE7G9hA4zD2TaOswDDq4gs-AzkbymtgM6aTQu-AvlXZPB8fdYjnY4tOhLKhDDmH"/>
+</div>
+<h1 class="text-[#006947] dark:text-[#A2F9CC] font-['Manrope'] font-bold tracking-tight text-xl">Lifetime Labs</h1>
+</div>
+<button class="text-[#5D5C4D] dark:text-stone-400 hover:opacity-80 transition-opacity active:duration-150 scale-95">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<main class="min-h-[calc(100vh-140px)] flex flex-col items-center justify-center px-4 py-8">
+<!-- Main Wardrobe Modal Container -->
+<section class="w-full max-w-4xl bg-secondary-container rounded-[2.5rem] p-6 md:p-12 shadow-[0_12px_32px_rgba(45,47,46,0.06)] relative overflow-hidden">
+<!-- Close/Back Action (Task-focused Suppression of Shell) -->
+<button class="absolute top-8 right-8 text-on-secondary-container hover:opacity-60 transition-opacity">
+<span class="material-symbols-outlined text-3xl" data-icon="close">close</span>
+</button>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<!-- Coreon Preview (Live Preview Section) -->
+<div class="flex flex-col items-center justify-center space-y-8">
+<div class="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center bg-surface-container-lowest rounded-full shadow-inner">
+<!-- Atmospheric Glow -->
+<div class="absolute inset-0 bg-primary-container opacity-20 blur-3xl rounded-full"></div>
+<!-- Coreon Mascot with Overlap (Intentional Asymmetry) -->
+<div class="relative z-10 transition-transform duration-500 hover:scale-105">
+<img alt="Coreon live preview" class="w-full h-auto drop-shadow-xl" data-alt="A large, soft, round green mascot with minimal features wearing minimalist circular glasses and a tiny gold science badge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhEyjQb9uOZ_9fjgBcJY_P8XWQbcG5KqkqMpd9C-trS5Ngcc7SQDS8B5cfDY-8MLpZ0e-77Reh02HbetMqNn0kQK91P590OS9FjZC8HJFOPc6qZl4NkQBN2iUOR1RJ16slU3Ku7nXZlFHnJDoQFBgVxrXqVvzp50KeNgBprzv9h8LUnCoL54vv4Ue7O8w9Ffzawb3_xZcZ7_MQMgmsmLSWpmYY71pO8QfVIT9U38YJ_vFi5K2RcuIaL1g36IJZaHMlDkgwJYSD-I9v"/>
+<!-- Floating Insight Bubble (Coreon Bubble) -->
+<div class="absolute -top-4 -right-12 backdrop-blur-xl bg-surface-container-lowest/80 p-4 rounded-xl shadow-[0_12px_32px_rgba(45,47,46,0.06)] max-w-[140px]">
+<p class="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Status</p>
+<p class="text-xs text-on-surface-variant leading-relaxed">I think these glasses make me look smarter!</p>
+</div>
+</div>
+</div>
+<div class="text-center">
+<h2 class="font-headline font-extrabold text-3xl text-on-secondary-fixed mb-2 tracking-tight">Coreon's Wardrobe</h2>
+<p class="text-on-secondary-fixed-variant text-sm tracking-wide">Customize your research companion</p>
+</div>
+</div>
+<!-- Accessories Bento Grid -->
+<div class="space-y-6">
+<div class="flex items-center justify-between px-2">
+<h3 class="font-headline font-bold text-lg text-on-secondary-fixed">Collectibles</h3>
+<span class="bg-surface-container-lowest text-on-surface-variant px-3 py-1 rounded-full text-xs font-semibold tracking-tighter">12 / 24 UNLOCKED</span>
+</div>
+<div class="grid grid-cols-3 gap-3 md:gap-4">
+<!-- Accessory Item: Selected -->
+<div class="aspect-square bg-primary-container border-2 border-primary rounded-xl p-3 flex flex-col items-center justify-center relative group cursor-pointer transition-all active:scale-95">
+<span class="absolute top-2 right-2 material-symbols-outlined text-primary text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="eyeglasses">eyeglasses</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-primary mt-2">Glasses</span>
+</div>
+<!-- Accessory Item -->
+<div class="aspect-square bg-surface-container-lowest hover:bg-surface-container-low rounded-xl p-3 flex flex-col items-center justify-center group cursor-pointer transition-all active:scale-95">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors" data-icon="styler">styler</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mt-2">Scarf</span>
+</div>
+<!-- Accessory Item -->
+<div class="aspect-square bg-surface-container-lowest hover:bg-surface-container-low rounded-xl p-3 flex flex-col items-center justify-center group cursor-pointer transition-all active:scale-95">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors" data-icon="workspace_premium">workspace_premium</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mt-2">Badge</span>
+</div>
+<!-- Accessory Item -->
+<div class="aspect-square bg-surface-container-lowest hover:bg-surface-container-low rounded-xl p-3 flex flex-col items-center justify-center group cursor-pointer transition-all active:scale-95">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors" data-icon="school">school</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mt-2">Cap</span>
+</div>
+<!-- Accessory Item: Locked -->
+<div class="aspect-square bg-surface-container-highest/50 rounded-xl p-3 flex flex-col items-center justify-center relative opacity-60">
+<span class="material-symbols-outlined text-2xl text-outline-variant" data-icon="lock">lock</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-outline-variant mt-2">Headphones</span>
+</div>
+<!-- Accessory Item: Locked -->
+<div class="aspect-square bg-surface-container-highest/50 rounded-xl p-3 flex flex-col items-center justify-center relative opacity-60">
+<span class="material-symbols-outlined text-2xl text-outline-variant" data-icon="lock">lock</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-outline-variant mt-2">Beret</span>
+</div>
+</div>
+<!-- Action Area -->
+<div class="pt-6 flex flex-col gap-4">
+<button class="w-full bg-[#A2F9CC] text-[#006947] font-headline font-extrabold py-5 rounded-full transition-all hover:opacity-90 active:scale-95 shadow-[0_12px_32px_rgba(162,249,204,0.3)]">
+                            Equip Changes
+                        </button>
+<button class="w-full text-on-secondary-fixed-variant font-label text-xs uppercase tracking-[0.1em] font-bold hover:underline py-2">
+                            Reset to Default
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Shell (Destination Rule Filter Applied) -->
+<!-- Status tab is active as we are in the customization/status flow of the mascot -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#FFFFFD]/80 dark:bg-stone-950/80 backdrop-blur-xl shadow-[0_-12px_32px_rgba(45,47,46,0.06)] rounded-t-[1.5rem]">
+<div class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 p-2 hover:text-[#006947] dark:hover:text-[#A2F9CC] transition-transform active:scale-90 spring-basic">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-[0.05em] font-semibold">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 p-2 hover:text-[#006947] dark:hover:text-[#A2F9CC] transition-transform active:scale-90 spring-basic">
+<span class="material-symbols-outlined" data-icon="hourglass_top">hourglass_top</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-[0.05em] font-semibold">Capsules</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 p-2 hover:text-[#006947] dark:hover:text-[#A2F9CC] transition-transform active:scale-90 spring-basic">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-[0.05em] font-semibold">Labs</span>
+</div>
+<!-- Active Tab: Status (Related to Coreon's wardrobe and personal state) -->
+<div class="flex flex-col items-center justify-center bg-[#A2F9CC] dark:bg-[#006947] text-[#006947] dark:text-[#A2F9CC] rounded-full p-2 min-w-[64px] transition-all duration-300 transition-transform active:scale-90 spring-basic">
+<span class="material-symbols-outlined" data-icon="query_stats" style="font-variation-settings: 'FILL' 1;">query_stats</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-[0.05em] font-semibold">Status</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 p-2 hover:text-[#006947] dark:hover:text-[#A2F9CC] transition-transform active:scale-90 spring-basic">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-[0.05em] font-semibold">Profile</span>
+</div>
+</nav>
+</body></html>

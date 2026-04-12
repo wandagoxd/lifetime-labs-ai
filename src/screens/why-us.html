@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Why Lifetime Labs | Bridging the Gap</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#404032",
+                    "on-error-container": "#570008",
+                    "outline-variant": "#acadac",
+                    "on-secondary": "#f6f3e0",
+                    "error-dim": "#9f0519",
+                    "on-tertiary": "#fff0e2",
+                    "on-surface": "#2d2f2e",
+                    "tertiary-dim": "#594e40",
+                    "secondary-fixed-dim": "#d7d5c2",
+                    "background": "#f6f6f5",
+                    "primary": "#006947",
+                    "primary-dim": "#005c3d",
+                    "primary-container": "#a0f7ca",
+                    "secondary-container": "#e5e3d0",
+                    "tertiary-fixed-dim": "#eeddcb",
+                    "secondary": "#5d5c4d",
+                    "inverse-surface": "#0c0f0e",
+                    "surface": "#f6f6f5",
+                    "error": "#b31b25",
+                    "inverse-primary": "#a0f7ca",
+                    "surface-variant": "#dbdddb",
+                    "on-primary-container": "#006040",
+                    "primary-fixed": "#a0f7ca",
+                    "surface-dim": "#d3d5d3",
+                    "secondary-fixed": "#e5e3d0",
+                    "tertiary": "#665a4b",
+                    "on-tertiary-container": "#625648",
+                    "on-surface-variant": "#5a5c5b",
+                    "primary-fixed-dim": "#92e9bd",
+                    "surface-tint": "#006947",
+                    "surface-container": "#e7e8e6",
+                    "inverse-on-surface": "#9c9d9c",
+                    "surface-container-highest": "#dbdddb",
+                    "on-primary-fixed": "#004b31",
+                    "error-container": "#fb5151",
+                    "secondary-dim": "#515042",
+                    "surface-container-high": "#e1e3e1",
+                    "tertiary-container": "#fdebd8",
+                    "on-secondary-container": "#535244",
+                    "on-tertiary-fixed": "#504437",
+                    "surface-container-low": "#f0f1ef",
+                    "on-primary-fixed-variant": "#006b48",
+                    "on-error": "#ffefee",
+                    "on-background": "#2d2f2e",
+                    "surface-bright": "#f6f6f5",
+                    "on-primary": "#c9ffe0",
+                    "on-secondary-fixed-variant": "#5d5c4d",
+                    "tertiary-fixed": "#fdebd8",
+                    "outline": "#767776",
+                    "on-tertiary-fixed-variant": "#6d6152"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #FFFFFD;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #2d2f2e;
+        }
+        .hero-gradient {
+            background: linear-gradient(145deg, #006947 0%, #005c3d 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased">
+<!-- TopAppBar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 bg-[#FFFFFD] dark:bg-stone-950 flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#006947] dark:text-[#A2F9CC]">science</span>
+<span class="text-xl font-bold text-[#006947] dark:text-[#A2F9CC] font-manrope tracking-tight">Lifetime Labs</span>
+</div>
+<button class="text-[#5D5C4D] dark:text-stone-400 hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<main class="pt-16 pb-24">
+<!-- Hero Section -->
+<section class="px-6 py-12 flex flex-col items-center text-center">
+<div class="relative w-full aspect-square max-w-[320px] mb-8">
+<img alt="Coreon mascot" class="w-full h-full object-contain" data-alt="Minimalist mascot illustration of Coreon, a friendly circular creature with dot eyes, floating in a clean white sanctuary space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzqjy18GBvxQPLAWIGpc9DNcTZJFFjG3ZDOBl2WjqnEQ_KV4pym7hAfQocnpHvQGuUWo3iDiZqwZkwUovxwOPHaXQpDCcTRG3gbbbICmhidOQmFv53lZ0Ad8ZjbuRaEcUugi26bVvFxfC30eU0c0yi9LHqkamns9Q6FcWzRuc6MBEmU27aY6qgDPlG1mA7nq9vCTHTnVNExCK5rzHhoF1Nj8ukC6K5AJ8KsbBafR8zoBoP0vdM5NDPIc0Q-ortVMcxhMVS1fFllQhG"/>
+<!-- Intentional Asymmetry: Floating elements -->
+<div class="absolute -top-4 -right-4 bg-primary-container p-3 rounded-xl shadow-[0_12px_32px_rgba(45,47,46,0.06)] animate-pulse">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+</div>
+</div>
+<h1 class="font-headline text-4xl font-extrabold tracking-tight text-on-surface mb-6 leading-tight">
+                Bridging the Gap Between <span class="text-primary">Education</span> and <span class="text-primary">Purpose</span>
+</h1>
+<p class="font-body text-lg text-secondary leading-relaxed mb-8 px-4">
+                We help the next generation move from academic theory to vocational mastery through AI-driven discipline.
+            </p>
+<button class="w-full py-4 rounded-full hero-gradient text-surface-container-lowest font-bold text-lg shadow-lg active:scale-95 transition-all">
+                Start Your Odyssey
+            </button>
+</section>
+<!-- "The Lost Generation" Statistics Section -->
+<section class="bg-surface-container-low py-16 px-6">
+<div class="mb-10">
+<h2 class="font-headline text-2xl font-bold mb-4 text-center">The Lost Generation</h2>
+<div class="w-12 h-1 bg-primary mx-auto rounded-full"></div>
+</div>
+<div class="space-y-6">
+<!-- Stat 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl flex flex-col items-center text-center border-b-4 border-primary-container">
+<span class="text-5xl font-black font-headline text-primary mb-2">40%</span>
+<p class="font-body text-secondary-dim font-medium">Of graduates take roles that don't require their degree within 5 years.</p>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl flex flex-col items-center text-center border-b-4 border-primary-container">
+<span class="text-5xl font-black font-headline text-primary mb-2">60%+</span>
+<p class="font-body text-secondary-dim font-medium">Report feeling 'aimless' despite high academic achievement.</p>
+</div>
+<!-- Stat 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl flex flex-col items-center text-center border-b-4 border-primary-container">
+<span class="text-5xl font-black font-headline text-primary mb-2">3.2x</span>
+<p class="font-body text-secondary-dim font-medium">Higher retention when career pathing starts with intrinsic discovery.</p>
+</div>
+</div>
+</section>
+<!-- Discovery Through Discipline Section -->
+<section class="py-16 px-6">
+<h2 class="font-headline text-3xl font-bold mb-10 leading-tight">Discovery Through <span class="italic text-secondary">Discipline.</span></h2>
+<div class="space-y-8">
+<!-- Card 1 -->
+<div class="relative overflow-hidden bg-primary-container/20 rounded-xl p-8">
+<div class="flex items-start gap-4 mb-4">
+<div class="p-3 bg-primary-container rounded-lg">
+<span class="material-symbols-outlined text-primary">person_search</span>
+</div>
+<h3 class="font-headline text-xl font-bold">Coreon: Your AI Shadow</h3>
+</div>
+<p class="text-secondary leading-relaxed">
+                        A persistent digital companion that observes your habits, highlights your strengths, and nudges you toward vocational alignment.
+                    </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-secondary-container/30 rounded-xl p-8">
+<div class="flex items-start gap-4 mb-4">
+<div class="p-3 bg-secondary-container rounded-lg text-on-secondary-container">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<h3 class="font-headline text-xl font-bold">Behavioral Science</h3>
+</div>
+<p class="text-secondary leading-relaxed">
+                        Built on the foundations of habit stacking and positive reinforcement to ensure your new trajectory becomes permanent.
+                    </p>
+</div>
+<!-- Card 3 -->
+<div class="glass-card rounded-xl p-8 border border-white/40 shadow-[0_12px_32px_rgba(45,47,46,0.06)]">
+<div class="flex items-start gap-4 mb-4">
+<div class="p-3 bg-surface-container-high rounded-lg text-primary">
+<span class="material-symbols-outlined">spa</span>
+</div>
+<h3 class="font-headline text-xl font-bold">Sanctuary Space</h3>
+</div>
+<p class="text-secondary leading-relaxed">
+                        A digital environment designed for deep focus, free from the dopamine loops of modern social platforms.
+                    </p>
+</div>
+<!-- Card 4 -->
+<div class="bg-on-surface text-surface-container-lowest rounded-xl p-8">
+<div class="flex items-start gap-4 mb-4">
+<div class="p-3 bg-primary rounded-lg text-primary-container">
+<span class="material-symbols-outlined">timeline</span>
+</div>
+<h3 class="font-headline text-xl font-bold">Dynamic Trajectories</h3>
+</div>
+<p class="text-surface-container-high leading-relaxed opacity-90">
+                        Real-time adjustments to your learning path based on market demand and your personal evolution.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Our Global Impact Goal Section -->
+<section class="bg-surface-container-low px-6 py-16 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-48 h-48 bg-primary-container/20 rounded-full blur-3xl -mr-24 -mt-24"></div>
+<div class="relative z-10">
+<p class="font-label text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">Global Impact</p>
+<h2 class="font-headline text-3xl font-extrabold mb-8 leading-tight">Our Goal: 1 Million Navigated Lives</h2>
+<div class="bg-surface-container-lowest p-6 rounded-xl flex items-center gap-6 mb-8">
+<div class="flex-shrink-0 w-20 h-20 rounded-full border-4 border-primary-container flex items-center justify-center">
+<span class="text-2xl font-bold text-primary">92%</span>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface">Retention Rate</p>
+<p class="text-secondary text-sm">Of users find their 'North Star' within the first 6 months of lab access.</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-secondary font-medium">Curated Mentor Network</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-secondary font-medium">Institutional Partnerships</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-secondary font-medium">Open-Source Ethics Model</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="px-6 py-20 text-center">
+<div class="mb-10">
+<img alt="Finding North Star" class="w-24 h-24 mx-auto mb-6 opacity-80" data-alt="Stylized glowing compass needle pointing towards a soft bioluminescent green light in a dark ethereal atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ8dsotTds6ntAedk1qM3KFzxawVchkBh50UGWtBzMqg5lGTxutdkFhwSp3wLgzrojI6kXrlcAtS4FJS5Mb4AZJUc8aPnWuAjFcl4W0T27hC_KdJAM37f4yh140VJL05kQKi0uA9pL83fRvgDwLMKo-UABfIh3NBe0S5WU9yc39Nm4Em2-JD4DCdbFFf75-pUThSguL8JWMTm9qEWu6v95zPRWYVf-0oMF6G-sYNd0OiWRlfDX23vbQ0sHJq0Y9wsxJnhFQe9bkRz5"/>
+<h2 class="font-headline text-3xl font-bold mb-4">Ready to find your North Star?</h2>
+<p class="text-secondary max-w-xs mx-auto mb-10">Join the waitlist for the next cohort of Lifetime Labs today.</p>
+</div>
+<form class="space-y-4">
+<input class="w-full px-6 py-4 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-on-surface placeholder:text-outline transition-all" placeholder="Enter your email" type="email"/>
+<button class="w-full py-4 rounded-full hero-gradient text-surface-container-lowest font-bold text-lg shadow-lg active:scale-95 transition-all" type="submit">
+                    Apply for Access
+                </button>
+</form>
+<p class="mt-6 text-xs text-outline font-medium uppercase tracking-widest">Join 12,400+ Pioneers</p>
+</section>
+</main>
+<!-- BottomNavBar (Shared Component) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-[1.5rem] bg-[#FFFFFD]/80 dark:bg-stone-950/80 backdrop-blur-xl border-t border-[#DBDDDB]/30 dark:border-stone-800 shadow-[0_-12px_32px_rgba(45,47,46,0.06)] flex justify-around items-center w-full px-2 pb-safe h-20">
+<!-- Home (Inactive) -->
+<div class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 px-4 py-1 hover:bg-[#F0F1EF] dark:hover:bg-stone-800 transition-colors active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-plus-jakarta text-[10px] uppercase tracking-[0.05em] font-bold">Home</span>
+</div>
+<!-- Capsules (Active - Using logic based on 'Why Us' / Status intent) -->
+<div class="flex flex-col items-center justify-center bg-[#A2F9CC] dark:bg-[#006947] text-[#006947] dark:text-[#A2F9CC] rounded-full px-4 py-1 active:scale-90 transition-all duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-plus-jakarta text-[10px] uppercase tracking-[0.05em] font-bold">Capsules</span>
+</div>
+<!-- Labs (Inactive) -->
+<div class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 px-4 py-1 hover:bg-[#F0F1EF] dark:hover:bg-stone-800 transition-colors active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="biotech">biotech</span>
+<span class="font-plus-jakarta text-[10px] uppercase tracking-[0.05em] font-bold">Labs</span>
+</div>
+<!-- Status (Inactive) -->
+<div class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 px-4 py-1 hover:bg-[#F0F1EF] dark:hover:bg-stone-800 transition-colors active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span class="font-plus-jakarta text-[10px] uppercase tracking-[0.05em] font-bold">Status</span>
+</div>
+<!-- Profile (Inactive) -->
+<div class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 px-4 py-1 hover:bg-[#F0F1EF] dark:hover:bg-stone-800 transition-colors active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-plus-jakarta text-[10px] uppercase tracking-[0.05em] font-bold">Profile</span>
+</div>
+</nav>
+</body></html>
