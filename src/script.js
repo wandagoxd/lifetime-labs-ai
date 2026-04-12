@@ -1,6 +1,6 @@
 (function () {
   const PAGE_FILES = {
-    home: "homepage.html",
+    home: "index.html",
     whyUs: "src/screens/why-us.html",
     login: "src/screens/login.html",
     signup: "src/screens/signup.html",
