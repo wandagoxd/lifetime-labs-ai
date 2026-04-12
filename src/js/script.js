@@ -1,18 +1,18 @@
 (function () {
   const PAGE_FILES = {
-    home: "src/screens/homepage.html",
-    whyUs: "src/screens/why-us.html",
-    login: "src/screens/login.html",
-    signup: "src/screens/signup.html",
-    forgotPassword: "src/screens/forgot-password.html",
-    resetPassword: "src/screens/reset-password.html",
-    notifications: "src/screens/notifications.html",
-    labs: "src/screens/labs.html",
-    status: "src/screens/status.html",
-    capsules: "src/screens/time-capsules.html",
-    profile: "src/screens/profile.html",
-    settings: "src/screens/settings.html",
-    wardrobe: "src/screens/wardrobe.html",
+    home: "index.html",
+    whyUs: "why-us.html",
+    login: "login.html",
+    signup: "sign-up.html",
+    forgotPassword: "forgot-password.html",
+    resetPassword: "reset-password.html",
+    notifications: "notifications.html",
+    labs: "labs.html",
+    status: "status.html",
+    capsules: "time-capsules.html",
+    profile: "profile.html",
+    settings: "settings.html",
+    wardrobe: "wardrobe.html",
   };
 
   const SCREEN_ROUTE_MAP = {
