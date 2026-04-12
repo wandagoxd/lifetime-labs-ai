@@ -1,191 +1,226 @@
 <!DOCTYPE html>
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lifetime Labs | Login</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "tertiary": "#665a4b",
-                    "on-error": "#ffefee",
-                    "on-tertiary": "#fff0e2",
-                    "surface-dim": "#d3d5d3",
-                    "on-secondary": "#f6f3e0",
-                    "secondary-container": "#e5e3d0",
-                    "on-primary-fixed": "#004b31",
-                    "primary-fixed-dim": "#92e9bd",
-                    "primary": "#006947",
-                    "secondary-fixed": "#e5e3d0",
-                    "error-dim": "#9f0519",
-                    "on-secondary-fixed": "#404032",
-                    "on-primary-fixed-variant": "#006b48",
-                    "tertiary-fixed": "#fdebd8",
-                    "surface-container": "#e7e8e6",
-                    "surface-container-high": "#e1e3e1",
-                    "surface-container-highest": "#dbdddb",
-                    "on-surface": "#2d2f2e",
-                    "surface-container-low": "#f0f1ef",
-                    "surface-container-lowest": "#ffffff",
-                    "primary-container": "#a0f7ca",
-                    "surface-tint": "#006947",
-                    "outline-variant": "#acadac",
-                    "tertiary-dim": "#594e40",
-                    "on-primary": "#c9ffe0",
-                    "error-container": "#fb5151",
-                    "background": "#f6f6f5",
-                    "on-background": "#2d2f2e",
-                    "secondary-dim": "#515042",
-                    "surface-variant": "#dbdddb",
-                    "secondary": "#5d5c4d",
-                    "inverse-primary": "#a0f7ca",
-                    "outline": "#767776",
-                    "on-secondary-fixed-variant": "#5d5c4d",
-                    "tertiary-container": "#fdebd8",
-                    "primary-fixed": "#a0f7ca",
-                    "tertiary-fixed-dim": "#eeddcb",
-                    "secondary-fixed-dim": "#d7d5c2",
-                    "surface": "#f6f6f5",
-                    "on-tertiary-container": "#625648",
-                    "surface-bright": "#f6f6f5",
-                    "error": "#b31b25",
-                    "on-surface-variant": "#5a5c5b",
-                    "on-error-container": "#570008",
-                    "on-tertiary-fixed": "#504437",
-                    "on-primary-container": "#006040",
-                    "primary-dim": "#005c3d",
-                    "on-secondary-container": "#535244",
-                    "on-tertiary-fixed-variant": "#6d6152",
-                    "inverse-surface": "#0c0f0e",
-                    "inverse-on-surface": "#9c9d9c"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "1.5rem",
-                    "full": "9999px"
-            },
-            "fontFamily": {
-                    "headline": ["Manrope"],
-                    "body": ["Plus Jakarta Sans"],
-                    "label": ["Plus Jakarta Sans"]
-            }
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Lifetime Labs | Login</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#665a4b",
+            "on-error": "#ffefee",
+            "on-tertiary": "#fff0e2",
+            "surface-dim": "#d3d5d3",
+            "on-secondary": "#f6f3e0",
+            "secondary-container": "#e5e3d0",
+            "on-primary-fixed": "#004b31",
+            "primary-fixed-dim": "#92e9bd",
+            "primary": "#006947",
+            "secondary-fixed": "#e5e3d0",
+            "error-dim": "#9f0519",
+            "on-secondary-fixed": "#404032",
+            "on-primary-fixed-variant": "#006b48",
+            "tertiary-fixed": "#fdebd8",
+            "surface-container": "#e7e8e6",
+            "surface-container-high": "#e1e3e1",
+            "surface-container-highest": "#dbdddb",
+            "on-surface": "#2d2f2e",
+            "surface-container-low": "#f0f1ef",
+            "surface-container-lowest": "#ffffff",
+            "primary-container": "#a0f7ca",
+            "surface-tint": "#006947",
+            "outline-variant": "#acadac",
+            "tertiary-dim": "#594e40",
+            "on-primary": "#c9ffe0",
+            "error-container": "#fb5151",
+            "background": "#f6f6f5",
+            "on-background": "#2d2f2e",
+            "secondary-dim": "#515042",
+            "surface-variant": "#dbdddb",
+            "secondary": "#5d5c4d",
+            "inverse-primary": "#a0f7ca",
+            "outline": "#767776",
+            "on-secondary-fixed-variant": "#5d5c4d",
+            "tertiary-container": "#fdebd8",
+            "primary-fixed": "#a0f7ca",
+            "tertiary-fixed-dim": "#eeddcb",
+            "secondary-fixed-dim": "#d7d5c2",
+            "surface": "#f6f6f5",
+            "on-tertiary-container": "#625648",
+            "surface-bright": "#f6f6f5",
+            "error": "#b31b25",
+            "on-surface-variant": "#5a5c5b",
+            "on-error-container": "#570008",
+            "on-tertiary-fixed": "#504437",
+            "on-primary-container": "#006040",
+            "primary-dim": "#005c3d",
+            "on-secondary-container": "#535244",
+            "on-tertiary-fixed-variant": "#6d6152",
+            "inverse-surface": "#0c0f0e",
+            "inverse-on-surface": "#9c9d9c"
           },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Manrope"],
+            "body": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"]
+          }
         },
-      }
-    </script>
-<style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #FFFFFD;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .coreon-float {
-            filter: drop-shadow(0 12px 32px rgba(45, 47, 46, 0.06));
-        }
-        .bioluminescent-glow {
-            background: linear-gradient(145deg, #006947 0%, #005c3d 100%);
-            box-shadow: 0 8px 24px rgba(162, 249, 204, 0.2);
-        }
-    </style>
-<style>
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFFFFD;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .coreon-float {
+      filter: drop-shadow(0 12px 32px rgba(45, 47, 46, 0.06));
+    }
+
+    .bioluminescent-glow {
+      background: linear-gradient(145deg, #006947 0%, #005c3d 100%);
+      box-shadow: 0 8px 24px rgba(162, 249, 204, 0.2);
+    }
+  </style>
+  <style>
     body {
       min-height: max(884px, 100dvh);
     }
   </style>
-<link href="/css/styles.css" rel="stylesheet"/>
-<script defer="" src="/js/script.js"></script>
-  </head>
-<body class="bg-[#FFFFFD] text-on-surface min-h-screen flex flex-col items-center justify-center p-6 selection:bg-primary-container selection:text-on-primary-container" data-page="login" data-root="../../" data-shell="focused">
-<main class="w-full max-w-md flex flex-col items-center">
-<div class="mb-12 relative flex flex-col items-center">
-<div class="w-32 h-32 mb-8 coreon-float bg-surface-container-low rounded-full flex items-center justify-center p-4 relative">
-<img class="w-full h-full object-contain" data-alt="A cute minimalist mascot named Coreon with simple dot eyes y a small mouth, soft rounded white form with subtle green accents, Japanese kawaii style" src="../assets/Coreon.svg"/>
-<div class="absolute -bottom-2 -right-2 bg-primary-container p-2 rounded-full shadow-sm">
-<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">eco</span>
-</div>
-</div>
-<h1 class="font-headline font-extrabold text-3xl text-primary tracking-tight mb-2">Lifetime Labs</h1>
-<p class="font-body text-secondary text-sm tracking-wide opacity-80">DESIGNING YOUR BEST LIFE</p>
-</div>
-<div class="w-full space-y-8">
-<div class="text-center">
-<h2 class="font-headline font-bold text-2xl text-on-surface mb-2">Welcome Back</h2>
-<p class="font-body text-on-surface-variant text-sm">Continue your journey in the lab.</p>
-</div>
-<form class="space-y-6" data-submit-route="home">
-<div class="space-y-4">
-<div class="group">
-<label class="block font-label text-[10px] font-semibold uppercase tracking-[0.1em] text-secondary mb-2 px-1" for="email">Email Address</label>
-<div class="relative">
-<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-4 text-on-surface placeholder:text-outline-variant focus:ring-2 focus:ring-primary-container transition-all" id="email" name="email" placeholder="hello@lifetimelabs.io" type="email"/>
-</div>
-</div>
-<div class="group">
-<div class="flex justify-between items-center mb-2 px-1">
-<label class="block font-label text-[10px] font-semibold uppercase tracking-[0.1em] text-secondary" for="password">Contraseña</label>
-<a class="text-[10px] font-semibold uppercase tracking-[0.1em] text-primary hover:opacity-70 transition-opacity" data-route="forgotContraseña" href="#">Forgot password?</a>
-</div>
-<div class="relative">
-<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-4 text-on-surface placeholder:text-outline-variant focus:ring-2 focus:ring-primary-container transition-all" id="password" name="password" placeholder="••••••••" type="password"/>
-<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline-variant" type="button">
-<span class="material-symbols-outlined text-xl">visibility</span>
-</button>
-</div>
-</div>
-</div>
-<div class="pt-4">
-<button class="w-full bioluminescent-glow py-4 rounded-full font-headline font-bold text-primary-container hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2" type="submit">
-<span>Login</span>
-<span class="material-symbols-outlined text-lg">arrow_forward</span>
-</button>
-</div>
-</form>
-<div class="text-center space-y-6">
-<div class="flex items-center gap-4 py-2">
-<div class="h-[1px] flex-1 bg-surface-container-highest opacity-50"></div>
-<span class="font-label text-[10px] font-semibold uppercase tracking-[0.1em] text-outline-variant">or continue with</span>
-<div class="h-[1px] flex-1 bg-surface-container-highest opacity-50"></div>
-</div>
-<div class="grid grid-cols-2 gap-4">
-<button class="flex items-center justify-center gap-3 py-3 rounded-xl bg-white shadow-[0_2px_8px_rgba(45,47,46,0.04)] border border-surface-container-low hover:bg-surface-container-low transition-colors">
-<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3fkKjciAfD3y69Iw-CatR2FZe2vlHuezY6t-c618krv3ZTOucBRQU3cYphKppj80AK-wI39b34US3sOREOe4Ty_532nkgG6kaFhN22Dn4yshn0lGpw9gEyD1eWwaAnXD7RA8AT1BhfGiCgfKVc4WxLnd2He9EYXaiJocbG5fR16Rz5FidVgPSg-xENpJqNjr5VTxw2XoArRD8nYV8WRGq6MTSirCwwtrYBixyY7Tkb8Fan3ubzY4pZ5o25Gq4aGZJo_BhVYTnuwAO"/>
-<span class="font-body text-sm font-medium text-secondary">Google</span>
-</button>
-<button class="flex items-center justify-center gap-3 py-3 rounded-xl bg-white shadow-[0_2px_8px_rgba(45,47,46,0.04)] border border-surface-container-low hover:bg-surface-container-low transition-colors">
-<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">ios</span>
-<span class="font-body text-sm font-medium text-secondary">Apple</span>
-</button>
-</div>
-<p class="font-body text-sm text-on-surface-variant">
-                    ¿Aún no tienes cuenta? 
-                    <a class="text-primary font-bold hover:underline decoration-primary-container decoration-2 underline-offset-4" data-route="signup" href="#">Regístrate aquí</a>
-</p>
-</div>
-</div>
-<div class="mt-16 opacity-30 flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">verified_user</span>
-<span class="font-label text-[10px] font-semibold uppercase tracking-[0.2em]">End-to-End Encrypted Lab</span>
-</div>
-</main>
-<div class="fixed top-0 left-0 w-full p-8 pointer-events-none opacity-40 hidden md:block">
-<div class="max-w-7xl mx-auto flex justify-between">
-<div class="w-32 h-32 rounded-full border border-surface-container-highest border-dashed"></div>
-<div class="w-16 h-16 rounded-full bg-primary-container rotate-12 mt-20"></div>
-</div>
-</div>
-<div class="fixed bottom-0 left-0 w-full p-8 pointer-events-none opacity-40 hidden md:block">
-<div class="max-w-7xl mx-auto flex justify-end">
-<div class="w-24 h-24 rounded-full border border-surface-container-highest border-dashed -mr-12"></div>
-</div>
-</div>
-</body></html>
+  <link href="/css/styles.css" rel="stylesheet" />
+  <script defer="" src="/js/script.js"></script>
+</head>
+
+<body
+  class="bg-[#FFFFFD] text-on-surface min-h-screen flex flex-col items-center justify-center p-6 selection:bg-primary-container selection:text-on-primary-container"
+  data-page="login" data-root="../../" data-shell="focused">
+  <main class="w-full max-w-md flex flex-col items-center">
+    <div class="mb-12 relative flex flex-col items-center">
+      <div
+        class="w-32 h-32 mb-8 coreon-float bg-surface-container-low rounded-full flex items-center justify-center p-4 relative">
+        <img class="w-full h-full object-contain"
+          data-alt="A cute minimalist mascot named Coreon with simple dot eyes y a small mouth, soft rounded white form with subtle green accents, Japanese kawaii style"
+          src="/assets/Coreon.svg" />
+        <div class="absolute -bottom-2 -right-2 bg-primary-container p-2 rounded-full shadow-sm">
+          <span class="material-symbols-outlined text-primary text-sm"
+            style="font-variation-settings: 'FILL' 1;">eco</span>
+        </div>
+      </div>
+      <h1 class="font-headline font-extrabold text-3xl text-primary tracking-tight mb-2">Lifetime Labs</h1>
+      <p class="font-body text-secondary text-sm tracking-wide opacity-80">DESIGNING YOUR BEST LIFE</p>
+    </div>
+    <div class="w-full space-y-8">
+      <div class="text-center">
+        <h2 class="font-headline font-bold text-2xl text-on-surface mb-2">Welcome Back</h2>
+        <p class="font-body text-on-surface-variant text-sm">Continue your journey in the lab.</p>
+      </div>
+      <form class="space-y-6" data-submit-route="home">
+        <div class="space-y-4">
+          <div class="group">
+            <label
+              class="block font-label text-[10px] font-semibold uppercase tracking-[0.1em] text-secondary mb-2 px-1"
+              for="email">Email Address</label>
+            <div class="relative">
+              <input
+                class="w-full bg-surface-container-low border-none rounded-xl px-4 py-4 text-on-surface placeholder:text-outline-variant focus:ring-2 focus:ring-primary-container transition-all"
+                id="email" name="email" placeholder="hello@lifetimelabs.io" type="email" />
+            </div>
+          </div>
+          <div class="group">
+            <div class="flex justify-between items-center mb-2 px-1">
+              <label class="block font-label text-[10px] font-semibold uppercase tracking-[0.1em] text-secondary"
+                for="password">Contraseña</label>
+              <a class="text-[10px] font-semibold uppercase tracking-[0.1em] text-primary hover:opacity-70 transition-opacity"
+                data-route="forgotContraseña" href="#">Forgot password?</a>
+            </div>
+            <div class="relative">
+              <input
+                class="w-full bg-surface-container-low border-none rounded-xl px-4 py-4 text-on-surface placeholder:text-outline-variant focus:ring-2 focus:ring-primary-container transition-all"
+                id="password" name="password" placeholder="••••••••" type="password" />
+              <button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline-variant" type="button">
+                <span class="material-symbols-outlined text-xl">visibility</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="pt-4">
+          <button
+            class="w-full bioluminescent-glow py-4 rounded-full font-headline font-bold text-primary-container hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+            type="submit">
+            <span>Login</span>
+            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+          </button>
+        </div>
+      </form>
+      <div class="text-center space-y-6">
+        <div class="flex items-center gap-4 py-2">
+          <div class="h-[1px] flex-1 bg-surface-container-highest opacity-50"></div>
+          <span class="font-label text-[10px] font-semibold uppercase tracking-[0.1em] text-outline-variant">or continue
+            with</span>
+          <div class="h-[1px] flex-1 bg-surface-container-highest opacity-50"></div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <button
+            class="flex items-center justify-center gap-3 py-3 rounded-xl bg-white shadow-[0_2px_8px_rgba(45,47,46,0.04)] border border-surface-container-low hover:bg-surface-container-low transition-colors">
+            <img alt="Google" class="w-5 h-5"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3fkKjciAfD3y69Iw-CatR2FZe2vlHuezY6t-c618krv3ZTOucBRQU3cYphKppj80AK-wI39b34US3sOREOe4Ty_532nkgG6kaFhN22Dn4yshn0lGpw9gEyD1eWwaAnXD7RA8AT1BhfGiCgfKVc4WxLnd2He9EYXaiJocbG5fR16Rz5FidVgPSg-xENpJqNjr5VTxw2XoArRD8nYV8WRGq6MTSirCwwtrYBixyY7Tkb8Fan3ubzY4pZ5o25Gq4aGZJo_BhVYTnuwAO" />
+            <span class="font-body text-sm font-medium text-secondary">Google</span>
+          </button>
+          <button
+            class="flex items-center justify-center gap-3 py-3 rounded-xl bg-white shadow-[0_2px_8px_rgba(45,47,46,0.04)] border border-surface-container-low hover:bg-surface-container-low transition-colors">
+            <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">ios</span>
+            <span class="font-body text-sm font-medium text-secondary">Apple</span>
+          </button>
+        </div>
+        <p class="font-body text-sm text-on-surface-variant">
+          ¿Aún no tienes cuenta?
+          <a class="text-primary font-bold hover:underline decoration-primary-container decoration-2 underline-offset-4"
+            data-route="signup" href="#">Regístrate aquí</a>
+        </p>
+      </div>
+    </div>
+    <div class="mt-16 opacity-30 flex items-center gap-2">
+      <span class="material-symbols-outlined text-sm">verified_user</span>
+      <span class="font-label text-[10px] font-semibold uppercase tracking-[0.2em]">End-to-End Encrypted Lab</span>
+    </div>
+  </main>
+  <div class="fixed top-0 left-0 w-full p-8 pointer-events-none opacity-40 hidden md:block">
+    <div class="max-w-7xl mx-auto flex justify-between">
+      <div class="w-32 h-32 rounded-full border border-surface-container-highest border-dashed"></div>
+      <div class="w-16 h-16 rounded-full bg-primary-container rotate-12 mt-20"></div>
+    </div>
+  </div>
+  <div class="fixed bottom-0 left-0 w-full p-8 pointer-events-none opacity-40 hidden md:block">
+    <div class="max-w-7xl mx-auto flex justify-end">
+      <div class="w-24 h-24 rounded-full border border-surface-container-highest border-dashed -mr-12"></div>
+    </div>
+  </div>
+</body>
+
+</html>

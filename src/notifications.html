@@ -1,232 +1,286 @@
 <!DOCTYPE html>
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Notificaciones - Lifetime Labs</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .spring-basic {
-            transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        body {
-            background-color: #FFFFFD;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        .glass-card {
-            background: rgba(255, 255, 253, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-    </style>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                "on-surface": "#2d2f2e",
-                "error-container": "#fb5151",
-                "on-surface-variant": "#5a5c5b",
-                "surface": "#f6f6f5",
-                "surface-variant": "#dbdddb",
-                "on-primary-fixed-variant": "#006b48",
-                "tertiary": "#665a4b",
-                "background": "#f6f6f5",
-                "surface-container-lowest": "#ffffff",
-                "secondary-fixed": "#e5e3d0",
-                "on-tertiary": "#fff0e2",
-                "surface-container": "#e7e8e6",
-                "on-tertiary-container": "#625648",
-                "tertiary-fixed": "#fdebd8",
-                "on-primary-container": "#006040",
-                "secondary-fixed-dim": "#d7d5c2",
-                "tertiary-fixed-dim": "#eeddcb",
-                "primary-fixed-dim": "#92e9bd",
-                "outline-variant": "#acadac",
-                "on-primary": "#c9ffe0",
-                "error": "#b31b25",
-                "tertiary-dim": "#594e40",
-                "surface-container-highest": "#dbdddb",
-                "secondary-container": "#e5e3d0",
-                "on-secondary": "#f6f3e0",
-                "on-primary-fixed": "#004b31",
-                "on-error": "#ffefee",
-                "surface-bright": "#f6f6f5",
-                "on-background": "#2d2f2e",
-                "primary-fixed": "#a0f7ca",
-                "secondary-dim": "#515042",
-                "surface-container-high": "#e1e3e1",
-                "on-secondary-container": "#535244",
-                "on-tertiary-fixed-variant": "#6d6152",
-                "on-tertiary-fixed": "#504437",
-                "tertiary-container": "#fdebd8",
-                "on-secondary-fixed": "#404032",
-                "inverse-surface": "#0c0f0e",
-                "on-secondary-fixed-variant": "#5d5c4d",
-                "surface-tint": "#006947",
-                "primary-dim": "#005c3d",
-                "primary": "#006947",
-                "surface-dim": "#d3d5d3",
-                "error-dim": "#9f0519",
-                "outline": "#767776",
-                "inverse-on-surface": "#9c9d9c",
-                "surface-container-low": "#f0f1ef",
-                "inverse-primary": "#a0f7ca",
-                "secondary": "#5d5c4d",
-                "on-error-container": "#570008",
-                "primary-container": "#a0f7ca"
-            },
-            "borderRadius": {
-                "DEFAULT": "0.25rem",
-                "lg": "0.5rem",
-                "xl": "1.5rem",
-                "full": "9999px"
-            },
-            "fontFamily": {
-                "headline": ["Manrope"],
-                "body": ["Plus Jakarta Sans"],
-                "label": ["Plus Jakarta Sans"]
-            }
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Notificaciones - Lifetime Labs</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .spring-basic {
+      transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    body {
+      background-color: #FFFFFD;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 253, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface": "#2d2f2e",
+            "error-container": "#fb5151",
+            "on-surface-variant": "#5a5c5b",
+            "surface": "#f6f6f5",
+            "surface-variant": "#dbdddb",
+            "on-primary-fixed-variant": "#006b48",
+            "tertiary": "#665a4b",
+            "background": "#f6f6f5",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#e5e3d0",
+            "on-tertiary": "#fff0e2",
+            "surface-container": "#e7e8e6",
+            "on-tertiary-container": "#625648",
+            "tertiary-fixed": "#fdebd8",
+            "on-primary-container": "#006040",
+            "secondary-fixed-dim": "#d7d5c2",
+            "tertiary-fixed-dim": "#eeddcb",
+            "primary-fixed-dim": "#92e9bd",
+            "outline-variant": "#acadac",
+            "on-primary": "#c9ffe0",
+            "error": "#b31b25",
+            "tertiary-dim": "#594e40",
+            "surface-container-highest": "#dbdddb",
+            "secondary-container": "#e5e3d0",
+            "on-secondary": "#f6f3e0",
+            "on-primary-fixed": "#004b31",
+            "on-error": "#ffefee",
+            "surface-bright": "#f6f6f5",
+            "on-background": "#2d2f2e",
+            "primary-fixed": "#a0f7ca",
+            "secondary-dim": "#515042",
+            "surface-container-high": "#e1e3e1",
+            "on-secondary-container": "#535244",
+            "on-tertiary-fixed-variant": "#6d6152",
+            "on-tertiary-fixed": "#504437",
+            "tertiary-container": "#fdebd8",
+            "on-secondary-fixed": "#404032",
+            "inverse-surface": "#0c0f0e",
+            "on-secondary-fixed-variant": "#5d5c4d",
+            "surface-tint": "#006947",
+            "primary-dim": "#005c3d",
+            "primary": "#006947",
+            "surface-dim": "#d3d5d3",
+            "error-dim": "#9f0519",
+            "outline": "#767776",
+            "inverse-on-surface": "#9c9d9c",
+            "surface-container-low": "#f0f1ef",
+            "inverse-primary": "#a0f7ca",
+            "secondary": "#5d5c4d",
+            "on-error-container": "#570008",
+            "primary-container": "#a0f7ca"
           },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Manrope"],
+            "body": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"]
+          }
         },
-      }
-    </script>
-<style>
+      },
+    }
+  </script>
+  <style>
     body {
       min-height: max(884px, 100dvh);
     }
   </style>
-<link href="/css/styles.css" rel="stylesheet"/>
-<script defer="" src="/js/script.js"></script>
-  </head>
-<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container" data-active-nav="status" data-page="notifications" data-root="../../" data-shell="app">
-<!-- TopAppBar -->
-<header class="w-full sticky top-0 z-40 bg-[#FFFFFD] dark:bg-stone-950 flex items-center justify-between px-6 py-4 max-w-full">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden">
-<img alt="User Avatar" class="w-full h-full object-cover" data-alt="minimalist aesthetic illustration of a mascot character peeking over a soft green curve, clean lines, Japanese Muji style" src="../assets/user-profile-image.png"/>
-</div>
-<h1 class="font-headline font-bold tracking-tight text-xl text-[#006947] dark:text-[#A2F9CC]">Lifetime Labs</h1>
-</div>
-<div class="flex gap-4">
-<button class="material-symbols-outlined text-[#5D5C4D] dark:text-stone-400 hover:opacity-80 transition-opacity scale-95 active:duration-150" data-route="settings">settings</button>
-</div>
-</header>
-<main class="max-w-3xl mx-auto px-6 py-8 pb-32">
-<!-- Section Header -->
-<div class="mb-10">
-<h2 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface mb-2">Novedades</h2>
-<p class="text-on-surface-variant text-sm font-medium">Todo lo que pasa en tu lab (Beta)</p>
-</div>
-<!-- Notification List -->
-<div class="space-y-4">
-<!-- Today Section -->
-<div class="pt-2">
-<span class="font-label text-[10px] uppercase tracking-[0.1em] font-bold text-outline-variant mb-4 block">Hoy</span>
-<!-- Lab Reminder -->
-<div class="group bg-surface-container-lowest rounded-xl p-5 flex gap-4 items-start transition-all duration-300 hover:bg-surface-container-low cursor-pointer" data-route="labs">
-<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shadow-[0_0_20px_rgba(162,249,204,0.4)]">
-<span class="material-symbols-outlined text-primary" data-icon="science">science</span>
-</div>
-<div class="flex-1">
-<div class="flex justify-between items-start mb-1">
-<h3 class="font-headline font-bold text-on-surface text-base">Recordatorio de Lab</h3>
-<span class="text-[11px] text-on-surface-variant font-medium">Hace 2 horas</span>
-</div>
-<p class="text-on-surface-variant text-sm leading-relaxed">Es hora de tu sesión de enfoque. El laboratorio está listo para tomar tus medidas.</p>
-<div class="mt-4 flex gap-2">
-<button class="px-4 py-1.5 bg-primary-container text-on-primary-container text-xs font-bold rounded-full hover:opacity-90 transition-opacity" data-route="labs">Iniciar Lab</button>
-</div>
-</div>
-</div>
-</div>
-<!-- Yesterday Section -->
-<div class="pt-6">
-<span class="font-label text-[10px] uppercase tracking-[0.1em] font-bold text-outline-variant mb-4 block">Ayer</span>
-<!-- Cápsula del Tiempo -->
-<div class="group bg-surface-container-lowest rounded-xl p-5 flex gap-4 items-start transition-all duration-300 hover:bg-surface-container-low cursor-pointer mb-4" data-route="capsules">
-<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shadow-[0_0_20px_rgba(162,249,204,0.4)]">
-<span class="material-symbols-outlined text-primary" data-icon="hourglass_top">hourglass_top</span>
-</div>
-<div class="flex-1">
-<div class="flex justify-between items-start mb-1">
-<h3 class="font-headline font-bold text-on-surface text-base">Nueva Cápsula del Tiempo</h3>
-<span class="text-[11px] text-on-surface-variant font-medium">Ayer</span>
-</div>
-<p class="text-on-surface-variant text-sm leading-relaxed">Se acaba de desbloquear una reflexión de tu yo del pasado. Pilla en qué estabas pensando hace 3 meses.</p>
-</div>
-</div>
-<!-- Behavioral Insight -->
-<div class="group bg-surface-container-lowest rounded-xl p-5 flex gap-4 items-start transition-all duration-300 hover:bg-surface-container-low cursor-pointer mb-4" data-route="status">
-<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shadow-[0_0_20px_rgba(162,249,204,0.4)]">
-<span class="material-symbols-outlined text-primary" data-icon="lightbulb">lightbulb</span>
-</div>
-<div class="flex-1">
-<div class="flex justify-between items-start mb-1">
-<h3 class="font-headline font-bold text-on-surface text-base">Insight de Comportamiento</h3>
-<span class="text-[11px] text-on-surface-variant font-medium">Ayer</span>
-</div>
-<p class="text-on-surface-variant text-sm leading-relaxed">Pillamos un patrón en tu rutina. Tu productividad se dispara cuando arrancas 15 minutos antes.</p>
-</div>
-</div>
-</div>
-<!-- Earlier Section -->
-<div class="pt-6">
-<span class="font-label text-[10px] uppercase tracking-[0.1em] font-bold text-outline-variant mb-4 block">Anteriormente</span>
-<!-- Milestone achievement -->
-<div class="group bg-surface-container-lowest rounded-xl p-5 flex gap-4 items-start transition-all duration-300 hover:bg-surface-container-low cursor-pointer mb-4" data-route="status">
-<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shadow-[0_0_20px_rgba(162,249,204,0.4)]">
-<span class="material-symbols-outlined text-primary" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
-</div>
-<div class="flex-1">
-<div class="flex justify-between items-start mb-1">
-<h3 class="font-headline font-bold text-on-surface text-base">¡Logro Desbloqueado!</h3>
-<span class="text-[11px] text-on-surface-variant font-medium">Hace 3 días</span>
-</div>
-<p class="text-on-surface-variant text-sm leading-relaxed">¡Qué constancia! Completaste 30 días seguidos de laboratorios. ¡Coreon está súper orgulloso!</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Empty State (Hidden by default, but structured for implementation) -->
-<div class="hidden flex-col items-center justify-center py-24 text-center">
-<div class="relative mb-8">
-<div class="w-32 h-32 bg-primary-container rounded-full absolute -z-10 blur-3xl opacity-30 animate-pulse"></div>
-<img alt="Coreon Peaceful" class="w-24 h-24" data-alt="minimalist kawaii mascot character sitting in a zen pose, soft pastel green y warm white colors, ethereal digital sanctuary feel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMAPri2lmGDsaIS6g5hfMIO_FnJsDXBnii_vNI1khRW33NyUrqRrgvAcheYamyP1q2BQ0YPWoM5v8JhFhsiLmZDCZIagzl5BSp7SSnVwaUt9yf6OEjDPfOJIq6N0DEEJG-nqaH2n9qSnQeeJ7Q_C57MRIeMtpcZa54m_S0BTTeAsnWzmfNH-Z29nuO7C1fsS2ijXWVvtGj0oj2k2RsjlazvAGKiA_h8mhsfK6OO7-Ryg6uyL3aay6KtnHJGmUEtKlJuwi-6LzzdrD-"/>
-</div>
-<h3 class="font-headline text-2xl font-bold text-on-surface mb-2">Todo está relax</h3>
-<p class="text-on-surface-variant max-w-xs mx-auto text-sm leading-relaxed">No hay novedades por ahora. Tómate este momento para reflexionar o iniciar un lab nuevo.</p>
-</div>
-</main>
-<!-- BottomNavBar -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#FFFFFD]/80 dark:bg-stone-950/80 backdrop-blur-xl shadow-[0_-12px_32px_rgba(45,47,46,0.06)] rounded-t-[1.5rem]">
-<a class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 p-2 spring-basic transition-transform active:scale-90 hover:text-[#006947] dark:hover:text-[#A2F9CC]" href="#">
-<span class="material-symbols-outlined" data-icon="home">home</span>
-<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-[0.05em] font-semibold mt-1">Inicio</span>
-</a>
-<a class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 p-2 spring-basic transition-transform active:scale-90 hover:text-[#006947] dark:hover:text-[#A2F9CC]" href="#">
-<span class="material-symbols-outlined" data-icon="hourglass_top">hourglass_top</span>
-<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-[0.05em] font-semibold mt-1">Cápsulas</span>
-</a>
-<a class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 p-2 spring-basic transition-transform active:scale-90 hover:text-[#006947] dark:hover:text-[#A2F9CC]" href="#">
-<span class="material-symbols-outlined" data-icon="science">science</span>
-<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-[0.05em] font-semibold mt-1">Labs</span>
-</a>
-<!-- ACTIVE TAB: Progreso/Notificaciones -->
-<a class="flex flex-col items-center justify-center bg-[#A2F9CC] dark:bg-[#006947] text-[#006947] dark:text-[#A2F9CC] rounded-full p-2 min-w-[64px] transition-all duration-300 spring-basic transition-transform active:scale-90" href="#">
-<span class="material-symbols-outlined" data-icon="query_stats" style="font-variation-settings: 'FILL' 1;">query_stats</span>
-<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-[0.05em] font-semibold mt-1">Progreso</span>
-</a>
-<a class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 p-2 spring-basic transition-transform active:scale-90 hover:text-[#006947] dark:hover:text-[#A2F9CC]" href="#">
-<span class="material-symbols-outlined" data-icon="person">person</span>
-<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-[0.05em] font-semibold mt-1">Perfil</span>
-</a>
-</nav>
-</body></html>
+  <link href="/css/styles.css" rel="stylesheet" />
+  <script defer="" src="/js/script.js"></script>
+</head>
+
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container"
+  data-active-nav="status" data-page="notifications" data-root="../../" data-shell="app">
+  <!-- TopAppBar -->
+  <header
+    class="w-full sticky top-0 z-40 bg-[#FFFFFD] dark:bg-stone-950 flex items-center justify-between px-6 py-4 max-w-full">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden">
+        <img alt="User Avatar" class="w-full h-full object-cover"
+          data-alt="minimalist aesthetic illustration of a mascot character peeking over a soft green curve, clean lines, Japanese Muji style"
+          src="/assets/user-profile-image.png" />
+      </div>
+      <h1 class="font-headline font-bold tracking-tight text-xl text-[#006947] dark:text-[#A2F9CC]">Lifetime Labs</h1>
+    </div>
+    <div class="flex gap-4">
+      <button
+        class="material-symbols-outlined text-[#5D5C4D] dark:text-stone-400 hover:opacity-80 transition-opacity scale-95 active:duration-150"
+        data-route="settings">settings</button>
+    </div>
+  </header>
+  <main class="max-w-3xl mx-auto px-6 py-8 pb-32">
+    <!-- Section Header -->
+    <div class="mb-10">
+      <h2 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface mb-2">Novedades</h2>
+      <p class="text-on-surface-variant text-sm font-medium">Todo lo que pasa en tu lab (Beta)</p>
+    </div>
+    <!-- Notification List -->
+    <div class="space-y-4">
+      <!-- Today Section -->
+      <div class="pt-2">
+        <span
+          class="font-label text-[10px] uppercase tracking-[0.1em] font-bold text-outline-variant mb-4 block">Hoy</span>
+        <!-- Lab Reminder -->
+        <div
+          class="group bg-surface-container-lowest rounded-xl p-5 flex gap-4 items-start transition-all duration-300 hover:bg-surface-container-low cursor-pointer"
+          data-route="labs">
+          <div
+            class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shadow-[0_0_20px_rgba(162,249,204,0.4)]">
+            <span class="material-symbols-outlined text-primary" data-icon="science">science</span>
+          </div>
+          <div class="flex-1">
+            <div class="flex justify-between items-start mb-1">
+              <h3 class="font-headline font-bold text-on-surface text-base">Recordatorio de Lab</h3>
+              <span class="text-[11px] text-on-surface-variant font-medium">Hace 2 horas</span>
+            </div>
+            <p class="text-on-surface-variant text-sm leading-relaxed">Es hora de tu sesión de enfoque. El laboratorio
+              está listo para tomar tus medidas.</p>
+            <div class="mt-4 flex gap-2">
+              <button
+                class="px-4 py-1.5 bg-primary-container text-on-primary-container text-xs font-bold rounded-full hover:opacity-90 transition-opacity"
+                data-route="labs">Iniciar Lab</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Yesterday Section -->
+      <div class="pt-6">
+        <span
+          class="font-label text-[10px] uppercase tracking-[0.1em] font-bold text-outline-variant mb-4 block">Ayer</span>
+        <!-- Cápsula del Tiempo -->
+        <div
+          class="group bg-surface-container-lowest rounded-xl p-5 flex gap-4 items-start transition-all duration-300 hover:bg-surface-container-low cursor-pointer mb-4"
+          data-route="capsules">
+          <div
+            class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shadow-[0_0_20px_rgba(162,249,204,0.4)]">
+            <span class="material-symbols-outlined text-primary" data-icon="hourglass_top">hourglass_top</span>
+          </div>
+          <div class="flex-1">
+            <div class="flex justify-between items-start mb-1">
+              <h3 class="font-headline font-bold text-on-surface text-base">Nueva Cápsula del Tiempo</h3>
+              <span class="text-[11px] text-on-surface-variant font-medium">Ayer</span>
+            </div>
+            <p class="text-on-surface-variant text-sm leading-relaxed">Se acaba de desbloquear una reflexión de tu yo
+              del pasado. Pilla en qué estabas pensando hace 3 meses.</p>
+          </div>
+        </div>
+        <!-- Behavioral Insight -->
+        <div
+          class="group bg-surface-container-lowest rounded-xl p-5 flex gap-4 items-start transition-all duration-300 hover:bg-surface-container-low cursor-pointer mb-4"
+          data-route="status">
+          <div
+            class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shadow-[0_0_20px_rgba(162,249,204,0.4)]">
+            <span class="material-symbols-outlined text-primary" data-icon="lightbulb">lightbulb</span>
+          </div>
+          <div class="flex-1">
+            <div class="flex justify-between items-start mb-1">
+              <h3 class="font-headline font-bold text-on-surface text-base">Insight de Comportamiento</h3>
+              <span class="text-[11px] text-on-surface-variant font-medium">Ayer</span>
+            </div>
+            <p class="text-on-surface-variant text-sm leading-relaxed">Pillamos un patrón en tu rutina. Tu productividad
+              se dispara cuando arrancas 15 minutos antes.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Earlier Section -->
+      <div class="pt-6">
+        <span
+          class="font-label text-[10px] uppercase tracking-[0.1em] font-bold text-outline-variant mb-4 block">Anteriormente</span>
+        <!-- Milestone achievement -->
+        <div
+          class="group bg-surface-container-lowest rounded-xl p-5 flex gap-4 items-start transition-all duration-300 hover:bg-surface-container-low cursor-pointer mb-4"
+          data-route="status">
+          <div
+            class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shadow-[0_0_20px_rgba(162,249,204,0.4)]">
+            <span class="material-symbols-outlined text-primary" data-icon="workspace_premium"
+              style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+          </div>
+          <div class="flex-1">
+            <div class="flex justify-between items-start mb-1">
+              <h3 class="font-headline font-bold text-on-surface text-base">¡Logro Desbloqueado!</h3>
+              <span class="text-[11px] text-on-surface-variant font-medium">Hace 3 días</span>
+            </div>
+            <p class="text-on-surface-variant text-sm leading-relaxed">¡Qué constancia! Completaste 30 días seguidos de
+              laboratorios. ¡Coreon está súper orgulloso!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Empty State (Hidden by default, but structured for implementation) -->
+    <div class="hidden flex-col items-center justify-center py-24 text-center">
+      <div class="relative mb-8">
+        <div class="w-32 h-32 bg-primary-container rounded-full absolute -z-10 blur-3xl opacity-30 animate-pulse"></div>
+        <img alt="Coreon Peaceful" class="w-24 h-24"
+          data-alt="minimalist kawaii mascot character sitting in a zen pose, soft pastel green y warm white colors, ethereal digital sanctuary feel"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMAPri2lmGDsaIS6g5hfMIO_FnJsDXBnii_vNI1khRW33NyUrqRrgvAcheYamyP1q2BQ0YPWoM5v8JhFhsiLmZDCZIagzl5BSp7SSnVwaUt9yf6OEjDPfOJIq6N0DEEJG-nqaH2n9qSnQeeJ7Q_C57MRIeMtpcZa54m_S0BTTeAsnWzmfNH-Z29nuO7C1fsS2ijXWVvtGj0oj2k2RsjlazvAGKiA_h8mhsfK6OO7-Ryg6uyL3aay6KtnHJGmUEtKlJuwi-6LzzdrD-" />
+      </div>
+      <h3 class="font-headline text-2xl font-bold text-on-surface mb-2">Todo está relax</h3>
+      <p class="text-on-surface-variant max-w-xs mx-auto text-sm leading-relaxed">No hay novedades por ahora. Tómate
+        este momento para reflexionar o iniciar un lab nuevo.</p>
+    </div>
+  </main>
+  <!-- BottomNavBar -->
+  <nav
+    class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#FFFFFD]/80 dark:bg-stone-950/80 backdrop-blur-xl shadow-[0_-12px_32px_rgba(45,47,46,0.06)] rounded-t-[1.5rem]">
+    <a class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 p-2 spring-basic transition-transform active:scale-90 hover:text-[#006947] dark:hover:text-[#A2F9CC]"
+      href="#">
+      <span class="material-symbols-outlined" data-icon="home">home</span>
+      <span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-[0.05em] font-semibold mt-1">Inicio</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 p-2 spring-basic transition-transform active:scale-90 hover:text-[#006947] dark:hover:text-[#A2F9CC]"
+      href="#">
+      <span class="material-symbols-outlined" data-icon="hourglass_top">hourglass_top</span>
+      <span
+        class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-[0.05em] font-semibold mt-1">Cápsulas</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 p-2 spring-basic transition-transform active:scale-90 hover:text-[#006947] dark:hover:text-[#A2F9CC]"
+      href="#">
+      <span class="material-symbols-outlined" data-icon="science">science</span>
+      <span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-[0.05em] font-semibold mt-1">Labs</span>
+    </a>
+    <!-- ACTIVE TAB: Progreso/Notificaciones -->
+    <a class="flex flex-col items-center justify-center bg-[#A2F9CC] dark:bg-[#006947] text-[#006947] dark:text-[#A2F9CC] rounded-full p-2 min-w-[64px] transition-all duration-300 spring-basic transition-transform active:scale-90"
+      href="#">
+      <span class="material-symbols-outlined" data-icon="query_stats"
+        style="font-variation-settings: 'FILL' 1;">query_stats</span>
+      <span
+        class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-[0.05em] font-semibold mt-1">Progreso</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 p-2 spring-basic transition-transform active:scale-90 hover:text-[#006947] dark:hover:text-[#A2F9CC]"
+      href="#">
+      <span class="material-symbols-outlined" data-icon="person">person</span>
+      <span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-[0.05em] font-semibold mt-1">Perfil</span>
+    </a>
+  </nav>
+</body>
+
+</html>
