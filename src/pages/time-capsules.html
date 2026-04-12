@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Time Capsules | Lifetime Labs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#006947",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#f6f3e0",
+                    "on-tertiary-fixed": "#504437",
+                    "inverse-surface": "#0c0f0e",
+                    "surface": "#f6f6f5",
+                    "secondary-container": "#e5e3d0",
+                    "outline-variant": "#acadac",
+                    "tertiary-fixed": "#fdebd8",
+                    "secondary-fixed": "#e5e3d0",
+                    "on-surface-variant": "#5a5c5b",
+                    "on-primary-fixed-variant": "#006b48",
+                    "background": "#f6f6f5",
+                    "on-error": "#ffefee",
+                    "primary-fixed": "#a0f7ca",
+                    "on-primary": "#c9ffe0",
+                    "inverse-on-surface": "#9c9d9c",
+                    "tertiary-dim": "#594e40",
+                    "on-tertiary": "#fff0e2",
+                    "tertiary-fixed-dim": "#eeddcb",
+                    "outline": "#767776",
+                    "on-primary-fixed": "#004b31",
+                    "primary-container": "#a0f7ca",
+                    "surface-bright": "#f6f6f5",
+                    "on-surface": "#2d2f2e",
+                    "on-background": "#2d2f2e",
+                    "surface-dim": "#d3d5d3",
+                    "inverse-primary": "#a0f7ca",
+                    "primary-dim": "#005c3d",
+                    "on-tertiary-fixed-variant": "#6d6152",
+                    "secondary": "#5d5c4d",
+                    "surface-container-low": "#f0f1ef",
+                    "error": "#b31b25",
+                    "secondary-fixed-dim": "#d7d5c2",
+                    "on-secondary-fixed": "#404032",
+                    "surface-container-highest": "#dbdddb",
+                    "on-tertiary-container": "#625648",
+                    "primary-fixed-dim": "#92e9bd",
+                    "on-secondary-container": "#535244",
+                    "tertiary-container": "#fdebd8",
+                    "surface-container-high": "#e1e3e1",
+                    "on-secondary-fixed-variant": "#5d5c4d",
+                    "secondary-dim": "#515042",
+                    "on-error-container": "#570008",
+                    "error-dim": "#9f0519",
+                    "on-primary-container": "#006040",
+                    "primary": "#006947",
+                    "surface-variant": "#dbdddb",
+                    "error-container": "#fb5151",
+                    "tertiary": "#665a4b",
+                    "surface-container": "#e7e8e6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        body {
+            background-color: #FFFFFD;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #2d2f2e;
+        }
+        .ikigai-circle {
+            mix-blend-mode: multiply;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased selection:bg-primary-container">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-[#FFFFFD] dark:bg-stone-950 flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-800 dark:text-emerald-400" data-icon="bubble_chart">bubble_chart</span>
+<span class="text-xl font-bold text-emerald-900 dark:text-emerald-100 font-manrope tracking-tighter">Lifetime Labs</span>
+</div>
+<div class="flex items-center">
+<img alt="Coreon mascot profile" class="w-10 h-10 rounded-full border-2 border-surface-container-low" data-alt="Minimalist soft-focus portrait of a friendly face with warm studio lighting and neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2Vu2WjsZTNMdbbHlsg0xrmmUtEwI032L4AU5o0xpeWZCZnshVBfnpdE4aC7KYkfKCnF2GtLBp7gEmfDZXShvns-jRmH-9p7nVIoIJsB5864h9nVSG4hgb9sVFGzstL7r33fjd_Ra6i9UTLVPe5PwW5IRi-LMgavzE5wa7q7cUr-PGi7UoCk3PUnxVe4g9MUAHQRY767FsD48bWSiQd4M9DDojf-p77RTs09Z7gwnABD1RoLTSERV4AUMdgff5FpyUwC-BKZlk4dIF"/>
+</div>
+</header>
+<main class="max-w-md mx-auto px-6 pt-8 pb-32">
+<!-- Header -->
+<div class="mb-8">
+<h1 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface">Time Capsules</h1>
+<p class="text-on-surface-variant font-body mt-2 leading-relaxed">Daily wisdom for your journey.</p>
+</div>
+<!-- Carousel Container -->
+<div class="relative flex items-center justify-center overflow-visible">
+<!-- Left Preview (Hidden slightly) -->
+<div class="absolute -left-12 opacity-40 scale-90 translate-z-0 pointer-events-none">
+<div class="w-16 h-[500px] bg-secondary-container rounded-xl shadow-sm"></div>
+</div>
+<!-- Main Story Card -->
+<div class="relative z-10 w-full bg-secondary-container rounded-xl overflow-hidden shadow-[0_12px_32px_rgba(45,47,46,0.06)] flex flex-col h-[520px]">
+<!-- Progress Bars -->
+<div class="flex gap-1.5 px-4 pt-4">
+<div class="h-1 flex-1 bg-on-secondary-container/40 rounded-full"></div>
+<div class="h-1 flex-1 bg-on-secondary-container rounded-full"></div>
+<div class="h-1 flex-1 bg-on-secondary-container/20 rounded-full"></div>
+<div class="h-1 flex-1 bg-on-secondary-container/20 rounded-full"></div>
+<div class="h-1 flex-1 bg-on-secondary-container/20 rounded-full"></div>
+</div>
+<!-- Card Content -->
+<div class="flex-1 flex flex-col p-8 items-center text-center">
+<!-- Ikigai Illustration (Minimalist overlapping circles) -->
+<div class="relative w-48 h-48 mb-10 flex items-center justify-center">
+<div class="absolute w-24 h-24 rounded-full border border-primary/20 bg-primary/5 ikigai-circle -translate-x-6 -translate-y-6"></div>
+<div class="absolute w-24 h-24 rounded-full border border-secondary/20 bg-secondary/5 ikigai-circle translate-x-6 -translate-y-6"></div>
+<div class="absolute w-24 h-24 rounded-full border border-tertiary/20 bg-tertiary/5 ikigai-circle -translate-x-6 translate-y-6"></div>
+<div class="absolute w-24 h-24 rounded-full border border-primary-dim/20 bg-primary-dim/5 ikigai-circle translate-x-6 translate-y-6"></div>
+<div class="z-10 text-[10px] uppercase font-bold tracking-widest text-on-surface-variant/60">Ikigai</div>
+</div>
+<h2 class="font-headline text-2xl font-bold mb-4 text-on-secondary-fixed">Ikigai: Finding Your Purpose</h2>
+<p class="font-body text-sm leading-relaxed text-on-secondary-container px-2">
+                        Your reason for being. The intersection of what you love, what you're good at, what the world needs, and what you can be paid for.
+                    </p>
+<!-- Coreon Interaction Area -->
+<div class="mt-auto pt-6 flex flex-col items-center w-full">
+<div class="relative bg-surface-container-lowest/80 backdrop-blur-xl px-4 py-2 rounded-xl mb-4 text-xs font-medium text-secondary shadow-sm">
+                            Reflect on this balance today.
+                            <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-surface-container-lowest/80 rotate-45"></div>
+</div>
+<div class="flex items-center gap-3 w-full justify-between">
+<div class="w-10 h-10 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-secondary" data-icon="face">face</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full flex items-center gap-2 font-semibold text-xs transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-lg" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                                Save Capsule
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Preview -->
+<div class="absolute -right-12 opacity-40 scale-90 translate-z-0 pointer-events-none">
+<div class="w-16 h-[500px] bg-surface-container-high rounded-xl shadow-sm flex flex-col p-4 justify-center">
+<div class="w-8 h-8 rounded-full bg-outline-variant/30 mb-2"></div>
+<div class="h-2 w-full bg-outline-variant/30 rounded"></div>
+</div>
+</div>
+</div>
+<!-- Upcoming Titles -->
+<div class="mt-8 flex justify-center gap-4">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-outline">Multiple Intelligences</span>
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-outline/40">Existentialism</span>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2 bg-[#FFFFFD]/80 dark:bg-stone-950/80 backdrop-blur-xl z-50 rounded-t-[2rem] shadow-[0_-12px_32px_rgba(45,47,46,0.06)]">
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 p-2 hover:text-emerald-600 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-plus-jakarta text-[10px] uppercase tracking-widest font-semibold mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#A2F9CC] dark:bg-emerald-900 text-emerald-900 dark:text-emerald-100 rounded-full w-14 h-14 -mt-4 shadow-lg transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+<span class="font-plus-jakarta text-[10px] uppercase tracking-widest font-semibold">Lab</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 p-2 hover:text-emerald-600 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="face">face</span>
+<span class="font-plus-jakarta text-[10px] uppercase tracking-widest font-semibold mt-1">Coreon</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 p-2 hover:text-emerald-600 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-plus-jakarta text-[10px] uppercase tracking-widest font-semibold mt-1">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 p-2 hover:text-emerald-600 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-plus-jakarta text-[10px] uppercase tracking-widest font-semibold mt-1">Profile</span>
+</a>
+</nav>
+</body></html>
