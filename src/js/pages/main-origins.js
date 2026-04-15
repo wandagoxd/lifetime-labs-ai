@@ -88,7 +88,7 @@ async function finishTest(container) {
 
     try {
         if (currentUser) {
-            await saveOriginsResults(currentUser.uid, userResponses);
+            await saveOriginsResults(currentUser.uid, userResponses, currentUser.email);
         } else {
             console.warn("Usuario no inició sesión. No se enviarán datos.");
         }

@@ -2,15 +2,18 @@ import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-
 import { db } from "./auth.js";
 
 // Guarda las respuestas del Test de Orígenes en Firestore
-export const saveOriginsResults = async (userId, userResponses) => {
+export const saveOriginsResults = async (userId, userResponses, currentUserEmail) => {
     try {
-        const testRef = doc(db, "users", userId, "tests", "origins");
+        const userRef = doc(db, "users", userId);
         const payload = {
-            responses: userResponses,
-            completedAt: new Date(),
-            status: "completed"
+            email: currentUserEmail || "no-email", // Fail-safe
+            originsTest: {
+                responses: userResponses,
+                completedAt: new Date(),
+                status: "completed"
+            }
         };
-        await setDoc(testRef, payload, { merge: true });
+        await setDoc(userRef, payload, { merge: true });
         console.log("Resultados guardados exitosamente.");
         return true;
     } catch (err) {

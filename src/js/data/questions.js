@@ -7,7 +7,7 @@ export const contextQuestions = [
             { text: "Estudio en colegio primaria", value: "estudio-primaria" },
             { text: "Estudio en colegio secundaria", value: "estudio-secundaria" },
             { text: "Estudio en colegio bachillerato: 10° - 11°", value: "estudio-bachillerato" },
-            { text: "Etudio en Universidad o Educación Superior", value: "estudio-universidad" },
+            { text: "Estudio en Universidad o Educación Superior", value: "estudio-universidad" },
             { text: "Trabajo con horario definido", value: "empleo" },
             { text: "Trabajo independiente o emprendimiento", value: "independiente" },
             { text: "Sin actividad principal estable", value: "sin_estructura" }
@@ -80,3 +80,16 @@ export const contextQuestions = [
         ]
     }
 ];
+
+export const baseQuestion = [
+    {
+        id: "inversion_riesgo",
+        title: "Riesgo-Seguridad",
+        question: "Tienes $1,000. ¿Los inviertes en una rifa con 10% de probabilidad de ganar un millón, o los guardas para comprar comida segura por un mes? Justifica.",
+        options: [
+            { text: "Tengo objetivos definidos", value: "claro" },
+            { text: "Tengo ideas generales", value: "parcial" },
+            { text: "No tengo claridad aún", value: "difuso" }
+        ]
+    }
+]

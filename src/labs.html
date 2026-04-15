@@ -108,10 +108,12 @@
   <style>
     body {
       min-height: max(884px, 100dvh);
+      padding-top: 5rem;
+      /* Esto baja todo el contenido 80px */
+      background-color: #f8faf9;
     }
   </style>
   <link href="/css/styles.css" rel="stylesheet" />
-  <script defer="" src="/js/script.js"></script>
 </head>
 
 <body class="bg-background font-body text-on-surface min-h-screen flex flex-col" data-active-nav="labs" data-page="labs"
@@ -131,93 +133,29 @@
         class="p-2 rounded-full bg-surface-container-low text-secondary material-symbols-outlined">notifications</button>
     </div>
   </header>
-  <main class="flex-1 mt-16 mb-24 px-6 pt-8 max-w-2xl mx-auto w-full flex flex-col gap-8">
-    <!-- Progress Indicator -->
-    <div class="flex flex-col gap-2">
-      <div class="flex justify-between items-end">
-        <span class="font-label text-[10px] tracking-[0.05em] uppercase text-secondary">Fase de Descubrimiento</span>
-        <span class="font-label text-[10px] tracking-[0.05em] uppercase text-primary font-bold">4 de 12</span>
-      </div>
-      <div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
-        <div class="h-full bg-primary w-[33%] rounded-full transition-all duration-500"></div>
-      </div>
-    </div>
-    <!-- Mascot Guidance (Coreon Bubble) -->
-    <div class="relative flex items-end gap-4 mt-4">
+  <main class="max-w-3xl mx-auto space-y-16">
+
+    <section id="system-monitor"
+      class="bg-primary/5 border-2 border-primary/10 rounded-[2rem] p-6 flex items-center gap-6 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-5"
+        style="background-image: radial-gradient(#006947 1px, transparent 1px); background-size: 20px 20px;"></div>
+
       <div
-        class="w-24 h-24 flex-shrink-0 bg-surface-container rounded-full overflow-hidden border-2 border-primary-container">
-        <img alt="Coreon Mascot" class="w-full h-full object-contain p-2"
-          data-alt="Minimalist mascot named Coreon with simple dot eyes y a small mouth, stying in a calm, supportive pose with soft lighting"
-          src="/assets/Coreon.svg" />
+        class="relative w-20 h-20 bg-white rounded-2xl shadow-inner flex items-center justify-center shrink-0 border-2 border-primary-container">
+        <img src="assets/Coreon.svg" class="w-12 h-12" alt="System Core">
       </div>
-      <div
-        class="glass-bubble p-5 rounded-xl rounded-bl-none shadow-[0_12px_32px_rgba(45,47,46,0.06)] border border-white/20">
-        <p class="text-on-surface font-medium leading-relaxed">
-          "Cuando enfrentas un reto bravo, ¿te motiva más la <span class="text-primary font-bold">estructura</span> de
-          la solución o el <span class="text-primary font-bold">impacto</span> que genera?"
-        </p>
-      </div>
-    </div>
-    <!-- Question Flow Canvas -->
-    <section class="flex flex-col gap-4 mt-4">
-      <h1 class="font-headline text-2xl font-bold tracking-tight text-on-surface">Tu Fuente de Energía</h1>
-      <div class="grid grid-cols-1 gap-4">
-        <!-- Choice 1: Selected State -->
-        <button
-          class="w-full text-left p-6 rounded-xl bg-surface-container-lowest border-2 border-primary-container bioluminescent-glow transition-all flex items-center justify-between group">
-          <div class="flex flex-col gap-1">
-            <span class="font-bold text-on-surface text-lg">Precisión Arquitectónica</span>
-            <span class="text-sm text-secondary">Transformar el caos en sistemas lógicos y elegantes.</span>
-          </div>
-          <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
-            <span class="material-symbols-outlined text-white text-sm"
-              style="font-variation-settings: 'FILL' 1;">check</span>
-          </div>
-        </button>
-        <!-- Choice 2: Default State -->
-        <button
-          class="w-full text-left p-6 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex items-center justify-between group border-2 border-transparent">
-          <div class="flex flex-col gap-1">
-            <span class="font-bold text-on-surface text-lg">Resonancia Humana</span>
-            <span class="text-sm text-secondary">Ver el cambio directo en el día a día de alguien.</span>
-          </div>
-          <div
-            class="w-6 h-6 rounded-full border-2 border-outline-variant group-hover:border-primary transition-colors">
-          </div>
-        </button>
-        <!-- Choice 3: Default State -->
-        <button
-          class="w-full text-left p-6 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex items-center justify-between group border-2 border-transparent">
-          <div class="flex flex-col gap-1">
-            <span class="font-bold text-on-surface text-lg">Síntesis de Conocimiento</span>
-            <span class="text-sm text-secondary">Descubrir verdades que antes estaban ocultas.</span>
-          </div>
-          <div
-            class="w-6 h-6 rounded-full border-2 border-outline-variant group-hover:border-primary transition-colors">
-          </div>
-        </button>
+
+      <div class="space-y-1">
+        <span class="text-[10px] font-black text-primary uppercase tracking-[0.3em]">System Status: Analyzing</span>
+        <div id="coreon-feedback" class="text-primary-dim font-bold text-lg leading-tight">
+          Esperando ingreso de datos para calibración de perfil...
+        </div>
       </div>
     </section>
-    <!-- Secondary Prompt -->
-    <div class="bg-secondary-container/30 rounded-xl p-4 flex items-start gap-3 mt-4">
-      <span class="material-symbols-outlined text-secondary mt-0.5">lightbulb</span>
-      <p class="text-xs text-on-secondary-container leading-relaxed">
-        Muchos de nuestros usuarios top en <span class="font-bold">Estrategia Creativa</span> comparten este gusto por
-        organizar el caos.
-      </p>
-    </div>
-    <!-- Action Footer (Floating above Bottom Nav) -->
-    <div class="mt-auto pt-8 pb-4 flex justify-between items-center">
-      <button class="text-secondary font-semibold px-4 py-2 hover:opacity-70 transition-opacity"
-        onclick="window.location.href='{{DATA:SCREEN:SCREEN_37}}'">
-        Saltar
-      </button>
-      <button
-        class="bg-gradient-to-br from-[#006947] to-[#005c3d] text-white font-bold py-3 px-10 rounded-full shadow-lg shadow-[#006947]/20 active:scale-95 transition-transform"
-        onclick="window.location.href='{{DATA:SCREEN:SCREEN_37}}'">
-        Continuar
-      </button>
-    </div>
+
+    <section id="app-container" class="relative min-h-[400px]">
+    </section>
+
   </main>
 
   <nav
@@ -226,7 +164,7 @@
       class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary">
       <span class="material-symbols-outlined text-2xl">home</span>
     </button>
-    <button onclick="location.href='career-bank'"
+    <button onclick="location.href='career-bank.html'"
       class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary">
       <span class="material-symbols-outlined text-2xl">auto_stories</span>
     </button>
@@ -244,7 +182,7 @@
       <span class="material-symbols-outlined text-2xl">info</span>
     </button>
   </nav>
-
+  <script type="module" src="js/pages/main-labs.js"></script>
 </body>
 
 </html>
