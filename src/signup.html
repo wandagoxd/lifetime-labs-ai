@@ -78,22 +78,25 @@
         <p class="text-on-surface-variant text-sm">Comienza tu viaje basado en evidencia.</p>
       </div>
 
-      <form class="space-y-4" action="index.html">
+      <!-- Mensaje de error -->
+      <div id="error-msg" style="display: none; background: #fef2f2; border: 1px solid #fecaca; color: #dc2626; border-radius: 1rem; padding: 0.75rem 1rem; font-size: 0.8rem; font-weight: 600; text-align: center;"></div>
+
+      <form class="space-y-4" id="signup-form">
         <div class="space-y-2">
           <label class="text-[10px] font-bold uppercase tracking-widest text-secondary px-1 ml-1">Email</label>
-          <input type="email" placeholder="explorador@lifetimelabs.io"
+          <input id="input-email" type="email" placeholder="explorador@lifetimelabs.io"
             class="w-full px-6 py-4 bg-surface-container-low border-none rounded-2xl focus:ring-2 focus:ring-primary-container text-sm" />
         </div>
 
         <div class="space-y-2">
           <label class="text-[10px] font-bold uppercase tracking-widest text-secondary px-1 ml-1">Contraseña</label>
-          <input type="password" placeholder="••••••••"
+          <input id="input-password" type="password" placeholder="••••••••"
             class="w-full px-6 py-4 bg-surface-container-low border-none rounded-2xl focus:ring-2 focus:ring-primary-container text-sm" />
         </div>
 
-        <button type="submit"
+        <button type="submit" id="btn-signup"
           class="w-full bg-primary text-primary-container font-headline font-extrabold py-5 rounded-full bioluminescent-glow transition-all active:scale-[0.98] text-lg flex items-center justify-center gap-2 mt-6">
-          Crear Cuenta
+          <span class="btn-label">Crear Cuenta</span>
           <span class="material-symbols-outlined">arrow_forward</span>
         </button>
       </form>
@@ -113,6 +116,7 @@
     </p>
   </footer>
 
+  <script type="module" src="ui/signup.js"></script>
 </body>
 
 </html>
