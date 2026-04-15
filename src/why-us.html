@@ -125,14 +125,10 @@
   <header
     class="fixed top-0 w-full z-50 bg-[#FFFFFD] dark:bg-stone-950 flex justify-between items-center px-6 h-16 w-full">
     <div class="flex items-center gap-2">
-      <img src="../assets/website-icon-standing-up.png" class="w-6 h-6 object-contain" alt="Lifetime Labs Logo" />
-      <span class="text-xl font-bold text-[#006947] dark:text-[#A2F9CC] font-manrope tracking-tight">Lifetime
-        Labs</span>
+      <img src="assets/website-icon-standing-up.png" class="w-6 h-6 object-contain" alt="Lifetime Labs Logo" />
+      <h1 class="font-headline font-extrabold text-lg text-primary">¿Por qué nosotros?</h1>
+
     </div>
-    <button class="text-[#5D5C4D] dark:text-stone-400 hover:opacity-80 transition-opacity active:scale-95 duration-200"
-      data-global-menu-toggle="true">
-      <span class="material-symbols-outlined">menu</span>
-    </button>
   </header>
   <main class="pt-16 pb-24">
     <!-- Hero Section -->
@@ -140,7 +136,7 @@
       <div class="relative w-full aspect-square max-w-[320px] mb-8">
         <img alt="Coreon mascot" class="w-full h-full object-contain"
           data-alt="Minimalist mascot illustration of Coreon, a friendly circular creature with dot eyes, floating in a clean white sanctuary space"
-          src="/assets/Coreon.svg" />
+          src="assets/Coreon.svg" />
         <!-- Intentional Asymmetry: Floating elements -->
         <div
           class="absolute -top-4 -right-4 bg-primary-container p-3 rounded-xl shadow-[0_12px_32px_rgba(45,47,46,0.06)] animate-pulse">
@@ -285,63 +281,27 @@
         </div>
       </div>
     </section>
-    <!-- Final CTA Section -->
-    <section class="px-6 py-20 text-center">
-      <div class="mb-10">
-        <img alt="Finding North Star" class="w-24 h-24 mx-auto mb-6 opacity-80"
-          data-alt="Stylized glowing compass needle pointing towards a soft bioluminescent green light in a dark ethereal atmosphere"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ8dsotTds6ntAedk1qM3KFzxawVchkBh50UGWtBzMqg5lGTxutdkFhwSp3wLgzrojI6kXrlcAtS4FJS5Mb4AZJUc8aPnWuAjFcl4W0T27hC_KdJAM37f4yh140VJL05kQKi0uA9pL83fRvgDwLMKo-UABfIh3NBe0S5WU9yc39Nm4Em2-JD4DCdbFFf75-pUThSguL8JWMTm9qEWu6v95zPRWYVf-0oMF6G-sYNd0OiWRlfDX23vbQ0sHJq0Y9wsxJnhFQe9bkRz5" />
-        <h2 class="font-headline text-3xl font-bold mb-4">¿Listo para encontrar tu rumbo bacano?</h2>
-        <p class="text-secondary max-w-xs mx-auto mb-10">Únete a la lista de espera para el grupo selecto de Beta
-          testers en Colombia.</p>
-      </div>
-      <form class="space-y-4" data-submit-route="signup">
-        <input
-          class="w-full px-6 py-4 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-on-surface placeholder:text-outline transition-all"
-          placeholder="Ingresa tu correo" type="email" />
-        <button
-          class="w-full py-4 rounded-full hero-gradient text-surface-container-lowest font-bold text-lg shadow-lg active:scale-95 transition-all"
-          type="submit">
-          Solicitar Acceso VIP
-        </button>
-      </form>
-      <p class="mt-6 text-xs text-outline font-medium uppercase tracking-widest">Únete a los Primeros Pioneros</p>
-    </section>
-  </main>
-  <!-- BottomNavBar (Shared Component) -->
-  <nav
-    class="fixed bottom-0 w-full z-50 rounded-t-[1.5rem] bg-[#FFFFFD]/80 dark:bg-stone-950/80 backdrop-blur-xl border-t border-[#DBDDDB]/30 dark:border-stone-800 shadow-[0_-12px_32px_rgba(45,47,46,0.06)] flex justify-around items-center w-full px-2 pb-safe h-20">
-    <!-- Inicio (Inactive) -->
-    <div
-      class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 px-4 py-1 hover:bg-[#F0F1EF] dark:hover:bg-stone-800 transition-colors active:scale-90 duration-300 ease-out">
-      <span class="material-symbols-outlined" data-icon="home">home</span>
-      <span class="font-plus-jakarta text-[10px] uppercase tracking-[0.05em] font-bold">Inicio</span>
-    </div>
-    <!-- Cápsulas (Active - Using logic based on 'Why Us' / Progreso intent) -->
-    <div
-      class="flex flex-col items-center justify-center bg-[#A2F9CC] dark:bg-[#006947] text-[#006947] dark:text-[#A2F9CC] rounded-full px-4 py-1 active:scale-90 transition-all duration-300 ease-out">
-      <span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
-      <span class="font-plus-jakarta text-[10px] uppercase tracking-[0.05em] font-bold">Cápsulas</span>
-    </div>
-    <!-- Labs (Inactive) -->
-    <div
-      class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 px-4 py-1 hover:bg-[#F0F1EF] dark:hover:bg-stone-800 transition-colors active:scale-90 duration-300 ease-out">
-      <span class="material-symbols-outlined" data-icon="biotech">biotech</span>
-      <span class="font-plus-jakarta text-[10px] uppercase tracking-[0.05em] font-bold">Labs</span>
-    </div>
-    <!-- Progreso (Inactive) -->
-    <div
-      class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 px-4 py-1 hover:bg-[#F0F1EF] dark:hover:bg-stone-800 transition-colors active:scale-90 duration-300 ease-out">
-      <span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
-      <span class="font-plus-jakarta text-[10px] uppercase tracking-[0.05em] font-bold">Progreso</span>
-    </div>
-    <!-- Perfil (Inactive) -->
-    <div
-      class="flex flex-col items-center justify-center text-[#5D5C4D] dark:text-stone-400 px-4 py-1 hover:bg-[#F0F1EF] dark:hover:bg-stone-800 transition-colors active:scale-90 duration-300 ease-out">
-      <span class="material-symbols-outlined" data-icon="person">person</span>
-      <span class="font-plus-jakarta text-[10px] uppercase tracking-[0.05em] font-bold">Perfil</span>
-    </div>
-  </nav>
+    <nav
+      class="text-[#acadac] fixed bottom-0 left-0 w-full h-24 bg-white/90 backdrop-blur-xl border-t border-gray-100 flex justify-around items-center px-6 z-50">
+      <button onclick="location.href='index.html'" <span class="material-symbols-outlined text-2xl">home</span>
+      </button>
+      <button onclick="location.href='career-bank.html'"
+        class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-2xl">auto_stories</span>
+      </button>
+      <button onclick="location.href='labs.html'"
+        class="bg-[#006947] bioluminescent-glow text-white w-16 h-16 rounded-full -mt-12 border-[6px] border-[#f8faf9] flex items-center justify-center shadow-2xl transition-transform active:scale-90">
+        <span class="material-symbols-outlined text-white text-3xl">science</span>
+      </button>
+      <button onclick="location.href='profile.html'"
+        class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-2xl">person</span>
+      </button>
+      <button onclick="location.href='why-us.html'"
+        class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary transition-colors">
+        <span class=" text-primary w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm transition-all">
+          <span class="material-symbols-outlined text-2xl"
+            style="font-variation-settings: 'FILL' 1, 'wght' 700;">info</span>
+      </button>
+    </nav>
 </body>
-
-</html>

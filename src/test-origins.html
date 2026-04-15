@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Lifetime Labs | Inicio</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1"
+        rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#006947",
+                        "primary-container": "#a0f7ca",
+                        "on-surface": "#2d2f2e",
+                        "on-surface-variant": "#5a5c5b",
+                        "surface-container-low": "#f0f1ef"
+                    },
+                    fontFamily: { "headline": ["Manrope"], "body": ["Plus Jakarta Sans"] }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .bioluminescent-glow {
+            background: linear-gradient(145deg, #006947 0%, #005c3d 100%);
+            box-shadow: 0 4px 20px -5px rgba(0, 105, 71, 0.4);
+        }
+
+        body {
+            background-color: #FFFFFD;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<body class="font-body text-on-surface antialiased pt-24 pb-32 px-6">
+
+    <header
+        class="fixed top-0 left-0 w-full h-16 z-50 bg-[#FFFFFD]/80 backdrop-blur-md flex justify-between items-center px-6 border-b border-gray-100">
+        <div class="flex items-center gap-2">
+            <img src="assets/website-icon-standing-up.png" class="w-6 h-6" alt="Logo" />
+            <h1 class="font-headline font-extrabold text-xl text-primary">Hogar</h1>
+        </div>
+        <div class="flex gap-3">
+            <button onclick=""
+                class="p-2 rounded-full bg-surface-container-low text-secondary material-symbols-outlined">settings</button>
+            <button onclick=""
+                class="p-2 rounded-full bg-surface-container-low text-secondary material-symbols-outlined">notifications</button>
+        </div>
+    </header>
+
+
+
+    <nav
+        class="fixed bottom-0 left-0 w-full h-20 bg-white/90 backdrop-blur-xl border-t flex justify-around items-center px-4 z-50">
+        <button onclick="location.href='index.html'"
+            class="material-symbols-outlined text-gray-400 text-2xl">home</button>
+        <button onclick="location.href='career-bank.html'"
+            class="material-symbols-outlined text-gray-400 text-2xl">auto_stories</button>
+        <button onclick="location.href='labs.html'"
+            class="bg-primary text-white w-14 h-14 rounded-full -mt-10 border-4 border-[#f6f6f5] material-symbols-outlined shadow-lg text-2xl">science</button>
+        <button onclick="location.href='profile.html'"
+            class="material-symbols-outlined text-gray-400 text-2xl">person</button>
+        <button onclick="location.href='why-us.html'"
+            class="material-symbols-outlined text-gray-400 text-2xl">info</button>
+    </nav>
+
+</body>
+
+</html>

@@ -1,309 +1,189 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en">
+<html class="light" lang="es">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Perfil - Lifetime Labs</title>
-    <link rel="icon" type="image/png" href="/assets/website%20icon.png" />
+    <title>Perfil y Armario | Lifetime Labs</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Plus+Jakarta+Sans:wght@400;600&display=swap"
         rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1"
         rel="stylesheet" />
-    <script id="tailwind-config">
+
+    <script>
         tailwind.config = {
-            darkMode: "class",
             theme: {
                 extend: {
-                    "colors": {
-                        "error-dim": "#9f0519",
-                        "primary-fixed": "#a0f7ca",
-                        "surface-container-low": "#f0f1ef",
-                        "tertiary": "#665a4b",
-                        "error": "#b31b25",
-                        "secondary-fixed": "#e5e3d0",
-                        "surface": "#f6f6f5",
-                        "on-error-container": "#570008",
-                        "surface-bright": "#f6f6f5",
-                        "tertiary-container": "#fdebd8",
-                        "on-secondary-fixed-variant": "#5d5c4d",
-                        "surface-container": "#e7e8e6",
-                        "on-primary-fixed-variant": "#006b48",
-                        "outline-variant": "#acadac",
-                        "on-surface": "#2d2f2e",
-                        "background": "#f6f6f5",
-                        "inverse-surface": "#0c0f0e",
-                        "on-tertiary-fixed": "#504437",
-                        "on-secondary": "#f6f3e0",
-                        "primary-fixed-dim": "#92e9bd",
-                        "surface-variant": "#dbdddb",
-                        "on-primary-fixed": "#004b31",
-                        "tertiary-fixed-dim": "#eeddcb",
-                        "surface-tint": "#006947",
-                        "on-primary": "#c9ffe0",
-                        "on-secondary-fixed": "#404032",
-                        "secondary": "#5d5c4d",
-                        "inverse-primary": "#a0f7ca",
-                        "outline": "#767776",
-                        "error-container": "#fb5151",
-                        "surface-container-highest": "#dbdddb",
-                        "surface-container-high": "#e1e3e1",
-                        "tertiary-dim": "#594e40",
-                        "on-background": "#2d2f2e",
+                    colors: {
                         "primary": "#006947",
-                        "inverse-on-surface": "#9c9d9c",
-                        "on-primary-container": "#006040",
-                        "on-tertiary": "#fff0e2",
                         "primary-dim": "#005c3d",
-                        "secondary-dim": "#515042",
-                        "on-tertiary-container": "#625648",
-                        "tertiary-fixed": "#fdebd8",
-                        "on-tertiary-fixed-variant": "#6d6152",
-                        "secondary-container": "#e5e3d0",
-                        "on-surface-variant": "#5a5c5b",
-                        "surface-container-lowest": "#ffffff",
-                        "on-error": "#ffefee",
                         "primary-container": "#a0f7ca",
-                        "on-secondary-container": "#535244",
-                        "secondary-fixed-dim": "#d7d5c2",
-                        "surface-dim": "#d3d5d3"
+                        "cluster-cientifico": "#007BFF",
+                        "cluster-tecnico": "#FF851B",
+                        "cluster-creativo": "#6F42C1",
+                        "cluster-social": "#E83E8C",
+                        "cluster-estrategico": "#FFC107",
+                        "surface": "#FFFFFD",
                     },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "1.5rem",
-                        "full": "9999px"
-                    },
-                    "fontFamily": {
-                        "headline": ["Manrope"],
-                        "body": ["Plus Jakarta Sans"],
-                        "label": ["Plus Jakarta Sans"]
-                    }
-                },
-            },
+                    fontFamily: { "headline": ["Manrope"], "body": ["Plus Jakarta Sans"] }
+                }
+            }
         }
     </script>
     <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #f6f6f5;
-            color: #2d2f2e;
-        }
-
-        .headline {
-            font-family: 'Manrope', sans-serif;
-        }
-
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
+        }
+
+        .active-tab {
+            font-variation-settings: 'FILL' 1 !important;
+            color: white !important;
+        }
+
+        body {
+            background-color: #f8faf9;
+        }
+
+        /* Gradiente Bioluminiscente dinámico */
+        .bioluminescent-glow {
+            background: linear-gradient(135deg, #006947 0%, #005c3d 100%);
+            box-shadow: 0 10px 25px -5px rgba(0, 105, 71, 0.4);
         }
 
         .coreon-glow {
-            filter: drop-shadow(0 0 15px rgba(162, 249, 204, 0.4));
+            filter: drop-shadow(0 0 20px rgba(160, 247, 202, 0.6));
+        }
+
+        /* Estilo de tarjetas coloridas */
+        .card-pop {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-pop:hover {
+            transform: translateY(-5px);
         }
     </style>
-    <style>
-        body {
-            min-height: max(884px, 100dvh);
-        }
-    </style>
-    <link href="/css/styles.css" rel="stylesheet" />
-    <script defer="" src="/js/script.js"></script>
 </head>
 
-<body class="bg-background min-h-screen pb-24" data-active-nav="profile" data-page="profile" data-root="../../"
-    data-shell="app">
-    <!-- TopAppBar -->
+<body class="font-body text-[#2d2f2e] antialiased pt-20 pb-36 px-6">
+
     <header
-        class="fixed top-0 w-full z-50 bg-[#FFFFFD] dark:bg-stone-950 flex justify-between items-center px-6 h-16 w-full">
+        class="fixed top-0 left-0 w-full h-16 z-50 bg-white/90 backdrop-blur-lg flex justify-between items-center px-6 border-b border-primary/10">
         <div class="flex items-center gap-2">
-            <img src="/assets/website-icon-standing-up.png" class="w-6 h-6 object-contain" alt="Lifetime Labs Logo" />
-            <span
-                class="text-xl font-extrabold text-[#006947] dark:text-[#A2F9CC] font-['Manrope'] tracking-tight">Lifetime
-                Labs</span>
+            <img src="assets/website-icon-standing-up.png" class="w-6 h-6" alt="Logo" />
+            <h1 class="font-headline font-extrabold text-lg text-primary">Laboratorio</h1>
         </div>
-        <div class="flex gap-4">
-            <a class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:opacity-80 transition-opacity active:scale-95 duration-200"
-                href="{{DATA:SCREEN:SCREEN_4}}">
-                <span class="material-symbols-outlined text-secondary">notifications</span>
-            </a>
-            <a class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:opacity-80 transition-opacity active:scale-95 duration-200"
-                href="{{DATA:SCREEN:SCREEN_26}}">
-                <span class="material-symbols-outlined text-secondary">settings</span>
-            </a>
+        <div class="flex gap-2">
+            <button
+                class="material-symbols-outlined text-secondary p-2 bg-gray-50 rounded-full hover:bg-primary-container/20 transition-colors">notifications</button>
+            <button
+                class="material-symbols-outlined text-secondary p-2 bg-gray-50 rounded-full hover:bg-primary-container/20 transition-colors">settings</button>
         </div>
     </header>
-    <!-- Main Content -->
-    <main class="pt-20 px-6 max-w-2xl mx-auto space-y-8">
-        <!-- Perfil Hero Section (Coreon) -->
-        <section class="relative flex flex-col items-center py-8">
-            <div class="relative w-40 h-40 mb-6">
-                <!-- Background radial glow -->
-                <div class="absolute inset-0 bg-primary-container/20 rounded-full blur-3xl"></div>
+
+    <main class="max-w-2xl mx-auto space-y-8">
+
+        <section class="text-center space-y-4 py-6">
+            <div class="relative w-48 h-48 mx-auto">
                 <div
-                    class="relative z-10 w-full h-full bg-surface-container-lowest rounded-full p-4 flex items-center justify-center shadow-[0_12px_32px_rgba(45,47,46,0.06)] border border-white/50">
-                    <img class="w-28 h-28 object-contain coreon-glow"
-                        data-alt="Minimalist mascot Coreon, a soft rounded creature with dot eyes y a gentle smile, sitting peacefully against a warm white background"
-                        src="/assets/Coreon.svg" />
+                    class="absolute inset-0 bg-primary-container/20 blur-3xl animate-pulse rounded-[0%_100%_100%_100%]">
                 </div>
-                <a class="absolute bottom-0 right-0 bg-primary hover:bg-primary-dim text-white p-3 rounded-full shadow-lg transition-transform active:scale-95 flex items-center justify-center"
-                    href="{{DATA:SCREEN:SCREEN_25}}">
-                    <span class="material-symbols-outlined text-[20px]">checkroom</span>
-                </a>
+                <div class="relative z-10 w-full h-full bg-white flex items-center justify-center shadow-2xl border-4 border-white overflow-hidden 
+                                rounded-[0%_100%_100%_100%] transition-transform duration-500 hover:rotate-[-5deg]">
+                    <img src="assets/Coreon.svg" class="w-32 h-32 coreon-glow" alt="Coreon Base">
+                </div>
             </div>
-            <div class="text-center space-y-1">
-                <h1 class="headline font-bold text-3xl tracking-tight text-on-surface">Alex Mercer</h1>
-                <p class="text-secondary font-medium">Coreon está ahora en <span class="text-primary font-bold">Brote
-                        Nivel 4</span></p>
+            <div>
+                <h2 class="font-headline font-black text-4xl tracking-tight text-primary-dim">Persona</h2>
+                <p class="text-xs text-secondary font-bold uppercase tracking-[0.2em] opacity-60">PERSONA@GMAIL.COM</p>
             </div>
         </section>
-        <!-- User Information Bento -->
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div
-                class="bg-secondary-container p-6 rounded-xl flex flex-col justify-center space-y-1 border border-white/20">
-                <span class="text-on-secondary-fixed-variant text-[10px] uppercase tracking-[0.05em] font-bold">Correo
-                    Electrónico</span>
-                <p class="text-on-secondary-fixed font-semibold">alex.mercer@lifelab.io</p>
+
+        <section class="grid grid-cols-2 gap-4">
+            <div class="bg-white p-6 rounded-[2rem] shadow-sm border-b-4 border-cluster-cientifico card-pop">
+                <span class="text-[10px] font-black text-cluster-cientifico uppercase tracking-tighter">Evolución</span>
+                <p class="font-black text-primary-dim text-3xl mt-1">72<span class="text-sm opacity-40">%</span></p>
             </div>
-            <div class="grid grid-cols-2 gap-4">
-                <div
-                    class="bg-secondary-container p-4 rounded-xl flex flex-col justify-center space-y-1 border border-white/20">
-                    <span
-                        class="text-on-secondary-fixed-variant text-[10px] uppercase tracking-[0.05em] font-bold">Género</span>
-                    <p class="text-on-secondary-fixed font-semibold">No binario</p>
-                </div>
-                <div
-                    class="bg-secondary-container p-4 rounded-xl flex flex-col justify-center space-y-1 border border-white/20">
-                    <span
-                        class="text-on-secondary-fixed-variant text-[10px] uppercase tracking-[0.05em] font-bold">Nacimiento</span>
-                    <p class="text-on-secondary-fixed font-semibold">1994</p>
-                </div>
+            <div class="bg-white p-6 rounded-[2rem] shadow-sm border-b-4 border-cluster-tecnico card-pop">
+                <span class="text-[10px] font-black text-cluster-tecnico uppercase tracking-tighter">Racha</span>
+                <p class="font-black text-primary-dim text-3xl mt-1">14 <span
+                        class="text-xs font-bold text-secondary opacity-40">DÍAS</span></p>
             </div>
         </section>
-        <!-- Visual Evolution Progress -->
-        <section class="bg-surface-container-low p-8 rounded-xl space-y-8">
-            <div class="flex justify-between items-end">
-                <div>
-                    <h3 class="headline font-bold text-xl text-on-surface">Evolución Visual</h3>
-                    <p class="text-sm text-secondary">Coreon crece a medida que potencias tus hábitos</p>
-                </div>
-                <span class="text-primary font-bold text-lg">72%</span>
-            </div>
-            <div class="relative pt-12">
-                <!-- Evolution Timeline -->
-                <div
-                    class="absolute top-1/2 left-0 w-full h-1 bg-surface-container-highest -translate-y-1/2 rounded-full">
-                </div>
-                <div
-                    class="absolute top-1/2 left-0 w-[72%] h-1 bg-primary -translate-y-1/2 rounded-full shadow-[0_0_10px_rgba(0,105,71,0.3)]">
-                </div>
-                <div class="flex justify-between relative">
-                    <!-- Phase 1: Seed -->
-                    <div class="flex flex-col items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
-                            <span class="material-symbols-outlined text-[16px]"
-                                style="font-variation-settings: 'FILL' 1;">eco</span>
-                        </div>
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-secondary">Semilla</span>
-                    </div>
-                    <!-- Phase 2: Sprout (Active) -->
-                    <div class="flex flex-col items-center gap-3">
-                        <div
-                            class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white ring-4 ring-primary-container ring-offset-2 ring-offset-surface-container-low">
-                            <span class="material-symbols-outlined text-[20px]"
-                                style="font-variation-settings: 'FILL' 1;">psychiatry</span>
-                        </div>
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-primary">Brote</span>
-                    </div>
-                    <!-- Phase 3: Bloom -->
-                    <div class="flex flex-col items-center gap-3 opacity-40">
-                        <div
-                            class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-secondary">
-                            <span class="material-symbols-outlined text-[16px]">local_florist</span>
-                        </div>
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-secondary">Floración</span>
-                    </div>
-                </div>
-            </div>
-            <div
-                class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/10 flex items-center gap-4">
-                <div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center">
-                    <span class="material-symbols-outlined text-primary">auto_awesome</span>
-                </div>
-                <div class="flex-1">
-                    <p class="text-sm font-medium text-on-surface">Próxima evolución: <span class="font-bold">Forma
-                            Etérea</span></p>
-                    <p class="text-xs text-secondary italic">Paciencia, llega en 14 días de enfoque</p>
-                </div>
-            </div>
-        </section>
-        <!-- Collectible Wardrobe CTA -->
-        <section class="grid grid-cols-1 gap-4">
-            <a class="group w-full bg-gradient-to-br from-primary to-primary-dim p-6 rounded-xl text-white flex justify-between items-center transition-all hover:shadow-lg active:scale-[0.98]"
-                href="{{DATA:SCREEN:SCREEN_25}}">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                        <span class="material-symbols-outlined"
-                            style="font-variation-settings: 'FILL' 1;">inventory_2</span>
-                    </div>
-                    <div class="text-left">
-                        <p class="font-bold text-lg headline">Tu Armario</p>
-                        <p class="text-xs text-on-primary/80">3 pintas desbloqueadas, 12 por descubrir</p>
-                    </div>
-                </div>
+
+        <section class="bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-100 space-y-8">
+            <div class="flex justify-between items-center">
+                <h3 class="font-headline font-black text-2xl text-primary-dim">Tu Armario</h3>
                 <span
-                    class="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
-            </a>
+                    class="text-[10px] font-black bg-primary-container text-primary px-4 py-1.5 rounded-full uppercase tracking-widest shadow-inner">12
+                    / 12+ ITEMS</span>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4">
+                <div
+                    class="aspect-square bg-cluster-creativo/10 rounded-3xl flex items-center justify-center border-2 border-cluster-creativo/30 relative cursor-pointer active:scale-90 transition-transform group">
+                    <span
+                        class="material-symbols-outlined text-cluster-creativo text-4xl group-hover:scale-110 transition-transform">palette</span>
+                    <span class="absolute -top-1 -right-1 bg-white rounded-full p-1 shadow-sm">
+                        <span class="material-symbols-outlined text-cluster-creativo text-xs"
+                            style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    </span>
+                </div>
+                <div
+                    class="aspect-square bg-cluster-cientifico/10 rounded-3xl flex items-center justify-center border-2 border-cluster-cientifico/10 cursor-pointer hover:border-cluster-cientifico/40 active:scale-90 transition-transform">
+                    <span class="material-symbols-outlined text-cluster-cientifico text-4xl">eyeglasses</span>
+                </div>
+                <div
+                    class="aspect-square bg-cluster-social/10 rounded-3xl flex items-center justify-center border-2 border-cluster-social/10 cursor-pointer hover:border-cluster-social/40 active:scale-90 transition-transform">
+                    <span class="material-symbols-outlined text-cluster-social text-4xl">favorite</span>
+                </div>
+                <div
+                    class="aspect-square bg-gray-50 rounded-3xl flex items-center justify-center opacity-30 relative overflow-hidden">
+                    <span class="material-symbols-outlined text-secondary text-3xl">lock</span>
+                    <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent"></div>
+                </div>
+            </div>
+
+            <button
+                class="w-full bioluminescent-glow text-white font-black py-5 rounded-[1.5rem] shadow-2xl active:scale-95 transition-all text-sm uppercase tracking-[0.2em]">
+                Equipar Accesorios
+            </button>
         </section>
-        <!-- Logout CTA -->
-        <section class="pt-4">
-            <a class="flex items-center justify-center gap-2 text-error hover:text-error-dim transition-colors text-sm font-bold p-4 border border-error/20 rounded-xl bg-error-container/5"
-                href="{{DATA:SCREEN:SCREEN_36}}">
-                <span class="material-symbols-outlined text-sm">logout</span>
-                <span>Cerrar sesión</span>
-            </a>
-        </section>
-        <!-- Mission Link -->
-        <section class="pt-4 pb-12">
-            <a class="flex items-center justify-center gap-2 text-secondary hover:text-primary transition-colors text-sm font-medium p-4 border border-outline-variant/20 rounded-full"
-                href="{{DATA:SCREEN:SCREEN_18}}">
-                <span class="material-symbols-outlined text-sm">auto_stories</span>
-                <span>Conoce más de nuestra misión en <span
-                        class="font-bold underline decoration-primary/30 underline-offset-4">Por qué
-                        Nosotros</span></span>
-            </a>
-        </section>
+
+        <button
+            class="w-full py-6 text-cluster-social font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 opacity-40 hover:opacity-100 transition-opacity">
+            <span class="material-symbols-outlined text-lg">logout</span>
+            Cerrar Sesión Segura
+        </button>
+
     </main>
-    <!-- BottomNavBar -->
+
     <nav
-        class="fixed bottom-0 w-full z-50 rounded-t-[1.5rem] bg-[#FFFFFD]/80 dark:bg-stone-950/80 backdrop-blur-xl border-t border-[#DBDDDB]/30 dark:border-stone-800 shadow-[0_-12px_32px_rgba(45,47,46,0.06)] px-4 pb-safe h-20 w-full flex justify-around items-center">
-        <a class="flex items-center justify-center text-[#5D5C4D] dark:text-stone-400 w-12 h-12 hover:text-[#006947] dark:hover:text-[#A2F9CC] transition-colors"
-            href="{{DATA:SCREEN:SCREEN_37}}">
-            <span class="material-symbols-outlined">home</span>
-        </a>
-        <a class="flex items-center justify-center text-[#5D5C4D] dark:text-stone-400 w-12 h-12 hover:text-[#006947] dark:hover:text-[#A2F9CC] transition-colors"
-            href="{{DATA:SCREEN:SCREEN_40}}">
-            <span class="material-symbols-outlined">shelves</span>
-        </a>
-        <a class="flex items-center justify-center text-[#5D5C4D] dark:text-stone-400 w-12 h-12 hover:text-[#006947] dark:hover:text-[#A2F9CC] transition-colors"
-            href="{{DATA:SCREEN:SCREEN_13}}">
-            <span class="material-symbols-outlined">experiment</span>
-        </a>
-        <a class="flex items-center justify-center text-[#5D5C4D] dark:text-stone-400 w-12 h-12 hover:text-[#006947] dark:hover:text-[#A2F9CC] transition-colors"
-            href="{{DATA:SCREEN:SCREEN_30}}">
-            <span class="material-symbols-outlined">query_stats</span>
-        </a>
-        <!-- ACTIVE TAB: Perfil -->
-        <a class="flex items-center justify-center bg-gradient-to-br from-[#006947] to-[#004d34] text-white rounded-full w-14 h-14 -mt-10 shadow-lg shadow-[#006947]/20 transition-transform active:scale-95"
-            href="{{DATA:SCREEN:SCREEN_38}}">
-            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
-        </a>
+        class="fixed bottom-0 left-0 w-full h-24 bg-white/90 backdrop-blur-xl border-t border-gray-100 flex justify-around items-center px-6 z-50">
+        <button onclick="location.href='index.html'"
+            class="text-[#acadac] w-12 h-12 rounded-2xl flex items-center justify-center transition-all">
+            <span class="material-symbols-outlined text-2xl">home</span>
+        </button>
+        <button onclick="location.href='career-bank.html'"
+            class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-2xl">auto_stories</span>
+        </button>
+        <button onclick="location.href='labs.html'"
+            class="bg-[#006947] bioluminescent-glow text-white w-16 h-16 rounded-full -mt-12 border-[6px] border-[#f8faf9] flex items-center justify-center shadow-2xl transition-transform active:scale-90">
+            <span class="material-symbols-outlined text-white text-3xl">science</span>
+        </button>
+        <button onclick=" location.href='profile.html'"
+            class=" flex items-center justify-center w-12 h-12 text-primary hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-2xl">person</span>
+        </button>
+        <button onclick="location.href='why-us.html'"
+            class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-2xl">info</span>
+        </button>
     </nav>
+
 </body>
 
 </html>
