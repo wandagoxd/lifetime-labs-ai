@@ -1,18 +1,20 @@
-const questions = [
-    {
-        id: 1,
-        type: "options",
-        text: "Te dan 3 horas libres con acceso a cualquier herramienta. ¿Qué decides hacer?",
-        options: [
-            { text: "Investigar cómo funciona algo", icon: "biotech", dimension: "analisis" },
-            { text: "Crear algo nuevo desde cero", icon: "draw", dimension: "creacion" },
-            { text: "Ayudar a alguien con un reto", icon: "forum", dimension: "social" }
-        ]
-    },
-    {
-        id: 2,
-        type: "context",
-        text: "¿Qué departamento de Colombia habitas?",
-        placeholder: "Ej: Antioquia"
+import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { db } from "./auth.js";
+
+// Guarda las respuestas del Test de Orígenes en Firestore
+export const saveOriginsResults = async (userId, userResponses) => {
+    try {
+        const testRef = doc(db, "users", userId, "tests", "origins");
+        const payload = {
+            responses: userResponses,
+            completedAt: new Date(),
+            status: "completed"
+        };
+        await setDoc(testRef, payload, { merge: true });
+        console.log("Resultados guardados exitosamente.");
+        return true;
+    } catch (err) {
+        console.error("Error al guardar los resultados:", err);
+        throw err;
     }
-];
+};
