@@ -1,7 +1,14 @@
-import { registerWithEmail, saveUserData } from "../services/auth.js";
+import { registerWithEmail, saveUserData, subscribeToAuthChanges, loginWithGoogle } from "../services/auth.js";
+
+subscribeToAuthChanges((user) => {
+    if (user) {
+        window.location.href = "index.html";
+    }
+});
 
 const signupForm = document.getElementById("signup-form");
 const btnSignup = document.getElementById("btn-signup");
+const btnGoogle = document.getElementById("btn-google");
 const errorMsg = document.getElementById("error-msg");
 const emailInput = document.getElementById("input-email");
 const passwordInput = document.getElementById("input-password");
@@ -47,7 +54,7 @@ signupForm.addEventListener("submit", async (e) => {
         setLoading(true);
         const user = await registerWithEmail(email, password);
         await saveUserData(user);
-        window.location.href = "labs.html"; // Redirect where appropriate
+        window.location.href = "index.html"; // Redirect to dashboard
     } catch (err) {
         console.error(err);
         if (err.code === "auth/email-already-in-use") {
@@ -58,3 +65,18 @@ signupForm.addEventListener("submit", async (e) => {
         setLoading(false);
     }
 });
+
+if (btnGoogle) {
+    btnGoogle.addEventListener("click", async (e) => {
+        e.preventDefault();
+        clearError();
+        try {
+            const user = await loginWithGoogle();
+            await saveUserData(user);
+            window.location.href = "index.html"; // Redirigir al dashboard verdadero
+        } catch (err) {
+            console.error(err);
+            showError("Error al registrarse con Google.");
+        }
+    });
+}

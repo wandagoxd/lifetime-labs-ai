@@ -4,189 +4,187 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Lifetime Labs | Login</title>
+  <title>Lifetime Labs | Inicio</title>
+
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Plus+Jakarta+Sans:wght@400;600&display=swap"
     rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1"
     rel="stylesheet" />
+
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             "primary": "#006947",
-            "primary-container": "#a0f7ca",
-            "secondary": "#5d5c4d",
+            "primary-dim": "#005c3d",
+            "cluster-cientifico": "#007BFF",
+            "cluster-tecnico": "#FF851B",
+            "cluster-creativo": "#6F42C1",
             "on-surface": "#2d2f2e",
-            "on-surface-variant": "#5a5c5b",
-            "surface-container-low": "#f0f1ef"
           },
           fontFamily: { "headline": ["Manrope"], "body": ["Plus Jakarta Sans"] }
         }
       }
     }
   </script>
+
   <style>
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
 
     .bioluminescent-glow {
-      background: linear-gradient(145deg, #006947 0%, #005c3d 100%);
-      box-shadow: 0 8px 24px rgba(162, 249, 204, 0.2);
+      background: linear-gradient(135deg, #006947 0%, #005c3d 100%);
+      box-shadow: 0 10px 25px -5px rgba(0, 105, 71, 0.4);
     }
 
     body {
-      background-color: #FFFFFD;
-      min-height: 100vh;
+      background-color: #f8faf9;
     }
 
-    .coreon-float {
-      filter: drop-shadow(0 12px 32px rgba(45, 47, 46, 0.06));
+    /* Animación de Pulso Suave para el Widget de Bienvenida */
+    .pulse-vibrant {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
 
-    /* ── Estado de error ── */
-    #error-msg {
-      display: none;
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      color: #dc2626;
-      border-radius: 1rem;
-      padding: 0.75rem 1rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-align: center;
-    }
+    @keyframes pulse {
 
-    #error-msg.show {
-      display: block;
-    }
-
-    /* ── Spinner en botón ── */
-    .btn-spinner {
-      display: none;
-      width: 18px;
-      height: 18px;
-      border: 2px solid rgba(160, 247, 202, 0.4);
-      border-top-color: #a0f7ca;
-      border-radius: 50%;
-      animation: spin 0.7s linear infinite;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
       }
-    }
 
-    button.loading .btn-label {
-      display: none;
-    }
-
-    button.loading .btn-spinner {
-      display: block;
+      50% {
+        opacity: 0.9;
+        transform: scale(1.02);
+      }
     }
   </style>
 </head>
 
-<body class="font-body text-on-surface flex flex-col items-center justify-center p-6">
-  <main class="w-full max-w-md space-y-12">
+<body class="font-body text-on-surface antialiased pt-20 pb-36 px-6">
 
-    <!-- Header / Mascota -->
-    <header class="flex flex-col items-center text-center space-y-4">
-      <div
-        class="relative w-32 h-32 bg-surface-container-low rounded-full flex items-center justify-center p-4 coreon-float">
-        <img src="assets/Coreon.svg" class="w-full h-full object-contain" alt="Coreon Mascot" />
-        <div class="absolute -bottom-1 -right-1 bg-primary-container p-2 rounded-full shadow-sm">
-          <span class="material-symbols-outlined text-primary text-xs"
-            style="font-variation-settings: 'FILL' 1;">eco</span>
+  <header
+    class="fixed top-0 left-0 w-full h-16 z-50 bg-white/90 backdrop-blur-md flex justify-between items-center px-6 border-b border-primary/10">
+    <div class="flex items-center gap-2">
+      <img src="assets/website-icon-standing-up.png" class="w-6 h-6" alt="Logo" />
+      <h1 class="font-headline font-black text-lg text-primary tracking-tight">Hogar</h1>
+    </div>
+    <div class="flex gap-2">
+      <button class="material-symbols-outlined text-[#2d2f2e]/60 p-2 bg-gray-50 rounded-full">settings</button>
+      <button class="material-symbols-outlined text-[#2d2f2e]/60 p-2 bg-gray-50 rounded-full">notifications</button>
+    </div>
+  </header>
+
+  <main class="max-w-2xl mx-auto space-y-10">
+
+    <section class="flex justify-between items-end py-4">
+      <div class="space-y-2">
+        <div
+          class="inline-flex bg-cluster-creativo text-white px-3 py-1 rounded-full shadow-xl shadow-cluster-creativo/20 pulse-vibrant">
+          <span class="text-[9px] font-black uppercase tracking-[0.1em]">Fase Beta: Colombia</span>
         </div>
+        <h2 class="font-headline font-black text-4xl text-primary-dim leading-tight">¡Hola de nuevo,<br><span
+            class="text-primary">Coreon {Nombre}!</span></h2>
       </div>
-      <div>
-        <h1 class="font-headline font-extrabold text-3xl text-primary tracking-tight">Lifetime Labs</h1>
-        <p class="text-[10px] font-bold uppercase tracking-[0.2em] opacity-60">The lab for your potential</p>
-      </div>
-    </header>
-
-    <!-- Formulario -->
-    <section class="space-y-8">
-      <div class="text-center">
-        <h2 class="font-headline font-bold text-2xl">Bienvenido de nuevo</h2>
-        <p class="text-on-surface-variant text-sm">Continúa tu viaje en el laboratorio.</p>
-      </div>
-
-      <!-- Mensaje de error -->
-      <div id="error-msg"></div>
-
-      <div class="space-y-4">
-        <div class="space-y-2">
-          <label class="text-[10px] font-bold uppercase tracking-wider text-secondary px-1">Email</label>
-          <input id="input-email" type="email" placeholder="hola@lifetimelabs.io"
-            class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary-container transition-all" />
+      <div class="relative w-24 h-24 cursor-pointer hover:scale-105 transition-transform"
+        onclick="location.href='profile.html'">
+        <div
+          class="w-full h-full bg-white rounded-[0%_100%_100%_100%] border-4 border-white shadow-xl overflow-hidden flex items-center justify-center relative coreon-container">
+          <img src="assets/Coreon.svg" class="w-16 h-16" alt="Coreon Base">
+          <span
+            class="material-symbols-outlined absolute text-xl text-cluster-cientifico pointer-events-none top-1/2 left-2/3-translate-x-10-translate-y-1/2 mt-[1px] hover:rotate-6 transition-transform"
+            style="font-variation-settings: 'wght' 100; color: #48752C;">emoji_objects</span>
         </div>
-
-        <div class="space-y-2">
-          <div class="flex justify-between px-1">
-            <label class="text-[10px] font-bold uppercase tracking-wider text-secondary">Contraseña</label>
-            <a href="forgot.html" class="text-[10px] font-bold uppercase text-primary">¿Olvidaste tu contraseña?</a>
-          </div>
-          <div class="relative">
-            <input id="input-password" type="password" placeholder="••••••••"
-              class="w-full bg-surface-container-low border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary-container transition-all" />
-            <button type="button" id="toggle-password"
-              class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 material-symbols-outlined">visibility</button>
-          </div>
-        </div>
-
-        <!-- Botón principal -->
-        <button id="btn-login"
-          class="w-full bioluminescent-glow py-4 rounded-full font-headline font-bold text-primary-container mt-4 active:scale-95 transition-transform flex items-center justify-center gap-2">
-          <span class="btn-label flex items-center gap-2">
-            <span>Entrar</span>
-            <span class="material-symbols-outlined text-lg">arrow_forward</span>
-          </span>
-          <div class="btn-spinner"></div>
-        </button>
       </div>
     </section>
 
-    <!-- OAuth + registro -->
-    <footer class="text-center space-y-6">
-      <div class="flex items-center gap-4 text-[10px] font-bold uppercase text-gray-300">
-        <div class="h-px flex-1 bg-gray-100"></div>
-        <span>O continúa con</span>
-        <div class="h-px flex-1 bg-gray-100"></div>
-      </div>
-
+    <section class="mb-12">
       <div class="grid grid-cols-2 gap-4">
-        <button id="btn-google"
-          class="flex items-center justify-center gap-2 py-3 bg-white border border-gray-100 rounded-2xl text-sm font-semibold shadow-sm active:scale-95 transition-transform">
-          <img src="assets/google-icon.png" class="w-5 h-5" alt="Google">
-          <span>Google</span>
-        </button>
-        <button id="btn-apple"
-          class="flex items-center justify-center gap-2 py-3 bg-white border border-gray-100 rounded-2xl text-sm font-semibold shadow-sm active:scale-95 transition-transform">
-          <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">apple</span>
-          <span>Apple</span>
-        </button>
-      </div>
+        <div
+          class="col-span-2 bg-white rounded-[2.5rem] p-8 relative overflow-hidden shadow-xl border border-gray-100 group active:scale-[0.98] transition-all"
+          onclick="location.href='test-origins.html'">
 
-      <p class="text-sm">
-        ¿Aún no tienes cuenta?
-        <a href="signup.html"
-          class="text-primary font-bold underline decoration-primary-container decoration-2 underline-offset-4">Regístrate
-          aquí</a>
-      </p>
-    </footer>
+          <div
+            class="absolute -right-10 top-0 w-60 h-full pointer-events-none opacity-20 group-hover:opacity-60 transition-opacity">
+            <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.10/dist/dotlottie-wc.js"
+              type="module"></script>
+
+            <dotlottie-wc src="https://lottie.host/c167523b-b855-4369-914d-d867dbc98525/xLBP0MiVTT.lottie"
+              style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
+          </div>
+
+          <div class="relative z-10 space-y-6">
+            <div
+              class="w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20">
+              <span class="material-symbols-outlined text-3xl">history_edu</span>
+            </div>
+            <div>
+              <h4 class="font-headline font-black text-3xl text-primary-dim mb-2">Test de Orígenes</h4>
+              <p class="text-secondary font-medium text-sm max-w-[240px] leading-relaxed">
+                Mide tus comportamientos reales y descubre tu ADN vocacional.
+              </p>
+            </div>
+            <button
+              class="bioluminescent-glow text-white font-black py-4 px-10 rounded-2xl text-xs uppercase tracking-[0.2em] shadow-2xl">
+              Iniciar Experimento
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="bg-white p-6 rounded-[2rem] shadow-sm border-b-4 border-cluster-cientifico active:scale-95 transition-transform cursor-pointer group"
+          onclick="location.href='career-bank.html'">
+          <span
+            class="material-symbols-outlined text-cluster-cientifico mb-4 text-3xl group-hover:scale-110 transition-transform">auto_stories</span>
+          <h4 class="font-headline font-black text-primary-dim text-sm mb-1">Banco de Carreras</h4>
+          <p class="text-secondary text-[10px] font-bold uppercase tracking-tighter opacity-60">Explora tu cluster</p>
+        </div>
+
+        <div
+          class="bg-white p-6 rounded-[2rem] shadow-sm border-b-4 border-cluster-tecnico active:scale-95 transition-transform cursor-pointer group">
+          <span
+            class="material-symbols-outlined text-cluster-tecnico mb-4 text-3xl group-hover:rotate-12 transition-transform">experiment</span>
+          <h4 class="font-headline font-black text-primary-dim text-sm mb-1">Protocolo Diario</h4>
+          <p class="text-secondary text-[10px] font-bold uppercase tracking-tighter opacity-60">Mantén tu racha</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <div class="mt-auto pt-12 opacity-30 flex items-center gap-2">
-    <span class="material-symbols-outlined text-sm">verified_user</span>
-    <span class="text-[9px] font-bold uppercase tracking-[0.2em]">End-to-End Encrypted Lab</span>
-  </div>
-  <script type="module" src="ui/login.js"></script>
+  <nav
+    class="fixed bottom-0 left-0 w-full h-24 bg-white/90 backdrop-blur-xl border-t border-gray-100 flex justify-around items-center px-6 z-50">
+    <button onclick="location.href='index.html'"
+      class="bg-primary-container text-primary w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm transition-all">
+      <span class="material-symbols-outlined text-2xl"
+        style="font-variation-settings: 'FILL' 1, 'wght' 700;">home</span>
+    </button>
+    <button onclick="location.href='career-bank.html'"
+      class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary transition-colors">
+      <span class="material-symbols-outlined text-2xl">auto_stories</span>
+    </button>
+    <button onclick="location.href='labs.html'"
+      class="bioluminescent-glow text-white w-16 h-16 rounded-full -mt-12 border-[6px] border-[#f8faf9] flex items-center justify-center shadow-2xl transition-transform active:scale-90">
+      <span class="material-symbols-outlined text-white text-3xl">science</span>
+    </button>
+    <button onclick="location.href='profile.html'"
+      class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary transition-colors">
+      <span class="material-symbols-outlined text-2xl">person</span>
+    </button>
+    <button onclick="location.href='why-us.html'"
+      class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary transition-colors">
+      <span class="material-symbols-outlined text-2xl">info</span>
+    </button>
+  </nav>
+
+  <script type="module" src="ui/dashboard.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,13 @@
-import { loginWithEmail, loginWithGoogle, saveUserData } from "../services/auth.js";
+import { loginWithEmail, loginWithGoogle, saveUserData, subscribeToAuthChanges } from "../services/auth.js";
 
+subscribeToAuthChanges((user) => {
+    if (user) {
+        // User is already logged in, redirect them to dashboard
+        window.location.href = "index.html";
+    }
+});
+
+const loginForm = document.getElementById("login-form");
 const btnLogin = document.getElementById("btn-login");
 const btnGoogle = document.getElementById("btn-google");
 const errorMsg = document.getElementById("error-msg");
@@ -27,7 +35,7 @@ const setLoading = (isLoading) => {
     }
 };
 
-btnLogin.addEventListener("click", async (e) => {
+loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     clearError();
     
@@ -43,7 +51,7 @@ btnLogin.addEventListener("click", async (e) => {
         setLoading(true);
         const user = await loginWithEmail(email, password);
         await saveUserData(user);
-        window.location.href = "labs.html"; // Redirect where appropriate
+        window.location.href = "index.html"; // Redirigir al inicio real
     } catch (err) {
         console.error(err);
         showError("Email o contraseña incorrectos.");
@@ -57,7 +65,7 @@ btnGoogle.addEventListener("click", async (e) => {
     try {
         const user = await loginWithGoogle();
         await saveUserData(user);
-        window.location.href = "labs.html";
+        window.location.href = "index.html";
     } catch (err) {
         console.error(err);
         showError("Error al iniciar sesión con Google.");
