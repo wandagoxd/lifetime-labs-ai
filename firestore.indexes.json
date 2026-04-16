@@ -46,6 +46,41 @@
   //     ]
   //   },
   // ]
-  "indexes": [],
+  "indexes": [
+    {
+      "collectionGroup": "carreras",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "area", "mode": "ASCENDING" },
+        { "fieldPath": "dificultad_percibida", "mode": "ASCENDING" },
+        { "fieldPath": "carga_matematica", "mode": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "carreras",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "recalculo_disponible", "mode": "ASCENDING" },
+        { "fieldPath": "posibilidad_extracreditacion", "mode": "ASCENDING" },
+        { "fieldPath": "compatibilidad_doble_programa_aplica", "mode": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "carreras",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "becas_especificas", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "area", "mode": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "carreras",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "riesgo_desercion.nivel", "mode": "ASCENDING" },
+        { "fieldPath": "disponibilidad_edir", "mode": "ASCENDING" }
+      ]
+    }
+  ],
   "fieldOverrides": []
 }

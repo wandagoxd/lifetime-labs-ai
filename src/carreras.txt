@@ -1,0 +1,53 @@
+Administrativa y Económica:
+    Administración
+    Economía
+
+Área Científica:
+    Biología
+    Física
+    Geociencias
+    Matemáticas
+    Microbiología
+    Medicinia
+    Química
+
+Creativa:
+    Diseño
+    Arquitectura
+    Artes
+    Historia del Arte
+    Literatura
+    Música
+    Narrativas Digitales
+
+Ingenio:
+    Ingeniería Ambiental
+    Ingeniería Biomédica
+    Ingeniería Civil
+    Ingeniería Eléctrica
+    Ingeniería Electrónica
+    Ingeniería Industrial
+    Ingeniería de Sistemas
+    Ingeniería Mecánica
+    Ingeniería Química
+    Ciencia de Datos
+
+Social:
+    Psicología
+    Derecho
+    Antropología
+    Ciencia Política
+    Estudios Globales
+    Filosofía
+    Historia
+    Lenguas y cultura
+    Licenciaturas:
+        Biología
+        Educación Infantil
+        Español y Filología
+        Filología
+        Física
+        Historia
+        Matemáticas
+        Química
+        

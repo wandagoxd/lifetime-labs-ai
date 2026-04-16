@@ -1,18 +1,49 @@
-rules_version='2'
+rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.admin == true;
+    }
+
+    // Banco de carreras: lectura abierta para aspirantes y estudiantes.
+    // Escritura restringida a administradores (seeding y mantenimiento institucional).
+    match /carreras/{careerId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Perfil principal de usuario
+    match /users/{userId} {
+      allow read, write: if isOwner(userId) || isAdmin();
+
+      // Preferencias y configuraciones del banco de carreras
+      match /career_bank_profiles/{profileId} {
+        allow read, write: if isOwner(userId) || isAdmin();
+      }
+
+      // Simulaciones de recalculo, borron y escenarios financieros
+      match /career_bank_simulations/{simulationId} {
+        allow read, write: if isOwner(userId) || isAdmin();
+      }
+
+      // Recomendaciones personalizadas
+      match /career_bank_recommendations/{recommendationId} {
+        allow read, write: if isOwner(userId) || isAdmin();
+      }
+    }
+
+    // Denegar todo lo no especificado.
     match /{document=**} {
-      // This rule allows anyone with your database reference to view, edit,
-      // and delete all data in your database. It is useful for getting
-      // started, but it is configured to expire after 30 days because it
-      // leaves your app open to attackers. At that time, all client
-      // requests to your database will be denied.
-      //
-      // Make sure to write security rules for your app before that time, or
-      // else all client requests to your database will be denied until you
-      // update your rules.
-      allow read, write: if request.time < timestamp.date(2026, 5, 12);
+      allow read, write: if false;
     }
   }
 }
