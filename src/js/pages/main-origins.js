@@ -92,11 +92,43 @@ async function finishTest(container) {
         } else {
             console.warn("Usuario no inició sesión. No se enviarán datos.");
         }
-        
-        // Simular segundos visuales y redirigir a laboratorios
+
+        try {
+            localStorage.setItem(
+                "ll-origins-session",
+                JSON.stringify({
+                    responses: userResponses,
+                    uid: currentUser?.uid || "guest",
+                    savedAt: new Date().toISOString()
+                })
+            );
+        } catch (error) {
+            console.warn("No se pudo guardar snapshot local de orígenes.", error);
+        }
+
+        container.innerHTML = `
+            <section class="bg-white p-10 rounded-[2.5rem] shadow-xl fade-in space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 rounded-2xl border border-primary/20 flex items-center justify-center bg-primary/5 animate-pulse">
+                        <img src="assets/Coreon.svg" alt="Coreon" class="w-10 h-10" />
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-black uppercase tracking-[0.16em] text-primary">Phase B</p>
+                        <h3 class="font-black text-2xl text-primary-dim">Activación del laboratorio</h3>
+                    </div>
+                </div>
+                <p class="text-sm text-secondary">
+                    Iniciando lectura de patrones académicos…
+                </p>
+                <div class="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                    <div class="h-2 bg-primary rounded-full animate-pulse" style="width: 85%;"></div>
+                </div>
+            </section>
+        `;
+
         setTimeout(() => {
             window.location.href = "labs.html";
-        }, 1500);
+        }, 2400);
 
     } catch (err) {
         container.innerHTML = `

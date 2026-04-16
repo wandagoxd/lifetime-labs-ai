@@ -29,6 +29,16 @@ const toleranceOptions = ["todas", "media", "media-alta", "alta"];
 const interestOptions = ["creatividad", "datos", "tecnologia", "impacto social", "ciencia", "medio ambiente", "economia", "educacion", "salud", "bienestar", "ciudad", "investigacion", "politica publica", "negocio"];
 const skillOptions = ["Programacion", "Pensamiento logico", "Comunicacion visual", "Lectura critica", "Metodo cientifico", "Escucha activa", "Trabajo colaborativo", "Razonamiento logico"];
 
+function getCareerPresetIdsFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const raw = params.get("carreras");
+    if (!raw) return [];
+    return raw
+        .split(",")
+        .map((item) => item.trim())
+        .filter(Boolean);
+}
+
 function querySelector(selector) {
     return document.querySelector(selector);
 }
@@ -584,9 +594,37 @@ async function loadCareers(filters = {}) {
     if (status) status.textContent = "Banco listo.";
 }
 
+function applyCareerPresetOrdering() {
+    const presetIds = getCareerPresetIdsFromUrl();
+    if (!presetIds.length || !state.filteredCareers.length) return;
+
+    const preferred = [];
+    const usedIds = new Set();
+
+    presetIds.forEach((id) => {
+        const found = state.filteredCareers.find((career) => career.id === id);
+        if (found) {
+            preferred.push(found);
+            usedIds.add(found.id);
+        }
+    });
+
+    if (!preferred.length) return;
+
+    const remaining = state.filteredCareers.filter((career) => !usedIds.has(career.id));
+    state.filteredCareers = [...preferred, ...remaining];
+    state.selectedCareerId = preferred[0].id;
+
+    const status = querySelector("#career-bank-status");
+    if (status) {
+        status.textContent = "Banco listo con rutas compatibles sugeridas.";
+    }
+}
+
 function bindFilterActions() {
     querySelector("#apply-filters")?.addEventListener("click", async () => {
         await loadCareers(readFilters());
+        applyCareerPresetOrdering();
         renderCareerList();
         renderCareerDetail();
         renderComparator();
@@ -600,6 +638,7 @@ function bindFilterActions() {
             input.checked = false;
         });
         await loadCareers();
+        applyCareerPresetOrdering();
         renderCareerList();
         renderCareerDetail();
         renderComparator();
@@ -628,7 +667,8 @@ async function initCareerBank() {
 
     await loadCareers();
     state.careers = state.filteredCareers.length ? [...state.filteredCareers] : [...careerBankSeed];
-    state.selectedCareerId = state.careers[0]?.id || null;
+    applyCareerPresetOrdering();
+    state.selectedCareerId = state.selectedCareerId || state.careers[0]?.id || null;
 
     renderCareerList();
     renderCareerDetail();

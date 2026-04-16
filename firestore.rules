@@ -39,6 +39,16 @@ service cloud.firestore {
       match /career_bank_recommendations/{recommendationId} {
         allow read, write: if isOwner(userId) || isAdmin();
       }
+
+      // Sesiones del laboratorio cognitivo (streaming, progreso y fallback)
+      match /lab_sessions/{sessionId} {
+        allow read, write: if isOwner(userId) || isAdmin();
+      }
+    }
+
+    // Reporte final de potencial obligatorio por usuario.
+    match /reports/{userId} {
+      allow read, write: if isOwner(userId) || isAdmin();
     }
 
     // Denegar todo lo no especificado.
