@@ -1,4 +1,5 @@
 import { contextQuestions } from '../data/questions.js';
+import { mountUnifiedLayout } from "../components/unified-layout.js";
 import { subscribeToAuthChanges } from '../services/auth.js';
 import { saveOriginsResults } from '../services/db.js';
 
@@ -29,7 +30,7 @@ export function renderQuestion() {
             : `<div class="w-1.5 h-1.5 rounded-full bg-primary/30"></div>`;
             
         return `
-            <button class="option-btn p-5 bg-gray-50 rounded-2xl border-2 border-transparent hover:border-primary transition-all flex items-center gap-4 text-left font-bold" data-value="${opt.value}">
+            <button class="option-btn p-5 bg-white/90 rounded-[2rem] border border-primary/15 hover:border-primary/40 hover:shadow-lg transition-all flex items-center gap-4 text-left font-bold" data-value="${opt.value}">
                 ${iconHtml}
                 ${opt.text}
             </button>
@@ -38,7 +39,7 @@ export function renderQuestion() {
 
     // Aplicamos clase de entrada
     container.innerHTML = `
-        <div class="card-pop bg-white p-10 rounded-[2.5rem] shadow-xl fade-in" style="animation-play-state: running;">
+        <div class="card-pop ll-card-base ll-card-glow bg-white p-10 rounded-[2.5rem] fade-in" style="animation-play-state: running;">
             <div class="flex justify-between items-center mb-2">
                 <span class="text-[10px] font-black text-primary uppercase tracking-widest">${data.title}</span>
                 <span class="text-[10px] font-bold text-gray-400">Pregunta ${currentStep + 1} de ${contextQuestions.length}</span>
@@ -79,7 +80,7 @@ function selectOption(questionId, value) {
 
 async function finishTest(container) {
     container.innerHTML = `
-        <div class="card-pop bg-white p-10 rounded-[2.5rem] shadow-xl fade-in text-center flex flex-col items-center justify-center space-y-6">
+        <div class="card-pop ll-card-base ll-card-glow bg-white p-10 rounded-[2.5rem] fade-in text-center flex flex-col items-center justify-center space-y-6">
             <div class="w-16 h-16 border-4 border-gray-100 border-t-primary rounded-full animate-spin"></div>
             <h3 class="font-black text-2xl text-primary-dim">Guardando tu configuración...</h3>
             <p class="text-sm text-secondary">Ajustando el laboratorio a tu ADN conductual.</p>
@@ -107,7 +108,7 @@ async function finishTest(container) {
         }
 
         container.innerHTML = `
-            <section class="bg-white p-10 rounded-[2.5rem] shadow-xl fade-in space-y-6">
+            <section class="ll-card-base ll-card-glow bg-white p-10 rounded-[2.5rem] fade-in space-y-6">
                 <div class="flex items-center gap-4">
                     <div class="w-16 h-16 rounded-2xl border border-primary/20 flex items-center justify-center bg-primary/5 animate-pulse">
                         <img src="assets/Coreon.svg" alt="Coreon" class="w-10 h-10" />
@@ -132,7 +133,7 @@ async function finishTest(container) {
 
     } catch (err) {
         container.innerHTML = `
-             <div class="card-pop bg-white p-10 rounded-[2.5rem] shadow-xl fade-in text-center">
+             <div class="card-pop ll-card-base ll-card-glow bg-white p-10 rounded-[2.5rem] fade-in text-center">
                  <span class="material-symbols-outlined text-4xl text-red-400 mb-4">error</span>
                  <h3 class="font-black text-xl text-primary-dim mb-2">Hubo un problema</h3>
                  <p class="text-sm text-secondary mb-6">No pudimos guardar tus respuestas en la base de datos.</p>
@@ -146,4 +147,11 @@ async function finishTest(container) {
 }
 
 // Iniciar al cargar
-document.addEventListener("DOMContentLoaded", renderQuestion);
+document.addEventListener("DOMContentLoaded", () => {
+    mountUnifiedLayout({
+        title: "Test de Origenes",
+        activeNav: "labs",
+        badgeText: "Pre-lab"
+    });
+    renderQuestion();
+});

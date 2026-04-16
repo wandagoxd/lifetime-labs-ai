@@ -6,13 +6,14 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Laboratorio Cognitivo | Lifetime Labs</title>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <link
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="/css/styles.css" rel="stylesheet" />
+  <link href="/css/unified-layout.css" rel="stylesheet" />
 
   <script>
     tailwind.config = {
@@ -31,7 +32,7 @@
           },
           fontFamily: {
             headline: ["Manrope"],
-            body: ["Inter"]
+            body: ["Plus Jakarta Sans"]
           },
           borderRadius: {
             DEFAULT: "0.25rem",
@@ -51,7 +52,6 @@
     body {
       background: #f8faf9;
       min-height: 100dvh;
-      padding-top: 5rem;
     }
 
     .glass-soft {
@@ -256,18 +256,9 @@
   </style>
 </head>
 
-<body class="font-body text-ink antialiased px-6 pb-32">
-  <header
-    class="fixed top-0 left-0 w-full h-16 z-50 bg-white/92 backdrop-blur-lg border-b border-primary/10 flex items-center justify-between px-6">
-    <a class="flex items-center gap-2" href="index.html">
-      <img alt="Lifetime Labs logo" class="w-6 h-6" src="assets/website-icon-standing-up.png" />
-      <span class="font-headline font-extrabold text-lg text-primary">Laboratorio Cognitivo</span>
-    </a>
-    <span class="text-xs font-bold uppercase tracking-[0.14em] text-muted">Coreon IA</span>
-  </header>
-
-  <main class="mx-auto max-w-4xl space-y-5">
-    <section class="glass-soft rounded-lg p-4">
+<body class="font-body text-ink antialiased">
+  <main class="ll-main-shell mx-auto max-w-4xl space-y-5">
+    <section class="glass-soft ll-card-base rounded-[2rem] p-5">
       <div class="flex items-start gap-4">
         <div id="coreon-shell" class="coreon-shell coreon-state-activation">
           <img alt="Coreon" src="assets/Coreon.svg" />
@@ -284,17 +275,17 @@
       </div>
     </section>
 
-    <section class="glass-soft rounded-lg p-4">
+    <section class="glass-soft ll-card-base rounded-[2rem] p-5">
       <div class="flex items-center justify-between gap-3">
         <p class="text-xs font-black uppercase tracking-[0.12em] text-muted">Progreso cognitivo</p>
         <p id="progress-counter" class="text-sm font-extrabold text-primary">1/23</p>
       </div>
-      <div class="mt-2 h-2 w-full rounded-lg bg-soft/80">
-        <div id="progress-bar" class="h-2 rounded-lg bg-primary transition-all duration-500" style="width: 4%;"></div>
+      <div class="mt-2 h-2 w-full rounded-[2rem] bg-soft/80">
+        <div id="progress-bar" class="ll-rainbow-progress h-2 rounded-[2rem] bg-primary transition-all duration-500" style="width: 4%;"></div>
       </div>
     </section>
 
-    <section id="transition-overlay" class="glass-soft rounded-lg p-4">
+    <section id="transition-overlay" class="glass-soft ll-card-base rounded-[2rem] p-5">
       <div class="flex items-center gap-3">
         <span class="material-symbols-outlined text-primary">monitoring</span>
         <p id="transition-message" class="text-sm font-semibold text-primary-dim">
@@ -304,7 +295,7 @@
     </section>
 
     <section id="conversation-container" class="space-y-3">
-      <article class="glass-soft rounded-lg p-4">
+      <article class="glass-soft ll-card-base rounded-[2rem] p-5">
         <div class="flex items-center justify-between gap-2">
           <p class="text-[11px] font-black uppercase tracking-[0.12em] text-muted">Flujo conversacional</p>
           <span id="fallback-tag"
@@ -312,10 +303,10 @@
         </div>
         <div id="conversation-question" class="mt-3"></div>
       </article>
-      <div id="conversation-history" class="space-y-2"></div>
+      <div id="conversation-history" class="space-y-3"></div>
     </section>
 
-    <section id="thinking-indicator" class="hidden glass-soft rounded-lg p-3">
+    <section id="thinking-indicator" class="hidden glass-soft ll-card-base rounded-[2rem] p-4">
       <div class="flex items-center gap-2">
         <div class="thinking-dot"></div>
         <div class="thinking-dot"></div>
@@ -324,16 +315,16 @@
       </div>
     </section>
 
-    <form id="response-form" class="glass-soft rounded-lg p-4 transition-opacity">
+    <form id="response-form" class="glass-soft ll-card-base ll-card-glow rounded-[2.5rem] p-5 transition-opacity">
       <label class="block text-[11px] font-black uppercase tracking-[0.12em] text-muted mb-2" for="response-input">
         Tu respuesta
       </label>
       <textarea id="response-input"
-        class="w-full min-h-[130px] rounded-lg border border-primary/20 bg-white/90 p-3 text-sm text-ink focus:border-primary focus:ring-2 focus:ring-primary/20"
+        class="w-full min-h-[130px] rounded-[2rem] border border-primary/20 bg-white/90 p-4 text-sm text-ink focus:border-primary focus:ring-2 focus:ring-primary/20"
         disabled
         placeholder="Escribe con honestidad. Coreon analiza patrones, no respuestas perfectas."></textarea>
       <button id="submit-response"
-        class="mt-3 inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-white disabled:cursor-not-allowed disabled:opacity-60"
+        class="mt-3 inline-flex items-center gap-2 rounded-[2rem] bg-primary px-5 py-3 text-xs font-black uppercase tracking-[0.12em] text-white disabled:cursor-not-allowed disabled:opacity-60"
         disabled
         type="submit">
         Registrar señal
@@ -342,27 +333,27 @@
     </form>
 
     <section id="report-container" class="hidden space-y-4">
-      <article class="glass-soft rounded-lg p-4">
+      <article class="glass-soft ll-card-base ll-card-glow rounded-[2.5rem] p-5">
         <p class="text-[11px] font-black uppercase tracking-[0.12em] text-gold">Reporte de Potencial</p>
         <p id="report-summary" class="mt-2 text-sm font-semibold text-ink"></p>
       </article>
 
-      <article class="glass-soft rounded-lg p-4">
+      <article class="glass-soft ll-card-base rounded-[2rem] p-5">
         <h2 class="font-headline text-lg font-extrabold text-primary-dim">Fortalezas clave</h2>
         <ul id="report-strengths" class="mt-2 list-disc pl-5 text-sm text-muted space-y-1"></ul>
       </article>
 
-      <article class="glass-soft rounded-lg p-4">
+      <article class="glass-soft ll-card-base rounded-[2rem] p-5">
         <h2 class="font-headline text-lg font-extrabold text-primary-dim">Carreras compatibles</h2>
         <div id="report-careers" class="mt-3 grid gap-2 md:grid-cols-3"></div>
       </article>
 
-      <article class="glass-soft rounded-lg p-4">
+      <article class="glass-soft ll-card-base rounded-[2rem] p-5">
         <h2 class="font-headline text-lg font-extrabold text-primary-dim">Similitud con egresados</h2>
         <div id="report-graduate" class="mt-2 text-sm text-muted space-y-1"></div>
       </article>
 
-      <article class="glass-soft rounded-lg p-4 grid gap-4 md:grid-cols-2">
+      <article class="glass-soft ll-card-base rounded-[2rem] p-5 grid gap-4 md:grid-cols-2">
         <div>
           <h2 class="font-headline text-lg font-extrabold text-primary-dim">Alertas académicas</h2>
           <ul id="report-alerts" class="mt-2 list-disc pl-5 text-sm text-muted space-y-1"></ul>
@@ -373,40 +364,19 @@
         </div>
       </article>
 
-      <article class="glass-soft rounded-lg p-4">
+      <article class="glass-soft ll-card-base rounded-[2rem] p-5">
         <h2 class="font-headline text-lg font-extrabold text-primary-dim">Competencias visuales</h2>
         <div id="report-scores" class="mt-3 grid gap-2 md:grid-cols-2"></div>
       </article>
 
       <button id="report-cta"
-        class="w-full rounded-lg bg-primary px-4 py-3 text-sm font-black uppercase tracking-[0.14em] text-white">
+        class="w-full rounded-[2rem] bg-primary px-4 py-3 text-sm font-black uppercase tracking-[0.14em] text-white">
         Explorar mis rutas compatibles
       </button>
     </section>
   </main>
 
-  <nav
-    class="fixed bottom-0 left-0 w-full h-24 bg-white/90 backdrop-blur-xl border-t border-gray-100 flex justify-around items-center px-6 z-50">
-    <button onclick="location.href='index.html'" class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary">
-      <span class="material-symbols-outlined text-2xl">home</span>
-    </button>
-    <button onclick="location.href='career-bank.html'" class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary">
-      <span class="material-symbols-outlined text-2xl">auto_stories</span>
-    </button>
-    <button onclick="location.href='labs.html'"
-      class="bg-[#006947] text-white w-16 h-16 rounded-full -mt-12 border-[6px] border-[#f8faf9] flex items-center justify-center shadow-2xl transition-transform active:scale-90">
-      <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1, 'wght' 700;">science</span>
-    </button>
-    <button onclick="location.href='profile.html'" class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary">
-      <span class="material-symbols-outlined text-2xl">person</span>
-    </button>
-    <button onclick="location.href='why-us.html'" class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary">
-      <span class="material-symbols-outlined text-2xl">info</span>
-    </button>
-  </nav>
-
   <script type="module" src="js/pages/main-labs.js"></script>
 </body>
 
 </html>
-

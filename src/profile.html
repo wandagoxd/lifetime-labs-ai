@@ -11,6 +11,7 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1"
         rel="stylesheet" />
+    <link href="/css/unified-layout.css" rel="stylesheet" />
 
     <script>
         tailwind.config = {
@@ -67,26 +68,11 @@
     </style>
 </head>
 
-<body class="font-body text-[#2d2f2e] antialiased pt-20 pb-36 px-6">
-
-    <header
-        class="fixed top-0 left-0 w-full h-16 z-50 bg-white/90 backdrop-blur-lg flex justify-between items-center px-6 border-b border-primary/10">
-        <div class="flex items-center gap-2">
-            <img src="assets/website-icon-standing-up.png" class="w-6 h-6" alt="Logo" />
-            <h1 class="font-headline font-extrabold text-lg text-primary">Perfil</h1>
-        </div>
-        <div class="flex gap-2">
-            <button
-                class="material-symbols-outlined text-secondary p-2 bg-gray-50 rounded-full hover:bg-primary-container/20 transition-colors">notifications</button>
-            <button
-                class="material-symbols-outlined text-secondary p-2 bg-gray-50 rounded-full hover:bg-primary-container/20 transition-colors">settings</button>
-        </div>
-    </header>
-
-    <main class="max-w-2xl mx-auto space-y-8">
+<body class="font-body text-[#2d2f2e] antialiased px-6">
+    <main class="ll-main-shell max-w-2xl mx-auto space-y-8">
 
         <section class="text-center space-y-4 py-6">
-            <div class="relative w-48 h-48 mx-auto">
+            <div id="seneca-cabra-slot" class="relative w-48 h-48 mx-auto">
                 <div
                     class="absolute inset-0 bg-primary-container/20 blur-3xl animate-pulse rounded-[0%_100%_100%_100%]">
                 </div>
@@ -97,23 +83,23 @@
             </div>
             <div>
                 <h2 class="font-headline font-black text-4xl tracking-tight text-primary-dim">Tu Coreon</h2>
-                <p class="text-xs text-secondary font-bold uppercase tracking-[0.2em] opacity-60">PERSONA@GMAIL.COM</p>
+                <p id="profile-user-email" class="text-xs text-secondary font-bold uppercase tracking-[0.2em] opacity-60">INVITADO</p>
             </div>
         </section>
 
         <section class="grid grid-cols-2 gap-4">
-            <div class="bg-white p-6 rounded-[2rem] shadow-sm border-b-4 border-cluster-cientifico card-pop">
+            <div class="ll-card-base ll-card-glow bg-white p-6 rounded-[2rem] border-b-4 border-cluster-cientifico card-pop">
                 <span class="text-[10px] font-black text-cluster-cientifico uppercase tracking-tighter">Evolución</span>
-                <p class="font-black text-primary-dim text-3xl mt-1">72<span class="text-sm opacity-40">%</span></p>
+                <p class="font-black text-primary-dim text-3xl mt-1"><span id="profile-evolution-percent">0</span><span class="text-sm opacity-40">%</span></p>
             </div>
-            <div class="bg-white p-6 rounded-[2rem] shadow-sm border-b-4 border-cluster-tecnico card-pop">
+            <div class="ll-card-base ll-card-glow bg-white p-6 rounded-[2rem] border-b-4 border-cluster-tecnico card-pop">
                 <span class="text-[10px] font-black text-cluster-tecnico uppercase tracking-tighter">Racha</span>
-                <p class="font-black text-primary-dim text-3xl mt-1">14 <span
+                <p class="font-black text-primary-dim text-3xl mt-1"><span id="profile-streak-days">0</span> <span
                         class="text-xs font-bold text-secondary opacity-40">DÍAS</span></p>
             </div>
         </section>
 
-        <section class="bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-100 space-y-8">
+        <section class="ll-card-base bg-white rounded-[2.5rem] p-8 border border-gray-100 space-y-8">
             <div class="flex justify-between items-center">
                 <h3 class="font-headline font-black text-2xl text-primary-dim">Tu Armario</h3>
                 <span
@@ -159,30 +145,7 @@
         </button>
 
     </main>
-
-    <nav
-        class="fixed bottom-0 left-0 w-full h-24 bg-white/90 backdrop-blur-xl border-t border-gray-100 flex justify-around items-center px-6 z-50">
-        <button onclick="location.href='index.html'"
-            class="text-[#acadac] w-12 h-12 rounded-2xl flex items-center justify-center transition-all">
-            <span class="material-symbols-outlined text-2xl">home</span>
-        </button>
-        <button onclick="location.href='career-bank.html'"
-            class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-2xl">auto_stories</span>
-        </button>
-        <button onclick="location.href='labs.html'"
-            class="bg-[#006947] bioluminescent-glow text-white w-16 h-16 rounded-full -mt-12 border-[6px] border-[#f8faf9] flex items-center justify-center shadow-2xl transition-transform active:scale-90">
-            <span class="material-symbols-outlined text-white text-3xl">science</span>
-        </button>
-        <button onclick=" location.href='profile.html'"
-            class=" flex items-center justify-center w-12 h-12 text-primary hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-2xl">person</span>
-        </button>
-        <button onclick="location.href='why-us.html'"
-            class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-2xl">info</span>
-        </button>
-    </nav>
+    <script type="module" src="js/pages/main-profile.js"></script>
 
 </body>
 

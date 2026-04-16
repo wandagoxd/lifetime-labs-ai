@@ -5,6 +5,7 @@ import {
     createLabStateMachine
 } from "../lab/state-machine.js";
 import { buildFallbackReport } from "../lab/report-schema.js";
+import { mountUnifiedLayout } from "../components/unified-layout.js";
 import { subscribeToAuthChanges } from "../services/auth.js";
 import {
     initializeLabSession,
@@ -59,6 +60,12 @@ let isBootstrapped = false;
 
 const runtimeSnapshot = readRuntimeSnapshot();
 const sessionId = runtimeSnapshot?.sessionId || `lab-${Date.now()}`;
+
+mountUnifiedLayout({
+    title: "Laboratorio Cognitivo",
+    activeNav: "labs",
+    badgeText: "Coreon IA"
+});
 
 const machine = createLabStateMachine({
     sessionId,
