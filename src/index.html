@@ -4,187 +4,165 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Lifetime Labs | Inicio</title>
-
+  <title>Por qué Lifetime Labs | El Laboratorio de tu Potencial</title>
+  <link rel="icon" type="image/png" href="assets/website-icon-standing-up.png" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Plus+Jakarta+Sans:wght@400;600&display=swap"
-    rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1"
-    rel="stylesheet" />
-
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
-  <script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+  <link href="/css/unified-layout.css" rel="stylesheet" />
+  
+  <script id="tailwind-config">
+    // Mantenemos tu Design System intacto
     tailwind.config = {
+      darkMode: "class",
       theme: {
         extend: {
-          colors: {
+          "colors": {
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#2d2f2e",
+            "secondary": "#5d5c4d",
+            "secondary-dim": "#515042",
+            "background": "#f6f6f5",
             "primary": "#006947",
             "primary-dim": "#005c3d",
-            "cluster-cientifico": "#007BFF",
-            "cluster-tecnico": "#FF851B",
-            "cluster-creativo": "#6F42C1",
-            "on-surface": "#2d2f2e",
+            "primary-container": "#a0f7ca",
+            "secondary-container": "#e5e3d0",
+            "surface-container-high": "#e1e3e1",
+            "surface-container-low": "#f0f1ef",
+            "accent-purple": "#6F42C1"
           },
-          fontFamily: { "headline": ["Manrope"], "body": ["Plus Jakarta Sans"] }
-        }
-      }
+          "fontFamily": {
+            "headline": ["Manrope"],
+            "body": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"]
+          }
+        },
+      },
     }
   </script>
-
   <style>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-
-    .bioluminescent-glow {
-      background: linear-gradient(135deg, #006947 0%, #005c3d 100%);
-      box-shadow: 0 10px 25px -5px rgba(0, 105, 71, 0.4);
-    }
-
-    body {
-      background-color: #f8faf9;
-    }
-
-    /* Animación de Pulso Suave para el Widget de Bienvenida */
-    .pulse-vibrant {
-      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: 0.9;
-        transform: scale(1.02);
-      }
-    }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    body { background-color: #f8faf9; font-family: 'Plus Jakarta Sans', sans-serif; color: #2d2f2e; min-height: 100dvh; }
+    .hero-gradient { background: linear-gradient(145deg, #006947 0%, #005c3d 100%); }
+    .glass-header { background: rgba(255, 255, 253, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 105, 71, 0.1); }
+    .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(0, 105, 71, 0.1); }
+    .bioluminescent-glow { box-shadow: 0 0 20px rgba(160, 247, 202, 0.4); }
   </style>
 </head>
 
-<body class="font-body text-on-surface antialiased pt-20 pb-36 px-6">
-
-  <header
-    class="fixed top-0 left-0 w-full h-16 z-50 bg-white/90 backdrop-blur-md flex justify-between items-center px-6 border-b border-primary/10">
-    <div class="flex items-center gap-2">
-      <img src="assets/website-icon-standing-up.png" class="w-6 h-6" alt="Logo" />
-      <h1 class="font-headline font-black text-lg text-primary tracking-tight">Hogar</h1>
-    </div>
-    <div class="flex gap-2">
-      <button class="material-symbols-outlined text-[#2d2f2e]/60 p-2 bg-gray-50 rounded-full">settings</button>
-      <button class="material-symbols-outlined text-[#2d2f2e]/60 p-2 bg-gray-50 rounded-full">notifications</button>
-    </div>
-  </header>
-
-  <main class="max-w-2xl mx-auto space-y-10">
-
-    <section class="flex justify-between items-end py-4">
-      <div class="space-y-2">
-        <div
-          class="inline-flex bg-cluster-creativo text-white px-3 py-1 rounded-full shadow-xl shadow-cluster-creativo/20 pulse-vibrant">
-          <span class="text-[9px] font-black uppercase tracking-[0.1em]">Fase Beta: Colombia</span>
+<body class="antialiased">
+  <main class="ll-main-shell max-w-4xl mx-auto">
+    <section class="px-6 py-16 flex flex-col items-center text-center">
+      <div class="relative w-48 h-48 mb-10 bg-white rounded-[0%_100%_100%_100%] bioluminescent-glow flex items-center justify-center border-4 border-primary-container">
+        <img alt="Coreon mascot" class="w-32 h-32 object-contain" src="assets/Coreon.svg" />
+        <div class="absolute -top-2 -right-2 bg-white p-2 rounded-xl shadow-lg border border-primary-container animate-bounce">
+          <span class="material-symbols-outlined text-primary">science</span>
         </div>
-        <h2 class="font-headline font-black text-4xl text-primary-dim leading-tight">¡Hola de nuevo,<br><span
-            class="text-primary">Core!</span></h2>
       </div>
-      <div class="relative w-24 h-24 cursor-pointer hover:scale-105 transition-transform"
-        onclick="location.href='profile.html'">
-        <div
-          class="w-full h-full bg-white rounded-[0%_100%_100%_100%] border-4 border-white shadow-xl overflow-hidden flex items-center justify-center relative coreon-container">
-          <img src="assets/Coreon.svg" class="w-16 h-16" alt="Coreon Base">
-          <span
-            class="material-symbols-outlined absolute text-xl text-cluster-cientifico pointer-events-none top-1/2 left-2/3-translate-x-10-translate-y-1/2 mt-[1px] hover:rotate-6 transition-transform"
-            style="font-variation-settings: 'wght' 100; color: #48752C;">emoji_objects</span>
+      
+      <div class="inline-block px-4 py-1 bg-primary-container text-primary rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Nuestra Filosofía</div>
+      
+      <h1 class="font-headline text-4xl md:text-5xl font-extrabold tracking-tight text-on-surface mb-6 leading-tight">
+        Cerrando la brecha entre <span class="text-primary">la educación</span> y <span class="text-accent-purple">el propósito</span>
+      </h1>
+      <p class="font-body text-lg text-secondary leading-relaxed mb-10 px-4 max-w-2xl">
+        Ayudamos a la siguiente generación universitaria a pasar de la teoría a la maestría vocacional
+      </p>
+      <div class="flex gap-4 mb-4">
+        <button onclick="location.href='login.html'" class="bg-primary text-white font-bold py-3 px-8 rounded-full shadow-lg shadow-primary/30 hover:bg-primary-dim transition-colors">Iniciar Experimento</button>
+      </div>
+    </section>
+
+    <section class="bg-surface-container-low py-20 px-6 rounded-[3rem] mx-4 mb-16 shadow-inner">
+      <div class="mb-12">
+        <h2 class="font-headline text-3xl font-black mb-4 text-center text-primary-dim">El Costo de la Incertidumbre Académica</h2>
+        <div class="w-12 h-1 bg-primary mx-auto rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-surface-container-lowest p-8 rounded-[2rem] flex flex-col items-center text-center shadow-md border-b-4 border-primary-container">
+          <span class="text-5xl font-black font-headline text-primary mb-2">40%</span>
+          <p class="font-body text-secondary-dim font-medium text-sm">De los graduados asumen roles que no requieren su título en menos de 5 años.</p>
+        </div>
+        <div class="bg-surface-container-lowest p-8 rounded-[2rem] flex flex-col items-center text-center shadow-md border-b-4 border-primary-container">
+          <span class="text-5xl font-black font-headline text-accent-purple mb-2">60%+</span>
+          <p class="font-body text-secondary-dim font-medium text-sm">De los estudiantes reportan dudas sobre su vocación a pesar de tener un buen promedio.</p>
+        </div>
+        <div class="bg-surface-container-lowest p-8 rounded-[2rem] flex flex-col items-center text-center shadow-md border-b-4 border-primary-container">
+          <span class="text-5xl font-black font-headline text-primary mb-2">3.2x</span>
+          <p class="font-body text-secondary-dim font-medium text-sm">Mayor probabilidad de graduarse cuando la carrera inicia desde la exploración previa.</p>
         </div>
       </div>
     </section>
 
-    <section class="mb-12">
-      <div class="grid grid-cols-2 gap-4">
-        <div
-          class="col-span-2 bg-white rounded-[2.5rem] p-8 relative overflow-hidden shadow-xl border border-gray-100 group active:scale-[0.98] transition-all"
-          onclick="location.href='test-origins.html'">
-
-          <div
-            class="absolute -right-10 top-0 w-60 h-full pointer-events-none opacity-20 group-hover:opacity-60 transition-opacity">
-            <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.10/dist/dotlottie-wc.js"
-              type="module"></script>
-
-            <dotlottie-wc src="https://lottie.host/c167523b-b855-4369-914d-d867dbc98525/xLBP0MiVTT.lottie"
-              style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
-          </div>
-
-          <div class="relative z-10 space-y-6">
-            <div
-              class="w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20">
-              <span class="material-symbols-outlined text-3xl">history_edu</span>
+    <section class="py-16 px-6 mb-16">
+      <h2 class="font-headline text-3xl font-black mb-10 leading-tight text-center">Descubrimiento a través de <span class="text-primary italic">la experiencia.</span></h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="glass-card rounded-[2rem] p-8 hover:-translate-y-1 transition-transform">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="p-3 bg-primary-container rounded-2xl">
+              <span class="material-symbols-outlined text-primary">psychology</span>
             </div>
-            <div>
-              <h4 class="font-headline font-black text-3xl text-primary-dim mb-2">Test de Orígenes</h4>
-              <p class="text-secondary font-medium text-sm max-w-[240px] leading-relaxed">
-                Mide tus comportamientos reales y descubre tu ADN vocacional.
-              </p>
-            </div>
-            <button
-              class="bioluminescent-glow text-white font-black py-4 px-10 rounded-2xl text-xs uppercase tracking-[0.2em] shadow-2xl">
-              Iniciar Experimento
-            </button>
+            <h3 class="font-headline text-xl font-bold">Coreon: Agente Cognitivo</h3>
           </div>
+          <p class="text-secondary text-sm leading-relaxed">
+            Un compañero digital que analiza tus respuestas en micro-actividades y perfila tus fortalezas reales más allá de un test tradicional.
+          </p>
+        </div>
+        
+        <div class="glass-card rounded-[2rem] p-8 hover:-translate-y-1 transition-transform">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="p-3 bg-secondary-container rounded-2xl text-secondary-dim">
+              <span class="material-symbols-outlined">experiment</span>
+            </div>
+            <h3 class="font-headline text-xl font-bold">Micro-Labs</h3>
+          </div>
+          <p class="text-secondary text-sm leading-relaxed">
+            Ejercicios basados en situaciones reales de la vida profesional y académica para que experimentes la carrera antes de matricularte.
+          </p>
         </div>
 
-        <div
-          class="bg-white p-6 rounded-[2rem] shadow-sm border-b-4 border-cluster-cientifico active:scale-95 transition-transform cursor-pointer group"
-          onclick="location.href='career-bank.html'">
-          <span
-            class="material-symbols-outlined text-cluster-cientifico mb-4 text-3xl group-hover:scale-110 transition-transform">auto_stories</span>
-          <h4 class="font-headline font-black text-primary-dim text-sm mb-1">Banco de Carreras</h4>
-          <p class="text-secondary text-[10px] font-bold uppercase tracking-tighter opacity-60">Explora tu cluster</p>
-        </div>
-
-        <div
-          class="bg-white p-6 rounded-[2rem] shadow-sm border-b-4 border-cluster-tecnico active:scale-95 transition-transform cursor-pointer group">
-          <span
-            class="material-symbols-outlined text-cluster-tecnico mb-4 text-3xl group-hover:rotate-12 transition-transform">experiment</span>
-          <h4 class="font-headline font-black text-primary-dim text-sm mb-1">Protocolo Diario</h4>
-          <p class="text-secondary text-[10px] font-bold uppercase tracking-tighter opacity-60">Mantén tu racha</p>
+        <div class="bg-primary text-white rounded-[2rem] p-8 md:col-span-2 shadow-xl relative overflow-hidden">
+          <div class="absolute right-0 bottom-0 opacity-10">
+            <span class="material-symbols-outlined text-[150px]">data_exploration</span>
+          </div>
+          <div class="relative z-10 md:w-2/3">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
+                <span class="material-symbols-outlined text-primary-container">route</span>
+              </div>
+              <h3 class="font-headline text-xl font-bold">Trayectorias Basadas en Evidencia</h3>
+            </div>
+            <p class="text-white/90 text-sm leading-relaxed">
+              Nuestro modelo aprende de trayectorias reales de estudiantes de últimos semestres y egresados para conectar tus habilidades actuales con rutas universitarias viables y con demanda.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
+    <section class="px-6 py-16 relative overflow-hidden mb-20">
+      <div class="absolute inset-0 bg-primary/5 rounded-[3rem] -z-10"></div>
+      <div class="text-center max-w-2xl mx-auto">
+        <p class="font-label text-primary font-bold uppercase tracking-[0.2em] text-xs mb-4">Visión a futuro</p>
+        <h2 class="font-headline text-3xl md:text-4xl font-extrabold mb-8 leading-tight">Nuestra meta: Guiar a 1 Millón de jóvenes en Colombia</h2>
+        
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mt-10">
+            <div class="bg-white px-6 py-3 rounded-full shadow-sm flex items-center gap-3 font-bold text-sm text-secondary-dim border border-stone-100">
+                <span class="material-symbols-outlined text-primary text-xl">school</span> Alianzas Universitarias
+            </div>
+            <div class="bg-white px-6 py-3 rounded-full shadow-sm flex items-center gap-3 font-bold text-sm text-secondary-dim border border-stone-100">
+                <span class="material-symbols-outlined text-primary text-xl">analytics</span> Datos Transparentes
+            </div>
+        </div>
+      </div>
+    </section>
   </main>
+  
+  <footer class="py-12 text-center text-stone-400 text-xs font-bold tracking-widest uppercase border-t border-stone-100">
+    © 2026 Lifetime Labs — Universidad de los Andes
+  </footer>
 
-  <nav
-    class="fixed bottom-0 left-0 w-full h-24 bg-white/90 backdrop-blur-xl border-t border-gray-100 flex justify-around items-center px-6 z-50">
-    <button onclick="location.href='index.html'"
-      class="bg-primary-container text-primary w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm transition-all">
-      <span class="material-symbols-outlined text-2xl"
-        style="font-variation-settings: 'FILL' 1, 'wght' 700;">home</span>
-    </button>
-    <button onclick="location.href='career-bank.html'"
-      class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary transition-colors">
-      <span class="material-symbols-outlined text-2xl">auto_stories</span>
-    </button>
-    <button onclick="location.href='labs.html'"
-      class="bioluminescent-glow text-white w-16 h-16 rounded-full -mt-12 border-[6px] border-[#f8faf9] flex items-center justify-center shadow-2xl transition-transform active:scale-90">
-      <span class="material-symbols-outlined text-white text-3xl">science</span>
-    </button>
-    <button onclick="location.href='profile.html'"
-      class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary transition-colors">
-      <span class="material-symbols-outlined text-2xl">person</span>
-    </button>
-    <button onclick="location.href='why-us.html'"
-      class="flex items-center justify-center w-12 h-12 text-[#acadac] hover:text-primary transition-colors">
-      <span class="material-symbols-outlined text-2xl">info</span>
-    </button>
-  </nav>
-
-  <script type="module" src="js/pages/dashboard.js"></script>
+  <script type="module" src="js/pages/main-why-us.js"></script>
 </body>
-
 </html>

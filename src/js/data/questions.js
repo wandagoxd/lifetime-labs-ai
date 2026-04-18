@@ -70,6 +70,20 @@ export const contextQuestions = [
     },
 
     {
+        id: "area_interes",
+        title: "Intereses",
+        question: "¿Qué área o tipo de carrera te llama más la atención actualmente?",
+        options: [
+            { text: "Ingeniería, Tecnología y Software", value: "tecnologia" },
+            { text: "Negocios, Economía y Emprendimiento", value: "negocios" },
+            { text: "Arte, Diseño y Creatividad", value: "arte" },
+            { text: "Ciencias de la Salud y Biología", value: "salud" },
+            { text: "Ciencias Sociales y Humanidades", value: "humanidades" },
+            { text: "Aún no tengo ninguna idea clara", value: "indeciso" }
+        ]
+    },
+
+    {
         id: "accion_reciente",
         title: "Acción",
         question: "En los últimos 7 días, ¿tomaste alguna acción concreta hacia un objetivo personal?",

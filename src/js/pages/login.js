@@ -3,7 +3,7 @@ import { loginWithEmail, loginWithGoogle, saveUserData, subscribeToAuthChanges }
 subscribeToAuthChanges((user) => {
     if (user) {
         // User is already logged in, redirect them to dashboard
-        window.location.href = "index.html";
+        window.location.href = "dashboard.html";
     }
 });
 
@@ -51,7 +51,7 @@ loginForm.addEventListener("submit", async (e) => {
         setLoading(true);
         const user = await loginWithEmail(email, password);
         await saveUserData(user);
-        window.location.href = "index.html"; // Redirigir al inicio real
+        window.location.href = "dashboard.html"; // Redirigir al inicio real
     } catch (err) {
         console.error(err);
         showError("Email o contraseña incorrectos.");
@@ -65,7 +65,7 @@ btnGoogle.addEventListener("click", async (e) => {
     try {
         const user = await loginWithGoogle();
         await saveUserData(user);
-        window.location.href = "index.html";
+        window.location.href = "dashboard.html";
     } catch (err) {
         console.error(err);
         showError("Error al iniciar sesión con Google.");

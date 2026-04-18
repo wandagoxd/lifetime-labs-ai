@@ -5,6 +5,11 @@ import {
     recommendCareers,
     suggestScholarships
 } from "../data/career-bank-seed.js";
+import {
+    mountUnifiedLayout,
+    setUnifiedHeaderAuth,
+    setUnifiedHeaderStatus
+} from "../components/unified-layout.js";
 import { subscribeToAuthChanges } from "../services/auth.js";
 import { getCareers } from "../services/career-bank-db.js";
 
@@ -28,6 +33,16 @@ const learningStyles = ["todos", "proyectos", "teorico", "experimental", "analit
 const toleranceOptions = ["todas", "media", "media-alta", "alta"];
 const interestOptions = ["creatividad", "datos", "tecnologia", "impacto social", "ciencia", "medio ambiente", "economia", "educacion", "salud", "bienestar", "ciudad", "investigacion", "politica publica", "negocio"];
 const skillOptions = ["Programacion", "Pensamiento logico", "Comunicacion visual", "Lectura critica", "Metodo cientifico", "Escucha activa", "Trabajo colaborativo", "Razonamiento logico"];
+
+function getCareerPresetIdsFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const raw = params.get("carreras");
+    if (!raw) return [];
+    return raw
+        .split(",")
+        .map((item) => item.trim())
+        .filter(Boolean);
+}
 
 function querySelector(selector) {
     return document.querySelector(selector);
@@ -170,7 +185,7 @@ function renderCareerList() {
 
     if (!state.filteredCareers.length) {
         list.innerHTML = `
-            <article class="rounded-xl border border-slate-200 bg-white p-5 text-sm text-slate-600">
+            <article class="ll-card-base rounded-[2rem] border border-slate-200 bg-white p-6 text-sm text-slate-600">
                 No hay coincidencias con estos filtros. Ajusta matematicas, riesgo o materias filtro para ampliar resultados.
             </article>
         `;
@@ -180,7 +195,7 @@ function renderCareerList() {
     list.innerHTML = state.filteredCareers
         .map(
             (career) => `
-            <article class="career-card rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <article class="career-card ll-card-base rounded-[2.5rem] border border-slate-200 bg-white p-6">
                 <div class="flex items-start justify-between gap-3">
                     <div>
                         <p class="text-[11px] font-black uppercase tracking-[0.18em] text-slate-500">${career.area}</p>
@@ -191,14 +206,14 @@ function renderCareerList() {
                 </div>
                 <p class="mt-3 text-sm text-slate-700">${career.descripcion_realista}</p>
                 <div class="mt-4 grid grid-cols-3 gap-2 text-[11px] font-semibold text-slate-600">
-                    <span class="rounded-md bg-slate-100 px-2 py-1">Math ${career.carga_matematica}/5</span>
-                    <span class="rounded-md bg-slate-100 px-2 py-1">Lab ${career.carga_laboratorio}/5</span>
-                    <span class="rounded-md bg-slate-100 px-2 py-1">Creditos ${career.creditos_totales}</span>
+                    <span class="rounded-[1rem] bg-slate-100 px-2 py-1">Math ${career.carga_matematica}/5</span>
+                    <span class="rounded-[1rem] bg-slate-100 px-2 py-1">Lab ${career.carga_laboratorio}/5</span>
+                    <span class="rounded-[1rem] bg-slate-100 px-2 py-1">Creditos ${career.creditos_totales}</span>
                 </div>
                 <div class="mt-4 flex flex-wrap gap-2">
-                    ${(career.materias_filtro || []).slice(0, 2).map((subject) => `<span class="rounded-md bg-rose-50 px-2 py-1 text-[11px] font-semibold text-rose-700">${subject}</span>`).join("")}
+                    ${(career.materias_filtro || []).slice(0, 2).map((subject) => `<span class="rounded-[1rem] bg-rose-50 px-2 py-1 text-[11px] font-semibold text-rose-700">${subject}</span>`).join("")}
                 </div>
-                <button data-open-career="${career.id}" class="mt-4 rounded-lg bg-primary px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-white">Abrir estrategia</button>
+                <button data-open-career="${career.id}" class="mt-4 rounded-[2rem] bg-primary px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-white">Abrir estrategia</button>
             </article>
         `
         )
@@ -233,11 +248,11 @@ function renderCareerDetail() {
     const bottlenecks = (career.materias_filtro_detalle || [])
         .map(
             (subject) => `
-            <tr>
-                <td class="px-3 py-2 text-sm text-slate-700">${subject.nombre}</td>
-                <td class="px-3 py-2 text-sm text-slate-700">${subject.semestre_tipico}</td>
-                <td class="px-3 py-2 text-sm text-slate-700">${subject.nivel_riesgo_academico}</td>
-            </tr>
+            <article class="rounded-[2rem] border border-rose-100 bg-rose-50/50 p-4">
+                <p class="text-sm font-extrabold text-slate-800">${subject.nombre}</p>
+                <p class="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">Semestre ${subject.semestre_tipico}</p>
+                <p class="mt-2 text-xs text-rose-700">Riesgo: ${subject.nivel_riesgo_academico}</p>
+            </article>
         `
         )
         .join("");
@@ -249,7 +264,7 @@ function renderCareerDetail() {
     const postgrad = career.opciones_posgrado_relacionadas || {};
 
     container.innerHTML = `
-        <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+        <article class="ll-card-base rounded-[2.5rem] border border-slate-200 bg-white p-6">
             <div class="flex items-start justify-between gap-3">
                 <div>
                     <p class="text-[11px] font-black uppercase tracking-[0.16em] text-primary">${career.area}</p>
@@ -260,13 +275,13 @@ function renderCareerDetail() {
             <p class="mt-3 text-sm text-slate-700">${career.perfil_estudiante_ideal}</p>
 
             <div class="mt-5 grid gap-4 md:grid-cols-2">
-                <div class="rounded-lg bg-slate-50 p-4">
+                <div class="rounded-[2rem] bg-slate-50 p-5">
                     <h4 class="text-xs font-black uppercase tracking-[0.12em] text-slate-500">Movilidad academica</h4>
                     <p class="mt-2 text-sm text-slate-700">PGA sugerido: <strong>${transfer.pga_minimo_general || "3.5"}</strong></p>
                     <p class="mt-1 text-sm text-slate-700">Ruta alterna: ${transfer.ruta_alternativa_creditos || "45 creditos con 3.75"}</p>
                     <p class="mt-2 text-sm text-slate-700">${transfer.regla_recalculo || "Se conservan notas homologables."}</p>
                 </div>
-                <div class="rounded-lg bg-slate-50 p-4">
+                <div class="rounded-[2rem] bg-slate-50 p-5">
                     <h4 class="text-xs font-black uppercase tracking-[0.12em] text-slate-500">Extracreditacion y doble</h4>
                     <p class="mt-2 text-sm text-slate-700">Extracreditacion: ${career.posibilidad_extracreditacion ? "Si (promedio > 4.0)" : "No"}</p>
                     <p class="mt-1 text-sm text-slate-700">Doble programa: ${compatibility.aplica ? "Compatible" : "No priorizado"}</p>
@@ -274,17 +289,11 @@ function renderCareerDetail() {
                 </div>
             </div>
 
-            <div class="mt-5 overflow-hidden rounded-lg border border-slate-200">
-                <table class="w-full border-collapse">
-                    <thead class="bg-slate-100 text-left">
-                        <tr>
-                            <th class="px-3 py-2 text-xs font-black uppercase tracking-[0.1em] text-slate-600">Materia filtro</th>
-                            <th class="px-3 py-2 text-xs font-black uppercase tracking-[0.1em] text-slate-600">Semestre</th>
-                            <th class="px-3 py-2 text-xs font-black uppercase tracking-[0.1em] text-slate-600">Riesgo</th>
-                        </tr>
-                    </thead>
-                    <tbody>${bottlenecks}</tbody>
-                </table>
+            <div class="mt-5">
+                <h4 class="text-xs font-black uppercase tracking-[0.12em] text-slate-500">Materias filtro</h4>
+                <div class="mt-3 grid gap-3 md:grid-cols-3">
+                    ${bottlenecks || `<p class="text-sm text-slate-600">Sin materias filtro registradas.</p>`}
+                </div>
             </div>
 
             <div class="mt-5 grid gap-4 md:grid-cols-2">
@@ -365,44 +374,51 @@ function renderSimulatorTable() {
 
     table.innerHTML = state.simulatorCourses
         .map(
-            (course, index) => `
-            <tr>
-                <td class="px-2 py-2">
-                    <input data-course-input="${course.id}" data-field="nombre" class="w-full rounded-md border border-slate-300 px-2 py-1 text-sm" value="${course.nombre}" />
-                </td>
-                <td class="px-2 py-2">
-                    <input data-course-input="${course.id}" data-field="creditos" type="number" min="1" max="6" class="w-20 rounded-md border border-slate-300 px-2 py-1 text-sm" value="${course.creditos}" />
-                </td>
-                <td class="px-2 py-2">
-                    <input data-course-input="${course.id}" data-field="nota" type="number" step="0.1" min="0" max="5" class="w-20 rounded-md border border-slate-300 px-2 py-1 text-sm" value="${course.nota}" />
-                </td>
-                <td class="px-2 py-2 text-center">
-                    <input data-course-input="${course.id}" data-field="homologable" type="checkbox" class="rounded border-slate-300 text-primary focus:ring-primary" ${course.homologable ? "checked" : ""} />
-                </td>
-                <td class="px-2 py-2 text-center">
-                    <input data-course-input="${course.id}" data-field="problematica" type="checkbox" class="rounded border-slate-300 text-rose-500 focus:ring-rose-500" ${course.problematica ? "checked" : ""} />
-                </td>
-                <td class="px-2 py-2 text-center">
-                    <button data-remove-course="${course.id}" class="rounded-md bg-slate-100 px-2 py-1 text-xs font-bold text-slate-600">Quitar</button>
-                </td>
-            </tr>
+            (course) => `
+            <article class="ll-card-base rounded-[2rem] bg-white p-4">
+                <div class="grid gap-3 md:grid-cols-2">
+                    <label class="grid gap-1 text-xs font-black uppercase tracking-[0.08em] text-slate-500">
+                        Materia
+                        <input data-course-input="${course.id}" data-field="nombre" class="w-full rounded-[1rem] border border-slate-300 px-3 py-2 text-sm" value="${course.nombre}" />
+                    </label>
+                    <label class="grid gap-1 text-xs font-black uppercase tracking-[0.08em] text-slate-500">
+                        Creditos
+                        <input data-course-input="${course.id}" data-field="creditos" type="number" min="1" max="6" class="w-full rounded-[1rem] border border-slate-300 px-3 py-2 text-sm" value="${course.creditos}" />
+                    </label>
+                </div>
+                <div class="mt-3 grid gap-3 md:grid-cols-3">
+                    <label class="grid gap-1 text-xs font-black uppercase tracking-[0.08em] text-slate-500">
+                        Nota
+                        <input data-course-input="${course.id}" data-field="nota" type="number" step="0.1" min="0" max="5" class="w-full rounded-[1rem] border border-slate-300 px-3 py-2 text-sm" value="${course.nota}" />
+                    </label>
+                    <label class="inline-flex items-center gap-2 rounded-[1rem] border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-600">
+                        <input data-course-input="${course.id}" data-field="homologable" type="checkbox" class="rounded border-slate-300 text-primary focus:ring-primary" ${course.homologable ? "checked" : ""} />
+                        Homologable
+                    </label>
+                    <label class="inline-flex items-center gap-2 rounded-[1rem] border border-rose-200 bg-rose-50 px-3 py-2 text-xs font-semibold text-rose-700">
+                        <input data-course-input="${course.id}" data-field="problematica" type="checkbox" class="rounded border-rose-300 text-rose-500 focus:ring-rose-500" ${course.problematica ? "checked" : ""} />
+                        Problematica
+                    </label>
+                </div>
+                <button data-remove-course="${course.id}" class="mt-3 rounded-[1rem] bg-slate-100 px-3 py-2 text-xs font-bold text-slate-600">Quitar</button>
+            </article>
         `
         )
         .join("");
 
     const { original, homologable, borron } = calculateTransferScenarios();
     metrics.innerHTML = `
-        <div class="rounded-lg bg-white p-3">
+        <div class="ll-card-base rounded-[2rem] bg-white p-4">
             <p class="text-xs font-black uppercase tracking-[0.1em] text-slate-500">Promedio actual</p>
             <p class="mt-1 text-lg font-extrabold text-slate-800">${original.average.toFixed(2)}</p>
             <p class="text-xs text-slate-500">${original.credits} creditos considerados</p>
         </div>
-        <div class="rounded-lg bg-white p-3">
+        <div class="ll-card-base rounded-[2rem] bg-white p-4">
             <p class="text-xs font-black uppercase tracking-[0.1em] text-slate-500">Transferencia con recalculo</p>
             <p class="mt-1 text-lg font-extrabold text-slate-800">${homologable.average.toFixed(2)}</p>
             <p class="text-xs text-slate-500">${homologable.credits} creditos homologables</p>
         </div>
-        <div class="rounded-lg bg-white p-3">
+        <div class="ll-card-base rounded-[2rem] bg-white p-4">
             <p class="text-xs font-black uppercase tracking-[0.1em] text-slate-500">Borrón y Cuenta Nueva</p>
             <p class="mt-1 text-lg font-extrabold text-slate-800">${borron.average.toFixed(2)}</p>
             <p class="text-xs text-slate-500">${borron.credits} creditos depurados</p>
@@ -497,22 +513,33 @@ function renderComparator() {
         if (!first || !second) return;
 
         result.innerHTML = `
-            <table class="w-full border-collapse overflow-hidden rounded-lg border border-slate-200 bg-white text-sm">
-                <thead class="bg-slate-100">
-                    <tr>
-                        <th class="px-3 py-2 text-left font-black text-slate-600">Metrica</th>
-                        <th class="px-3 py-2 text-left font-black text-slate-600">${first.nombre}</th>
-                        <th class="px-3 py-2 text-left font-black text-slate-600">${second.nombre}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td class="px-3 py-2">Carga matematica</td><td class="px-3 py-2">${first.carga_matematica}/5</td><td class="px-3 py-2">${second.carga_matematica}/5</td></tr>
-                    <tr><td class="px-3 py-2">Carga laboratorio</td><td class="px-3 py-2">${first.carga_laboratorio}/5</td><td class="px-3 py-2">${second.carga_laboratorio}/5</td></tr>
-                    <tr><td class="px-3 py-2">Dificultad percibida</td><td class="px-3 py-2">${first.dificultad_percibida}</td><td class="px-3 py-2">${second.dificultad_percibida}</td></tr>
-                    <tr><td class="px-3 py-2">Riesgo desercion</td><td class="px-3 py-2">${first.riesgo_desercion?.nivel || "-"}</td><td class="px-3 py-2">${second.riesgo_desercion?.nivel || "-"}</td></tr>
-                    <tr><td class="px-3 py-2">Materias filtro clave</td><td class="px-3 py-2">${(first.materias_filtro || []).slice(0, 2).join(", ")}</td><td class="px-3 py-2">${(second.materias_filtro || []).slice(0, 2).join(", ")}</td></tr>
-                </tbody>
-            </table>
+            <div class="grid gap-3 md:grid-cols-2">
+                <article class="ll-card-base rounded-[2rem] bg-white p-4">
+                    <p class="text-xs font-black uppercase tracking-[0.12em] text-primary">Ruta A</p>
+                    <h5 class="mt-1 font-headline text-lg font-extrabold text-slate-800">${first.nombre}</h5>
+                    <ul class="mt-2 space-y-1 text-sm text-slate-700">
+                        <li><strong>Math:</strong> ${first.carga_matematica}/5</li>
+                        <li><strong>Lab:</strong> ${first.carga_laboratorio}/5</li>
+                        <li><strong>Dificultad:</strong> ${first.dificultad_percibida}</li>
+                        <li><strong>Riesgo:</strong> ${first.riesgo_desercion?.nivel || "-"}</li>
+                    </ul>
+                </article>
+                <article class="ll-card-base rounded-[2rem] bg-white p-4">
+                    <p class="text-xs font-black uppercase tracking-[0.12em] text-primary">Ruta B</p>
+                    <h5 class="mt-1 font-headline text-lg font-extrabold text-slate-800">${second.nombre}</h5>
+                    <ul class="mt-2 space-y-1 text-sm text-slate-700">
+                        <li><strong>Math:</strong> ${second.carga_matematica}/5</li>
+                        <li><strong>Lab:</strong> ${second.carga_laboratorio}/5</li>
+                        <li><strong>Dificultad:</strong> ${second.dificultad_percibida}</li>
+                        <li><strong>Riesgo:</strong> ${second.riesgo_desercion?.nivel || "-"}</li>
+                    </ul>
+                </article>
+            </div>
+            <article class="mt-3 rounded-[2rem] border border-slate-200 bg-slate-50 p-4">
+                <p class="text-xs font-black uppercase tracking-[0.12em] text-slate-500">Materias filtro clave</p>
+                <p class="mt-1 text-sm text-slate-700"><strong>${first.nombre}:</strong> ${(first.materias_filtro || []).slice(0, 2).join(", ") || "-"}</p>
+                <p class="mt-1 text-sm text-slate-700"><strong>${second.nombre}:</strong> ${(second.materias_filtro || []).slice(0, 2).join(", ") || "-"}</p>
+            </article>
         `;
     };
 
@@ -568,8 +595,7 @@ function renderRecommendationEngine() {
 }
 
 async function loadCareers(filters = {}) {
-    const status = querySelector("#career-bank-status");
-    if (status) status.textContent = "Cargando carreras...";
+    setUnifiedHeaderStatus("Cargando carreras...", "career-bank-status");
     state.filteredCareers = await getCareers(filters);
 
     if (!state.careers.length) {
@@ -581,12 +607,37 @@ async function loadCareers(filters = {}) {
         state.filteredCareers = [...careerBankSeed];
     }
 
-    if (status) status.textContent = "Banco listo.";
+    setUnifiedHeaderStatus("Banco listo.", "career-bank-status");
+}
+
+function applyCareerPresetOrdering() {
+    const presetIds = getCareerPresetIdsFromUrl();
+    if (!presetIds.length || !state.filteredCareers.length) return;
+
+    const preferred = [];
+    const usedIds = new Set();
+
+    presetIds.forEach((id) => {
+        const found = state.filteredCareers.find((career) => career.id === id);
+        if (found) {
+            preferred.push(found);
+            usedIds.add(found.id);
+        }
+    });
+
+    if (!preferred.length) return;
+
+    const remaining = state.filteredCareers.filter((career) => !usedIds.has(career.id));
+    state.filteredCareers = [...preferred, ...remaining];
+    state.selectedCareerId = preferred[0].id;
+
+    setUnifiedHeaderStatus("Banco listo con rutas compatibles sugeridas.", "career-bank-status");
 }
 
 function bindFilterActions() {
     querySelector("#apply-filters")?.addEventListener("click", async () => {
         await loadCareers(readFilters());
+        applyCareerPresetOrdering();
         renderCareerList();
         renderCareerDetail();
         renderComparator();
@@ -600,6 +651,7 @@ function bindFilterActions() {
             input.checked = false;
         });
         await loadCareers();
+        applyCareerPresetOrdering();
         renderCareerList();
         renderCareerDetail();
         renderComparator();
@@ -608,12 +660,19 @@ function bindFilterActions() {
 }
 
 function renderAuthStatus() {
-    const label = querySelector("#auth-state");
-    if (!label) return;
-    label.textContent = state.user ? `Sesion: ${state.user.email}` : "Sesion: invitado";
+    setUnifiedHeaderAuth(state.user ? `Sesion: ${state.user.email}` : "Sesion: invitado", "auth-state");
 }
 
 async function initCareerBank() {
+    mountUnifiedLayout({
+        title: "Banco de Carreras",
+        activeNav: "career-bank",
+        statusId: "career-bank-status",
+        statusText: "Inicializando...",
+        authId: "auth-state",
+        authText: "Sesion: invitado"
+    });
+
     subscribeToAuthChanges((user) => {
         state.user = user;
         renderAuthStatus();
@@ -628,7 +687,8 @@ async function initCareerBank() {
 
     await loadCareers();
     state.careers = state.filteredCareers.length ? [...state.filteredCareers] : [...careerBankSeed];
-    state.selectedCareerId = state.careers[0]?.id || null;
+    applyCareerPresetOrdering();
+    state.selectedCareerId = state.selectedCareerId || state.careers[0]?.id || null;
 
     renderCareerList();
     renderCareerDetail();
