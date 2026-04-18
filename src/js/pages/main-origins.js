@@ -1,10 +1,13 @@
 import { contextQuestions } from '../data/questions.js';
 import { subscribeToAuthChanges } from '../services/auth.js';
 import { saveOriginsResults } from '../services/db.js';
+import { fetchAIStream } from '../services/aiStream.js';
 
 let currentStep = 0;
 let userResponses = {};
 let currentUser = null;
+let aiQuestionCount = 0;
+const MAX_AI_QUESTIONS = 10;
 
 // Suscribirse para estar listos si hay logueo
 subscribeToAuthChanges((user) => {    
@@ -81,8 +84,8 @@ async function finishTest(container) {
     container.innerHTML = `
         <div class="card-pop bg-white p-10 rounded-[2.5rem] shadow-xl fade-in text-center flex flex-col items-center justify-center space-y-6">
             <div class="w-16 h-16 border-4 border-gray-100 border-t-primary rounded-full animate-spin"></div>
-            <h3 class="font-black text-2xl text-primary-dim">Guardando tu configuración...</h3>
-            <p class="text-sm text-secondary">Ajustando el laboratorio a tu ADN conductual.</p>
+            <h3 class="font-black text-2xl text-primary-dim">Ingiriendo contexto...</h3>
+            <p class="text-sm text-secondary">Preparando el motor cognitivo con tus datos iniciales.</p>
         </div>
     `;
 
@@ -93,9 +96,9 @@ async function finishTest(container) {
             console.warn("Usuario no inició sesión. No se enviarán datos.");
         }
         
-        // Simular segundos visuales y redirigir a laboratorios
+        // Empezar stage 2: Test guiado por IA
         setTimeout(() => {
-            window.location.href = "labs.html";
+            startStageTwo(container, "¡Hola! He analizado tus respuestas iniciales. Para comenzar, ¿me puedes contar un poco más sobre por qué elegiste esas respuestas y qué es lo que más te motiva en tu día a día?");
         }, 1500);
 
     } catch (err) {
@@ -103,7 +106,7 @@ async function finishTest(container) {
              <div class="card-pop bg-white p-10 rounded-[2.5rem] shadow-xl fade-in text-center">
                  <span class="material-symbols-outlined text-4xl text-red-400 mb-4">error</span>
                  <h3 class="font-black text-xl text-primary-dim mb-2">Hubo un problema</h3>
-                 <p class="text-sm text-secondary mb-6">No pudimos guardar tus respuestas en la base de datos.</p>
+                 <p class="text-sm text-secondary mb-6">No pudimos conectar con el servidor.</p>
                  <button id="btn-retry" class="w-full bg-primary text-primary-container font-headline font-extrabold py-4 rounded-full transition-all active:scale-[0.98]">
                      Reintentar
                  </button>
@@ -111,6 +114,104 @@ async function finishTest(container) {
         `;
         document.getElementById('btn-retry').addEventListener('click', () => finishTest(container));
     }
+}
+
+// -------------------------------------------------------------------------------------------------
+// STAGE 2: IA Guiada (Streaming Text)
+// -------------------------------------------------------------------------------------------------
+function startStageTwo(container, initialQuestion) {
+    container.innerHTML = `
+        <div class="card-pop bg-white p-10 rounded-[2.5rem] shadow-xl fade-in flex flex-col min-h-[400px]">
+            <div class="flex justify-between items-center mb-6">
+                <span class="text-[10px] font-black text-primary uppercase tracking-widest flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">psychology</span> Exploración Guiada
+                </span>
+                <span id="ai-progress" class="text-[10px] font-bold text-gray-400">Pregunta ${aiQuestionCount + 1} de ${MAX_AI_QUESTIONS}</span>
+            </div>
+            
+            <div id="ai-text-container" class="font-black text-xl text-primary-dim mb-8 leading-relaxed min-h-[80px]">
+                ${initialQuestion}
+            </div>
+            
+            <div id="user-input-container" class="mt-auto w-full transition-opacity duration-300">
+                <textarea id="ai-user-answer" rows="3" class="w-full p-4 border-2 border-surface-container-low rounded-2xl focus:border-primary focus:ring-0 outline-none transition-all font-body text-on-surface resize-none" placeholder="Escribe tu respuesta aquí..."></textarea>
+                <div class="flex justify-end mt-4">
+                    <button id="ai-submit-btn" class="bg-primary text-primary-container font-headline font-extrabold py-3 px-8 rounded-full transition-all hover:bg-[#005c3d] active:scale-[0.98] shadow-lg flex items-center justify-center min-w-[140px]">
+                        Enviar Respuesta
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    const submitBtn = container.querySelector('#ai-submit-btn');
+    const textarea = container.querySelector('#ai-user-answer');
+    const aiText = container.querySelector('#ai-text-container');
+    const userInputContainer = container.querySelector('#user-input-container');
+    const progressText = container.querySelector('#ai-progress');
+
+    submitBtn.addEventListener('click', async () => {
+        const answer = textarea.value.trim();
+        if (!answer || !currentUser) return;
+
+        aiQuestionCount++;
+        
+        // Hide input, show thinking state
+        userInputContainer.style.opacity = '0';
+        setTimeout(() => userInputContainer.style.display = 'none', 300);
+        
+        aiText.innerHTML = `<div class="flex items-center gap-3"><div class="w-5 h-5 bg-primary/20 rounded-full flex items-center justify-center animate-pulse"><div class="w-2.5 h-2.5 bg-primary rounded-full"></div></div><span class="text-gray-400 text-sm font-bold">El motor cognitivo está procesando...</span></div>`;
+
+        // Fetch AI Stream
+        await fetchAIStream(
+            currentUser.uid,
+            answer,
+            aiQuestionCount,
+            (chunk, fullStr) => {
+                // Formatting markdown logic could be applied here if needed.
+                aiText.innerHTML = fullStr.replace(/\n/g, '<br>');
+            },
+            (finalStr) => {
+                // Validate graduation
+                if (aiQuestionCount >= MAX_AI_QUESTIONS) {
+                    setTimeout(() => moveToLabs(container), 2000);
+                } else {
+                    // Reset input for the next question
+                    progressText.innerText = `Pregunta ${aiQuestionCount + 1} de ${MAX_AI_QUESTIONS}`;
+                    textarea.value = '';
+                    userInputContainer.style.display = 'block';
+                    // Trigger reflow to ensure display block sticks before fading in
+                    void userInputContainer.offsetWidth; 
+                    userInputContainer.style.opacity = '1';
+                }
+            },
+            (error) => {
+                aiText.innerHTML = `<span class="text-red-500">Ups, hubo un problema de conexión. Recarga la página y el sistema continuará.</span>`;
+            }
+        );
+    });
+}
+
+function moveToLabs(container) {
+    container.innerHTML = `
+        <div class="card-pop bg-white p-10 rounded-[2.5rem] shadow-xl fade-in text-center flex flex-col items-center justify-center space-y-6 min-h-[400px]">
+            <span class="material-symbols-outlined text-6xl text-primary mb-2 animate-bounce">science</span>
+            <h3 class="font-black text-3xl text-primary-dim">Análisis Completado</h3>
+            <p class="text-base text-secondary max-w-sm mx-auto">Hemos consolidado tu Mapa de Evidencias. Estamos ensamblando el laboratorio perfecto para tu perfil...</p>
+            <div class="w-full bg-gray-100 rounded-full h-2 max-w-xs overflow-hidden mt-6">
+                <div class="bg-primary h-2 rounded-full w-full animate-[progress_2s_ease-in-out]"></div>
+            </div>
+        </div>
+        <style>
+            @keyframes progress {
+                0% { transform: translateX(-100%); }
+                100% { transform: translateX(0); }
+            }
+        </style>
+    `;
+    setTimeout(() => {
+        window.location.href = "labs.html";
+    }, 2800);
 }
 
 // Iniciar al cargar
