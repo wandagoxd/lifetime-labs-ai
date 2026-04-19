@@ -223,19 +223,27 @@ exports.generateLabs = onRequest({ cors: true, secrets: [openAiKey], timeoutSeco
       const history = await evidenceService.getRawHistory(userId, 50);
       const evidenceMap = await evidenceService.getEvidenceMap(userId);
 
-      const prompt = `You are an expert curriculum designer. Based on the user's Inference Cluster and chronological history, determine their best career fit or university program.
-CRITICAL REQUIREMENT: Notice the user's educational stage from their history (e.g., Elementary School, High School, University, Professional). 
-You MUST adjust the complexity, vocabulary, and scope of the problem to perfectly match their age/educational level. If they are in elementary school, make the scenario playful and easy to grasp. If they are professionals, make it challenging.
+      const prompt = `You are an expert curriculum designer creating vocational discovery exercises for a digital platform.
 
-Generate exactly 4 real-life problems or "laboratories".
-Return ONLY a valid JSON object with the following structure:
+CONTEXT: A student will read your problem and respond with TWO written text solutions (each ~200 words). They type their answers into a text box on a website. There is NO physical interaction — no building, no coding, no lab equipment, no materials. Everything is purely analytical and written.
+
+YOUR TASK: Based on the user's Inference Cluster and chronological history, determine their best career fit or university program. Then generate exactly 4 realistic scenario-based "laboratories" — essentially mini case studies or thought experiments that someone in that career would face.
+
+STRICT RULES FOR EACH LAB:
+1. The problem MUST be solvable entirely through written reasoning, analysis, or strategic thinking.
+2. NEVER ask the student to build, code, construct, design physically, draw, or use any tool or material.
+3. Instead, present a realistic SCENARIO or DILEMMA (e.g., "A client comes to you with X problem... How would you approach it and why?" or "You are given this data... What conclusions do you draw?").
+4. The problem should reveal the student's decision-making, creativity, and critical thinking through their written answer.
+5. Adjust the complexity strictly to the user's educational level found in their history (elementary = simple and fun, university = professional-grade).
+
+Return ONLY a valid JSON object:
 {
   "labs": [
     {
       "id": "lab_1",
-      "title": "Title of Lab",
-      "category_fit": "Name of the career/program this belongs to (e.g., 'Software Engineering' or 'Marine Biology')",
-      "problem_statement": "Description of the real-life problem to be solved...",
+      "title": "Short descriptive title",
+      "category_fit": "Career or program name (e.g., 'Industrial Engineering', 'Psychology')",
+      "problem_statement": "A detailed scenario the student must analyze and respond to in writing...",
       "expected_skills": ["Skill 1", "Skill 2"]
     }
   ]
